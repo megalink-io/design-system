@@ -1,0 +1,90 @@
+/* Global CSS --------------------------------------------- */
+
+/* Font faces */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Poppins Light'), local('Poppins-Light'), url(/poppins-light.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
+    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url(/poppins-regular.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
+    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Poppins Medium'), local('Poppins-Medium'), url(/poppins-medium.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
+    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Poppins SemiBold'), local('Poppins-SemiBold'),
+    url(/poppins-semibold.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
+    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Manager App -------------------------------------------- */
+
+/* Siedbar */
+.sidebar-header a img {
+  height: 22px !important;
+}
+.sidebar-item {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+/* Preview Area ------------------------------------------- */
+
+/* Docs Addon */
+.sbdocs {
+  line-height: 1.5 !important;
+}
+.sbdocs.sbdocs-wrapper {
+  padding: 70rem 20px !important;
+}
+.sbdocs.sbdocs-h1 {
+  font-weight: 600 !important;
+}
+.sbdocs.sbdocs-h2 {
+  font-weight: 500 !important;
+  margin-top: 50rem !important;
+  margin-bottom: 25rem !important;
+}
+.sbdocs.sbdocs-h2 + pre > div {
+  margin-top: 30rem !important;
+}
+.sbdocs.sbdocs-h3 {
+  margin-top: 30rem !important;
+}
+.sbdocs.sbdocs-h1 svg path,
+.sbdocs.sbdocs-h2 svg path,
+.sbdocs.sbdocs-h3 svg path {
+  fill: #979797 !important;
+}
+.sbdocs.sbdocs-blockquote {
+  font-style: italic !important;
+  opacity: 0.8 !important;
+}
+.sbdocs > strong {
+  font-weight: 600 !important;
+}
+.sbdocs.sbdocs-ul .sbdocs.sbdocs-li {
+  list-style: square !important;
+}

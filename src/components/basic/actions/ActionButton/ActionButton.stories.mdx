@@ -1,0 +1,50 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean, text, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import ActionButton from './';
+
+<Meta title="Components/basic/actions/ActionButton" component={ActionButton} />
+
+# ActionButton
+
+A button that is used to confirm form entries or perform individual actions.
+
+export const getProps = id => ({
+  color: select('Color', ['gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
+  label: text('Label', 'Button', id),
+  onClick: action('onClick', id),
+  loading: boolean('Loading', false, id),
+  disabled: boolean('Disabled', false, id),
+});
+
+<Preview withToolbar>
+  <Story name="Primary">
+    <ActionButton type="button" kind="primary" {...getProps('primary')} />
+  </Story>
+  <Story name="Secondary">
+    <ActionButton type="button" kind="secondary" {...getProps('secondary')} />
+  </Story>
+  <Story name="Tertiary">
+    <ActionButton type="button" kind="tertiary" {...getProps('tertiary')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { ActionButton } from '@mds/components/basic/actions';
+```
+
+```tsx
+<ActionButton
+  type="button"
+  kind="primary"
+  color="blue"
+  label="Button"
+  onClick={() => handleClick()}
+/>
+```
+
+## Props table
+
+<Props of={ActionButton} />

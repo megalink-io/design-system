@@ -1,0 +1,13 @@
+# See https://eslint.org/docs/user-guide/configuring for more about ignoring files.
+
+# Dependencies
+/node_modules
+
+# Compiled code
+/dist
+
+# Storybook
+/storybook-static
+
+# Other
+/src/react-app-env.d.ts
