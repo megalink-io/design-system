@@ -8,6 +8,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
+- Add new icons
+  - alarm
+  - arrow right
+  - check
+  - folder
+  - gear
+  - house
+  - list
+  - night
+  - sun
+  - warning
+- Add new openmojis
+  - face with monocle
+  - fire
+  - flag germany
+  - globe showing americas
+  - hugging face
+  - link
+  - money with wings
+  - nerd face
+  - shopping cart
+  - smiling face with sunglasses
+  - sparkles
+  - stopwatch
+  - woman dancing
+
 \-
 
 ### 👷 Changed
@@ -35,19 +61,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 ### 🌱 Added
 
 - Add new basic components
-  - Theme layout component
-  - CircleLoader status component
-  - ActionButton action component
-  - TextInput input component
+  - Theme (layout)
+  - CircleLoader (status)
+  - ActionButton (actions)
+  - TextInput (inputs)
 - Add new contexts
-  - ColorScheme context
-  - DeviceType context
-- Add new hooks
-  - useForm hook
-- Add new helper functions
-  - Add getDeviceColorScheme helper function
-  - Add getDeviceType helper function
-  - Add getSearchParam helper function
+  - ColorScheme
+  - DeviceType
+- Add new hook
+  - useForm
+- Add new helpers
+  - getDeviceColorScheme
+  - getDeviceType
+  - getSearchParam
 
 [unreleased]: https://github.com/megalink-io/design-system/compare/v0.1.0...HEAD
 [v0.1.0]: https://github.com/megalink-io/design-system/releases/tag/v0.1.0

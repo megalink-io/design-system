@@ -4,7 +4,7 @@ The Megalink Design System powers our frontend apps. It contains reusable UI com
 
 ## Install
 
-The Code is delivered as an npm package:
+The code is delivered as an NPM package:
 
 ```bash
 npm install @megalink/design-system
