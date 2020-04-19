@@ -1,4 +1,5 @@
 import React, { useContext, useLayoutEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withContexts } from '@storybook/addon-contexts/react';
@@ -118,11 +119,13 @@ addDecorator(withContexts(contexts));
 
 // Wrap every story in React strict mode and our custom Theme component
 addDecorator(story => (
-  <ThemeProvider>
-    <React.StrictMode>
-      <div style={{ padding: '30rem' }}>{story()}</div>
-    </React.StrictMode>
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider>
+      <React.StrictMode>
+        <div style={{ padding: '30rem' }}>{story()}</div>
+      </React.StrictMode>
+    </ThemeProvider>
+  </BrowserRouter>
 ));
 
 // Wrap every story in the a11y addon
