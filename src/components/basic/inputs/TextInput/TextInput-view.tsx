@@ -30,13 +30,16 @@ const TextInputView: React.FC<ViewProps> = ({
   return (
     <TextInput className={className} htmlFor={name}>
       {label && (
-        <Label>
+        <Label id={`${name}-label`}>
           {label}
           {required && <Required> *</Required>}
         </Label>
       )}
       {type === 'text' && multiline ? (
         <Textarea
+          aria-label={!label && placeholder ? placeholder : undefined}
+          aria-labelledby={label ? `${name}-label` : undefined}
+          aria-required={required}
           ref={textareaElement}
           name={name}
           id={name}
@@ -50,6 +53,9 @@ const TextInputView: React.FC<ViewProps> = ({
         />
       ) : (
         <Input
+          aria-label={!label && placeholder ? placeholder : undefined}
+          aria-labelledby={label ? `${name}-label` : undefined}
+          aria-required={required}
           name={name}
           id={name}
           type={type}

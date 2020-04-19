@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
-- Add new basic components
+- Add new basic component
   - IconButton (actions)
 - Add new icons
   - add
@@ -40,12 +40,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - stopwatch
   - woman dancing
 
-\-
-
 ### 👷 Changed
 
 - Update basic components
   - Add navigation functionality to ActionButton and update CSS code
+  - Improve accessibility of TextInput with ARIA
 
 ### 📆 Deprecated
 
