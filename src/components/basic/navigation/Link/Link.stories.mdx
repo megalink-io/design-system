@@ -1,0 +1,66 @@
+import { Fragment } from 'react';
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean } from '@storybook/addon-knobs';
+import { SparklesSVG, ShoppingCartSVG, SmilingFaceWithSunglassesSVG } from 'openmoji';
+import Link from '.';
+
+<Meta title="Components/basic/navigation/Link" component={Link} />
+
+# Link
+
+A navigation link that takes users to other content or allows them to download files. Contained text is underlined.
+
+> In addition to simple text, the link component can also be applied to graphics or other elements.
+
+<Preview withToolbar>
+  <Story name="Internal link">
+    <Link
+      to={text('To', '/settings', 'internal_link')}
+      replace={boolean('Replace', false, 'internal_link')}
+      children={text('Children', 'Settings', 'internal_link')}
+    />
+  </Story>
+  <Story name="External link">
+    <Link
+      href={text('Href', 'https://www.example.com/privacy-policy', 'external_link')}
+      target="_blank"
+      children={text('Children', 'Privacy policy', 'external_link')}
+    />
+  </Story>
+  <Story name="Graphics">
+    <Link
+      to={text('To', '/openmoji', 'graphics')}
+      children={
+        <Fragment>
+          <SparklesSVG style={{ height: '22rem' }} />
+          <ShoppingCartSVG style={{ height: '22rem' }} />
+          <SmilingFaceWithSunglassesSVG style={{ height: '22rem' }} />
+        </Fragment>
+      }
+    />
+  </Story>
+  <Story name="Download link">
+    <Link
+      href={text('Href', 'https://www.example.com/invoice.pdf', 'download_link')}
+      download={text('Download', 'invoice.pdf', 'download_link')}
+      children={text('Children', 'Download', 'download_link')}
+    />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Link } from '@mds/components/basic/navigation';
+```
+
+```tsx
+<Link to="/settings">Settings</Link>
+<Link href="https://www.example.com/privacy-policy" target="_blank">Privacy policy</Link>
+```
+
+## Props table
+
+<Props of={Link} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "to", "replace", "href", "target" and "download" might be missing.

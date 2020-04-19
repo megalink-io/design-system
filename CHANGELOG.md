@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 - Add new basic component
   - IconButton (actions)
+  - Link (navigation)
 - Add new icons
   - add
   - alarm
