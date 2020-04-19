@@ -8,10 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
+- Add new basic components
+  - IconButton (actions)
 - Add new icons
+  - add
   - alarm
+  - arrow down
   - arrow right
   - check
+  - delete
+  - download
   - folder
   - gear
   - house
@@ -38,7 +44,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 👷 Changed
 
-\-
+- Update basic components
+  - Add navigation functionality to ActionButton and update CSS code
 
 ### 📆 Deprecated
 
