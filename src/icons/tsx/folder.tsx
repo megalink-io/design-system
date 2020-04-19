@@ -2,7 +2,7 @@ import React from 'react';
 import * as Types from 'types';
 
 const Folder: React.FC<Types.SVGProps> = props => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43 48" {...props}>
+  <svg viewBox="0 0 43 48" {...props}>
     <g
       fill="none"
       strokeLinecap="round"

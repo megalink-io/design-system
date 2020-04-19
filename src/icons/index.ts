@@ -1,6 +1,10 @@
-export { default as AlaramSVG } from './tsx/alarm';
+export { default as AddSVG } from './tsx/add';
+export { default as AlarmSVG } from './tsx/alarm';
+export { default as ArrowDownSVG } from './tsx/arrow-down';
 export { default as ArrowRightSVG } from './tsx/arrow-right';
 export { default as CheckSVG } from './tsx/check';
+export { default as DeleteSVG } from './tsx/delete-1';
+export { default as DownloadSVG } from './tsx/download';
 export { default as FolderSVG } from './tsx/folder';
 export { default as GearSVG } from './tsx/gear';
 export { default as HouseSVG } from './tsx/house';

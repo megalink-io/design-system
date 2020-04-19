@@ -2,7 +2,7 @@ import React from 'react';
 import * as Types from 'types';
 
 const House: React.FC<Types.SVGProps> = props => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+  <svg viewBox="0 0 48 48" {...props}>
     <g fill="none" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="3">
       <path strokeLinecap="round" d="M1.04 21.35L24.47 6.4l22.95 14.95" />
       <path d="M9.2 16.15v25.6h31.5V17.02" />

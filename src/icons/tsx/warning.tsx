@@ -2,7 +2,7 @@ import React from 'react';
 import * as Types from 'types';
 
 const Warning: React.FC<Types.SVGProps> = props => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 48" {...props}>
+  <svg viewBox="0 0 46 48" {...props}>
     <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3">
       <path
         strokeMiterlimit="10"
