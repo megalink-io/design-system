@@ -42,5 +42,5 @@ export type ViewProps = ButtonProps | SubmitProps | InternalLinkProps | External
 
 export interface StylesProps {
   theme: DefaultTheme;
-  color: Color;
+  color?: Color;
 }

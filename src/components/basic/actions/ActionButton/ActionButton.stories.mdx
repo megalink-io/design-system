@@ -10,8 +10,10 @@ import ActionButton from './';
 A button that is used to confirm form entries or perform individual actions.
 
 export const getProps = id => ({
-  color: select('Color', ['gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
   label: text('Label', 'Button', id),
+  variant: id,
+  type: 'button',
+  color: select('Color', ['white', 'black', 'gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
   onClick: action('onClick', id),
   loading: boolean('Loading', false, id),
   disabled: boolean('Disabled', false, id),
@@ -19,13 +21,13 @@ export const getProps = id => ({
 
 <Preview withToolbar>
   <Story name="Primary">
-    <ActionButton type="button" kind="primary" {...getProps('primary')} />
+    <ActionButton {...getProps('primary')} />
   </Story>
   <Story name="Secondary">
-    <ActionButton type="button" kind="secondary" {...getProps('secondary')} />
+    <ActionButton {...getProps('secondary')} />
   </Story>
   <Story name="Tertiary">
-    <ActionButton type="button" kind="tertiary" {...getProps('tertiary')} />
+    <ActionButton {...getProps('tertiary')} />
   </Story>
 </Preview>
 
@@ -37,10 +39,10 @@ import { ActionButton } from '@mds/components/basic/actions';
 
 ```tsx
 <ActionButton
-  type="button"
-  kind="primary"
-  color="blue"
   label="Button"
+  variant="primary"
+  type="button"
+  color="blue"
   onClick={() => handleClick()}
 />
 ```
@@ -48,3 +50,46 @@ import { ActionButton } from '@mds/components/basic/actions';
 ## Props table
 
 <Props of={ActionButton} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "external", "href", "target" and "download" might be missing.
+
+## More stories
+
+### Internal link
+
+<Preview withToolbar>
+  <Story name="Internal link">
+    <ActionButton label="Settings" variant="secondary" type="link" to="/settings" />
+  </Story>
+</Preview>
+
+### External link
+
+<Preview withToolbar>
+  <Story name="External link">
+    <ActionButton
+      label="Sign up"
+      variant="primary"
+      color="gray"
+      type="link"
+      external
+      href="https://www.example.com/signup"
+      target="_blank"
+    />
+  </Story>
+</Preview>
+
+### Download link
+
+<Preview withToolbar>
+  <Story name="Download link">
+    <ActionButton
+      label="Download"
+      variant="tertiary"
+      type="link"
+      external
+      href="https://www.example.com/invoice.pdf"
+      download="invoice.pdf"
+    />
+  </Story>
+</Preview>
