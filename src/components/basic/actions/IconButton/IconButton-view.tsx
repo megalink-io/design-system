@@ -8,12 +8,12 @@ export const IconButtonView: React.FC<ViewProps> = React.memo(
   ({ icon, label, variant, color, type, counter, ...props }) => {
     const { onClick, loading, disabled } = props as ButtonProps;
     const { to, replace, exact } = props as InternalLinkProps;
-    const { external, href, target, download } = props as ExternalLinkProps;
+    const { href, target, download } = props as ExternalLinkProps;
 
     const className = `IconButton ${variant}${loading ? ' loading' : ''}`;
 
     // IconButton to navigate for external links
-    if (type === 'link' && external) {
+    if (typeof href === 'string') {
       return (
         <ExternalLink
           className={className}
@@ -21,6 +21,7 @@ export const IconButtonView: React.FC<ViewProps> = React.memo(
           color={color}
           href={href}
           target={target}
+          rel={target ? 'noreferrer noopener' : undefined}
           download={download}
         >
           {counter && <Counter>{counter}</Counter>}

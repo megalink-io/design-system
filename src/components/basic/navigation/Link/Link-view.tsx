@@ -11,7 +11,7 @@ export const LinkView: React.FC<ViewProps> = React.memo(({ children, ...props })
   const { href, target, download } = props as ExternalLinkProps;
 
   // For external link
-  if (href) {
+  if (typeof href === 'string') {
     return (
       <ExternalLink
         className="Link"

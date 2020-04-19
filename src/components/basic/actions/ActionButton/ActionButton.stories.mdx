@@ -1,7 +1,7 @@
 import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import ActionButton from './';
+import ActionButton from '.';
 
 <Meta title="Components/basic/actions/ActionButton" component={ActionButton} />
 
@@ -51,7 +51,7 @@ import { ActionButton } from '@mds/components/basic/actions';
 
 <Props of={ActionButton} />
 
-> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "external", "href", "target" and "download" might be missing.
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "href", "target" and "download" might be missing.
 
 ## More stories
 
@@ -72,7 +72,6 @@ import { ActionButton } from '@mds/components/basic/actions';
       variant="primary"
       color="gray"
       type="link"
-      external
       href="https://www.example.com/signup"
       target="_blank"
     />
@@ -87,7 +86,6 @@ import { ActionButton } from '@mds/components/basic/actions';
       label="Download"
       variant="tertiary"
       type="link"
-      external
       href="https://www.example.com/invoice.pdf"
       download="invoice.pdf"
     />

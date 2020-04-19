@@ -29,7 +29,6 @@ export interface InternalLinkProps extends DefaultProps {
 
 export interface ExternalLinkProps extends DefaultProps {
   type: 'link';
-  external: true;
   href: string;
   target?: '_blank';
   download?: boolean | string;

@@ -2,7 +2,7 @@ import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
 import { boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { DeleteSVG, GearSVG, DownloadSVG, ArrowRightSVG, AlarmSVG } from 'icons';
-import IconButton from './';
+import IconButton from '.';
 
 <Meta title="Components/basic/actions/IconButton" component={IconButton} />
 
@@ -48,7 +48,7 @@ import { IconButton } from '@mds/components/basic/actions';
 
 <Props of={IconButton} />
 
-> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "exact", "external", "href", "target" and "download" might be missing.
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "exact", "href", "target" and "download" might be missing.
 
 ## More stories
 
@@ -84,7 +84,6 @@ import { IconButton } from '@mds/components/basic/actions';
       label="Link"
       variant="tertiary"
       type="link"
-      external
       href="https://www.example.com/settings"
       target="_blank"
     />
@@ -100,7 +99,6 @@ import { IconButton } from '@mds/components/basic/actions';
       label="Download"
       variant="tertiary"
       type="link"
-      external
       href="https://www.example.com/invoice.pdf"
       download="invoice.pdf"
     />
