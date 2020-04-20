@@ -10,7 +10,7 @@ export const ActionButtonView: React.FC<ViewProps> = React.memo(
     const { to, replace } = props as InternalLinkProps;
     const { href, target, download } = props as ExternalLinkProps;
 
-    const className = `IconButton ${variant}${loading ? ' loading' : ''}`;
+    const className = `ActionButton ${variant}${loading ? ' loading' : ''}`;
 
     // ActionButton to navigate for external links
     if (typeof href === 'string') {
