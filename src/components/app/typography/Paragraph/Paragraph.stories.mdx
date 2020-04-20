@@ -1,0 +1,29 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import Paragraph from '.';
+
+<Meta title="Components/app/typography/Paragraph" component={Paragraph} />
+
+# Paragraph
+
+A paragraph represents a block of text and can appear as often as you like.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <Paragraph children={text('Children', 'This is a paragraph', 'default')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Paragraph } from '@mds/components/app/typography';
+```
+
+```tsx
+<Paragraph>This is a paragraph</Paragraph>
+```
+
+## Props table
+
+<Props of={Paragraph} />

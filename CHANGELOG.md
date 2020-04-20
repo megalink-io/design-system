@@ -8,12 +8,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
-- Add new basic component
+- Add new basic components
   - IconButton (actions)
+  - Dialog (feedback)
   - Checkbox (inputs)
   - Form (inputs)
   - Logo (graphics)
   - Link (navigation)
+- Add new app components
+  - Title (typography)
+  - Heading (typography)
+  - Subheading (typography)
+  - Paragraph (typography)
+  - Detail (typography)
 - Add new icons
   - add
   - alarm
