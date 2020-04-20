@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - IconButton (actions)
   - Checkbox (inputs)
   - Form (inputs)
+  - Logo (graphics)
   - Link (navigation)
 - Add new icons
   - add
