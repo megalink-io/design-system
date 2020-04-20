@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 - Add new basic component
   - IconButton (actions)
   - Checkbox (inputs)
+  - Form (inputs)
   - Link (navigation)
 - Add new icons
   - add
