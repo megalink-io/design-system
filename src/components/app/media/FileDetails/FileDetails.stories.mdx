@@ -1,0 +1,67 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import FileDetails from '.';
+
+<Meta title="Components/app/media/FileDetails" component={FileDetails} />
+
+# FileDetails
+
+An overview of the details of a file. If possible, a preview of the file is displayed at the top.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <FileDetails file={file} />
+  </Story>
+</Preview>
+
+> The component is optimized for use in our app. On this website the photos may therefore appear partially blurred.
+
+## Code example
+
+```tsx
+import { FileDetails } from '@mds/components/app/media';
+```
+
+```tsx
+<FileDetails file={file} />
+```
+
+## Props table
+
+<Props of={FileDetails} />
+
+> Currently only photos are supported. Other file formats may follow in the future.
+
+## Credits
+
+We found the photo used for demo purposes on the website [unsplash.com](https://unsplash.com/). The author of the photo is: Harshil Gudka. Thank you very much, the photo is great!
+
+export const file = {
+  id: 'harshil-gudka-unsplash',
+  created: new Date('2020-03-24T22:44:53.917Z'),
+  modified: new Date('2020-03-24T22:44:53.917Z'),
+  type: 'image/jpeg',
+  src: '/images/harshil-gudka-unsplash-1920px.jpg',
+  size: 571003,
+  width: 1920,
+  height: 1275,
+  srcset: [
+    {
+      src: '/images/harshil-gudka-unsplash-1280px.jpg',
+      size: 174425,
+      width: 1280,
+      height: 850,
+    },
+    {
+      src: '/images/harshil-gudka-unsplash-640px.jpg',
+      size: 43079,
+      width: 640,
+      height: 425,
+    },
+    {
+      src: '/images/harshil-gudka-unsplash-320px.jpg',
+      size: 11876,
+      width: 320,
+      height: 213,
+    },
+  ],
+};

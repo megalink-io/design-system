@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Logo (graphics)
   - Link (navigation)
 - Add new app components
+  - FileDetails (media)
   - FileGallery (media)
   - Title (typography)
   - Heading (typography)

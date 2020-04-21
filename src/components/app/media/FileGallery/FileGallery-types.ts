@@ -2,6 +2,8 @@ import * as Types from 'types';
 
 interface ImageFile {
   id: string;
+  created: Date;
+  modified: Date;
   type: string;
   src: string;
   size: number;
