@@ -1,3 +1,5 @@
+import * as Types from 'types';
+
 interface ImageFile {
   id: string;
   type: string;
@@ -14,11 +16,11 @@ interface ImageFile {
 }
 
 export interface ContainerProps {
-  rootPathname: string;
-  device: Types.Device;
+  rootPath: string;
   files: ImageFile[];
 }
 
 export interface ViewProps extends ContainerProps {
+  deviceType: Types.DeviceType;
   getSizeAttribute: (imgWidth: number, imgHeight: number) => string;
 }
