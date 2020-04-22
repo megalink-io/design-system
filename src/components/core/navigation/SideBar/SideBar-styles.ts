@@ -5,8 +5,8 @@ export const SideBar = styled('aside')(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
-  width: '100vw',
-  height: '100vh',
+  width: '100%',
+  height: '100%',
   backgroundColor: theme.colors.black[1000],
 }));
 
@@ -27,8 +27,8 @@ export const Menu = styled('nav')(({ theme }) => ({
   '& .IconButton': {
     margin: '12.5rem 0',
     '&:focus, &:hover': {
-      backgroundColor: theme.colors.gray[50],
-      borderColor: theme.colors.gray[50],
+      backgroundColor: theme.colors.white[50],
+      borderColor: theme.colors.white[50],
     },
     '& svg': {
       opacity: 0.5,
