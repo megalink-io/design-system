@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const SideBar = styled('header')(({ theme }) => ({
+export const SideBar = styled('aside')(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -19,13 +19,17 @@ export const Content = styled('div')({
   overflowY: 'auto',
 });
 
-export const Menu = styled('nav')({
+export const Menu = styled('nav')(({ theme }) => ({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   '& .IconButton': {
     margin: '12.5rem 0',
+    '&:focus, &:hover': {
+      backgroundColor: theme.colors.gray[50],
+      borderColor: theme.colors.gray[50],
+    },
     '& svg': {
       opacity: 0.5,
       transition: 'opacity 0.2s ease',
@@ -34,7 +38,7 @@ export const Menu = styled('nav')({
       opacity: 0.9,
     },
   },
-});
+}));
 
 export const LogoLink = styled(Link)(({ theme }) => ({
   width: '40rem',
