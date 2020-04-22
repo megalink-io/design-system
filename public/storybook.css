@@ -52,6 +52,11 @@
 
 /* Preview Area ------------------------------------------- */
 
+/* Custom Decorator */
+.sb-decorator {
+  padding: 30rem;
+}
+
 /* Docs Addon */
 .sbdocs {
   line-height: 1.5 !important;
@@ -87,4 +92,13 @@
 }
 .sbdocs.sbdocs-ul .sbdocs.sbdocs-li {
   list-style: square !important;
+}
+.sbdocs.sbdocs-preview.fullframe div:last-child > div,
+.sbdocs.sbdocs-preview.fullframe div:last-child > div > div,
+.sbdocs.sbdocs-preview.fullframe .sb-decorator {
+  padding: 0;
+  margin: 0;
+}
+.sbdocs.sbdocs-preview.fullframe .sb-decorator {
+  min-height: 300rem;
 }
