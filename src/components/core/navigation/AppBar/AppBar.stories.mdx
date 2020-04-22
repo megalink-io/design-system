@@ -1,0 +1,80 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import { IconButton } from 'components/core/actions';
+import { Detail } from 'components/core/typography';
+import { AlarmSVG, GearSVG } from 'icons';
+import AppBar from '.';
+
+<Meta title="Components/core/navigation/AppBar" component={AppBar} />
+
+# AppBar
+
+A top app bar that displays information and actions related to the current page.
+
+<Preview className="fullframe" withToolbar>
+  <Story name="Home">
+    <AppBar title={text('Title', 'Home', 'home')}>
+      <IconButton
+        icon={<AlarmSVG />}
+        label="Notifications"
+        variant="tertiary"
+        color="white"
+        type="link"
+        to="/notifications"
+        counter={7}
+      />
+      <IconButton
+        icon={<GearSVG />}
+        label="Settings"
+        variant="tertiary"
+        color="white"
+        type="link"
+        to="/settings"
+      />
+    </AppBar>
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { AppBar } from '@mds/components/core/navigation';
+```
+
+```tsx
+<AppBar title="Home">
+  <IconButton
+    icon={<AlarmSVG />}
+    label="Notifications"
+    variant="tertiary"
+    color="white"
+    type="link"
+    to="/notifications"
+    counter={7}
+  />
+  <IconButton
+    icon={<GearSVG />}
+    label="Settings"
+    variant="tertiary"
+    color="white"
+    type="link"
+    to="/settings"
+  />
+</AppBar>
+```
+
+## Props table
+
+<Props of={AppBar} />
+
+## More stories
+
+### Media library
+
+<Preview className="fullframe" withToolbar>
+  <Story name="Media library">
+    <AppBar title={text('Title', 'Media library', 'media_library')}>
+      <Detail>12 % of 0.5 GB used</Detail>
+    </AppBar>
+  </Story>
+</Preview>
