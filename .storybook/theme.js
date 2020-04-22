@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import { themes } from '../src/components/basic/layout/Theme/Theme-container';
+import { themes } from '../src/components/core/layout/Theme/Theme-container';
 import { getDeviceColorScheme } from '../src/helpers';
 
 const colorScheme = getDeviceColorScheme();

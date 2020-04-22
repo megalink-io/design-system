@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withContexts } from '@storybook/addon-contexts/react';
-import { Theme as ThemeProvider } from '../src/components/basic/layout';
+import { Theme as ThemeProvider } from '../src/components/core/layout';
 import { ColorScheme } from '../src/context';
 import { getDeviceColorScheme, getSearchParam } from '../src/helpers';
 import theme from './theme';
@@ -122,7 +122,7 @@ addDecorator(story => (
   <BrowserRouter>
     <ThemeProvider>
       <React.StrictMode>
-        <div style={{ padding: '30rem' }}>{story()}</div>
+        <div className="sb-decorator">{story()}</div>
       </React.StrictMode>
     </ThemeProvider>
   </BrowserRouter>
