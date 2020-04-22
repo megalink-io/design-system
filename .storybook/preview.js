@@ -43,7 +43,7 @@ addParameters({
 
       // Components: Sort story by component typ
       if (categoryOfA === 'Components') {
-        const order = ['basic', 'app', 'link-page', 'website'];
+        const order = ['core', 'link-page', 'website'];
         const indexA = order.indexOf(a[1].kind.split('/')[1]);
         const indexB = order.indexOf(b[1].kind.split('/')[1]);
         if (indexA > indexB) return 1;

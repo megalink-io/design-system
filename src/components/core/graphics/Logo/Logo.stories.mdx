@@ -1,0 +1,42 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import Logo from '.';
+
+<Meta title="Components/core/graphics/Logo" component={Logo} />
+
+# Logo
+
+The Megalink logo, icon or lettering as SVG graphic.
+
+export const getProps = id => ({
+  variant: id,
+  size: select('Size', ['small', 'medium'], 'medium', id),
+});
+
+<Preview withToolbar>
+  <Story name="Logo">
+    <Logo {...getProps('logo')} />
+  </Story>
+  <Story name="Icon">
+    <Logo {...getProps('icon')} />
+  </Story>
+  <Story name="Font">
+    <Logo {...getProps('font')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Logo } from '@mds/components/core/graphics';
+```
+
+```tsx
+<Logo variant="logo" size="medium" />
+```
+
+## Props table
+
+<Props of={Logo} />
+
+> If the `fontColor` property is not specified, the color automatically adapts to the current color scheme.

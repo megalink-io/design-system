@@ -1,0 +1,106 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { DeleteSVG, GearSVG, DownloadSVG, ArrowRightSVG, AlarmSVG } from 'icons';
+import IconButton from '.';
+
+<Meta title="Components/core/actions/IconButton" component={IconButton} />
+
+# IconButton
+
+A button with an icon that is used to navigate or perform small actions.
+
+export const getProps = id => ({
+  icon: <DeleteSVG />,
+  label: 'Delete',
+  variant: id,
+  type: 'button',
+  color: select('Color', ['white', 'black', 'gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
+  onClick: action('onClick', id),
+  loading: boolean('Loading', false, id),
+  disabled: boolean('Disabled', false, id),
+});
+
+<Preview withToolbar>
+  <Story name="Primary">
+    <IconButton {...getProps('primary')} />
+  </Story>
+  <Story name="Secondary">
+    <IconButton {...getProps('secondary')} />
+  </Story>
+  <Story name="Tertiary">
+    <IconButton {...getProps('tertiary')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { IconButton } from '@mds/components/core/actions';
+```
+
+```tsx
+<IconButton icon={<DeleteSVG />} label="Delete" variant="tertiary" type="button" onClick={() => handleClick()} />
+<IconButton icon={<GearSVG />} label="Settings" variant="tertiary" type="link" to="/settings" />
+```
+
+## Props table
+
+<Props of={IconButton} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "exact", "href", "target" and "download" might be missing.
+
+## More stories
+
+### Notifications
+
+<Preview withToolbar>
+  <Story name="Notifications">
+    <IconButton
+      icon={<AlarmSVG />}
+      label="Notifications"
+      variant="tertiary"
+      type="link"
+      to="/notifications"
+      counter={3}
+    />
+  </Story>
+</Preview>
+
+### Internal link
+
+<Preview withToolbar>
+  <Story name="Internal link">
+    <IconButton icon={<GearSVG />} label="Settings" variant="tertiary" type="link" to="/settings" />
+  </Story>
+</Preview>
+
+### External link
+
+<Preview withToolbar>
+  <Story name="External link">
+    <IconButton
+      icon={<ArrowRightSVG />}
+      label="Link"
+      variant="tertiary"
+      type="link"
+      href="https://www.example.com/settings"
+      target="_blank"
+    />
+  </Story>
+</Preview>
+
+### Download link
+
+<Preview withToolbar>
+  <Story name="Download link">
+    <IconButton
+      icon={<DownloadSVG />}
+      label="Download"
+      variant="tertiary"
+      type="link"
+      href="https://www.example.com/invoice.pdf"
+      download="invoice.pdf"
+    />
+  </Story>
+</Preview>

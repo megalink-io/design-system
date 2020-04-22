@@ -1,0 +1,29 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import Title from '.';
+
+<Meta title="Components/core/typography/Title" component={Title} />
+
+# Title
+
+A title represents the main heading of a page and should therefore appear only once per page.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <Title children={text('Children', 'This is a title', 'default')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Title } from '@mds/components/core/typography';
+```
+
+```tsx
+<Title>This is a title</Title>
+```
+
+## Props table
+
+<Props of={Title} />

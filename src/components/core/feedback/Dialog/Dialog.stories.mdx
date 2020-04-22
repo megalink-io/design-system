@@ -1,0 +1,56 @@
+import { Fragment } from 'react';
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { DialogPreview } from './Dialog.stories';
+import Dialog from '.';
+
+<Meta title="Components/core/feedback/Dialog" component={Dialog} />
+
+# Dialog
+
+A dialog box that displays important information that users need to acknowledge. They appear above the interface and block other interactions.
+
+> Click on one of the buttons to open a sample dialog.
+
+<Preview>
+  <Story name="Confirmation">
+    <DialogPreview storyId="confirmation" />
+  </Story>
+  <Story name="Information">
+    <DialogPreview storyId="information" />
+  </Story>
+  <Story name="Destructive">
+    <DialogPreview storyId="destructive" />
+  </Story>
+  <Story name="Error">
+    <DialogPreview storyId="error" />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Dialog } from '@mds/components/core/feedback';
+```
+
+```tsx
+<Dialog
+  open={open}
+  variant="confirmation"
+  heading="This is the heading"
+  message="This is just a great example text for the dialog message."
+  actionButton={{
+    label: 'Enable',
+    type: 'button',
+    onClick: () => {},
+  }}
+  cancelButton={{
+    label: 'Cancel',
+    type: 'button',
+    onClick: () => {},
+  }}
+/>
+```
+
+## Props table
+
+<Props of={Dialog} />

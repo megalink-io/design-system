@@ -1,0 +1,29 @@
+import { Meta, Props } from '@storybook/addon-docs/blocks';
+import Form from '.';
+
+<Meta title="Components/core/inputs/Form" component={Form} />
+
+# Form
+
+A wrapper component that combines several input fields into one form.
+
+> The `type` property of the button for submitting the form must have the value `submit`.
+
+## Key features
+
+- Removes the browser's native form validation
+- Prevents the browser default behavior when submitting
+
+## Code example
+
+```tsx
+import { Form } from '@mds/components/core/inputs';
+```
+
+```tsx
+<Form onSubmit={() => handleSubmit()}>...</Form>
+```
+
+## Props table
+
+<Props of={Form} />

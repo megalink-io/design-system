@@ -1,0 +1,29 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import Heading from '.';
+
+<Meta title="Components/core/typography/Heading" component={Heading} />
+
+# Heading
+
+A heading is the main heading of a section and should therefore appear only once per section.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <Heading children={text('Children', 'This is a heading', 'default')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Heading } from '@mds/components/core/typography';
+```
+
+```tsx
+<Heading>This is a heading</Heading>
+```
+
+## Props table
+
+<Props of={Heading} />

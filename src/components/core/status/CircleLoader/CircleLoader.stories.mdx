@@ -1,0 +1,44 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import CircleLoader from '.';
+
+<Meta title="Components/core/status/CircleLoader" component={CircleLoader} />
+
+# CircleLoader
+
+A loading spinner that visually displays the progress of a system operation such as uploading or processing.
+
+export const getProps = id => ({
+  color: select(
+    'Color',
+    ['colorful', 'white', 'black', 'background', 'gray', 'yellow', 'red', 'blue', 'green'],
+    'blue',
+    id
+  ),
+});
+
+<Preview withToolbar>
+  <Story name="Large">
+    <CircleLoader size="large" {...getProps('large')} />
+  </Story>
+  <Story name="Medium">
+    <CircleLoader size="medium" {...getProps('medium')} />
+  </Story>
+  <Story name="Small">
+    <CircleLoader size="small" {...getProps('small')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { CircleLoader } from '@mds/components/core/status';
+```
+
+```tsx
+<CircleLoader type="large" color="colorful" />
+```
+
+## Props table
+
+<Props of={CircleLoader} />

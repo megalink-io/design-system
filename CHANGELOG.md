@@ -8,16 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
-- Add new basic components
+- Add new core components
   - IconButton (actions)
   - Dialog (feedback)
+  - Logo (graphics)
   - Checkbox (inputs)
   - Form (inputs)
-  - Logo (graphics)
-  - Link (navigation)
-- Add new app components
-  - FileDetails (media)
   - FileGallery (media)
+  - FileDetails (media)
+  - Link (navigation)
   - Title (typography)
   - Heading (typography)
   - Subheading (typography)
@@ -55,7 +54,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 👷 Changed
 
-- Update basic components
+- Update previous basic components
+  - Move from "basic" to the new "core" folder
   - Add navigation functionality to ActionButton and update CSS code
   - Improve accessibility of TextInput with ARIA
 

@@ -1,0 +1,93 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean, text, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import ActionButton from '.';
+
+<Meta title="Components/core/actions/ActionButton" component={ActionButton} />
+
+# ActionButton
+
+A button that is used to confirm form entries or perform individual actions.
+
+export const getProps = id => ({
+  label: text('Label', 'Button', id),
+  variant: id,
+  type: 'button',
+  color: select('Color', ['white', 'black', 'gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
+  onClick: action('onClick', id),
+  loading: boolean('Loading', false, id),
+  disabled: boolean('Disabled', false, id),
+});
+
+<Preview withToolbar>
+  <Story name="Primary">
+    <ActionButton {...getProps('primary')} />
+  </Story>
+  <Story name="Secondary">
+    <ActionButton {...getProps('secondary')} />
+  </Story>
+  <Story name="Tertiary">
+    <ActionButton {...getProps('tertiary')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { ActionButton } from '@mds/components/core/actions';
+```
+
+```tsx
+<ActionButton
+  label="Button"
+  variant="primary"
+  type="button"
+  color="blue"
+  onClick={() => handleClick()}
+/>
+```
+
+## Props table
+
+<Props of={ActionButton} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "href", "target" and "download" might be missing.
+
+## More stories
+
+### Internal link
+
+<Preview withToolbar>
+  <Story name="Internal link">
+    <ActionButton label="Settings" variant="secondary" type="link" to="/settings" />
+  </Story>
+</Preview>
+
+### External link
+
+<Preview withToolbar>
+  <Story name="External link">
+    <ActionButton
+      label="Sign up"
+      variant="primary"
+      color="gray"
+      type="link"
+      href="https://www.example.com/signup"
+      target="_blank"
+    />
+  </Story>
+</Preview>
+
+### Download link
+
+<Preview withToolbar>
+  <Story name="Download link">
+    <ActionButton
+      label="Download"
+      variant="tertiary"
+      type="link"
+      href="https://www.example.com/invoice.pdf"
+      download="invoice.pdf"
+    />
+  </Story>
+</Preview>
