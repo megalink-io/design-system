@@ -73,22 +73,14 @@ export const Header = styled('header')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingBottom: '15rem',
+  marginBottom: '20rem',
   borderBottom: `solid 1.5rem ${theme.colors.gray[100]}`,
-  '@media (max-width: 768px)': {
-    paddingBottom: '12rem',
-  },
-}));
-
-export const Heading = styled('h3')(({ theme }) => ({
-  fontSize: '18rem',
-  fontWeight: 500,
-  lineHeight: 1.5,
-  color: theme.colors.gray[1000],
-  [`${Dialog}.error &`]: {
+  [`${Dialog}.error & .Subheading`]: {
     color: theme.colors.red[1000],
   },
   '@media (max-width: 768px)': {
-    fontSize: '17rem',
+    paddingBottom: '12rem',
+    marginBottom: '16rem',
   },
 }));
 
@@ -103,18 +95,6 @@ export const WarningIcon = styled('div')(({ theme }) => ({
     '& svg': {
       height: '20rem',
     },
-  },
-}));
-
-export const Message = styled('p')(({ theme }) => ({
-  fontSize: '16rem',
-  fontWeight: 400,
-  color: theme.colors.gray[700],
-  lineHeight: 1.5,
-  marginTop: '20rem',
-  '@media (max-width: 768px)': {
-    fontSize: '15rem',
-    marginTop: '16rem',
   },
 }));
 

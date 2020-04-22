@@ -1,17 +1,9 @@
 import React from 'react';
 import { ActionButton } from 'components/core/actions';
+import { Subheading, Paragraph } from 'components/core/typography';
 import { WarningSVG } from 'icons';
 import { ViewProps } from './Dialog-types';
-import {
-  Dialog,
-  Box,
-  Header,
-  Heading,
-  WarningIcon,
-  Message,
-  Buttons,
-  Background,
-} from './Dialog-styles';
+import { Dialog, Box, Header, WarningIcon, Buttons, Background } from './Dialog-styles';
 
 const DialogView: React.FC<ViewProps> = ({
   className,
@@ -24,14 +16,14 @@ const DialogView: React.FC<ViewProps> = ({
   <Dialog className={className}>
     <Box>
       <Header>
-        <Heading>{heading}</Heading>
+        <Subheading>{heading}</Subheading>
         {variant === 'error' && (
           <WarningIcon>
             <WarningSVG />
           </WarningIcon>
         )}
       </Header>
-      <Message>{message}</Message>
+      <Paragraph>{message}</Paragraph>
       <Buttons>
         {cancelButton && <ActionButton {...cancelButton} />}
         <ActionButton {...actionButton} />
