@@ -82,3 +82,8 @@ export const SideBarPreview: React.FC = () => {
     />
   );
 };
+
+export default {
+  title: 'Components/core/navigation/SideBar',
+  includeStories: [],
+};

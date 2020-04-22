@@ -73,3 +73,8 @@ export const DialogPreview: React.FC<{ storyId: StoryId }> = ({ storyId }) => {
     </>
   );
 };
+
+export default {
+  title: 'Components/core/feedback/Dialog',
+  includeStories: [],
+};
