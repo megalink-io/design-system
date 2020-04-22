@@ -17,7 +17,7 @@ export const Content = styled('header')(({ theme }) => ({
   justifyContent: 'space-between',
   padding: '0 20rem',
   boxSizing: 'border-box',
-  '& .Title': {
+  '& > *:first-child': {
     flex: 1,
     overflow: 'hidden',
     textOverflow: 'ellipsis',

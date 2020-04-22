@@ -1,7 +1,6 @@
 import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { text } from '@storybook/addon-knobs';
 import { IconButton } from 'components/core/actions';
-import { Detail } from 'components/core/typography';
+import { Title, Detail } from 'components/core/typography';
 import { AlarmSVG, GearSVG } from 'icons';
 import AppBar from '.';
 
@@ -13,7 +12,8 @@ A top app bar that displays information and actions related to the current page.
 
 <Preview className="fullframe" withToolbar>
   <Story name="Home">
-    <AppBar title={text('Title', 'Home', 'home')}>
+    <AppBar>
+      <Title color="white">Home</Title>
       <IconButton
         icon={<AlarmSVG />}
         label="Notifications"
@@ -42,7 +42,8 @@ import { AppBar } from '@mds/components/core/navigation';
 ```
 
 ```tsx
-<AppBar title="Home">
+<AppBar>
+  <Title color="white">Home</Title>
   <IconButton
     icon={<AlarmSVG />}
     label="Notifications"
@@ -73,8 +74,9 @@ import { AppBar } from '@mds/components/core/navigation';
 
 <Preview className="fullframe" withToolbar>
   <Story name="Media library">
-    <AppBar title={text('Title', 'Media library', 'media_library')}>
-      <Detail>12 % of 0.5 GB used</Detail>
+    <AppBar>
+      <Title color="white">Media library</Title>
+      <Detail color="white">12 % of 0.5 GB used</Detail>
     </AppBar>
   </Story>
 </Preview>

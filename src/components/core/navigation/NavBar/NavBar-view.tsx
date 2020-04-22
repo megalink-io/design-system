@@ -1,6 +1,6 @@
 import React from 'react';
 import { ViewProps } from './NavBar-types';
-import { NavBar } from './navBar-styles';
+import { NavBar } from './NavBar-styles';
 
 /**
  * A navigation bar that displays information
