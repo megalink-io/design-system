@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - FileDetails (media)
   - Link (navigation)
   - SideBar (navigation)
+  - TabBar (navigation)
   - Title (typography)
   - Heading (typography)
   - Subheading (typography)

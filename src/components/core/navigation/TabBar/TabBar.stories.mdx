@@ -1,0 +1,82 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { IconButton } from 'components/core/actions';
+import { HouseSVG, ListSVG, FolderSVG } from 'icons';
+import TabBar from '.';
+
+<Meta title="Components/core/navigation/TabBar" component={TabBar} />
+
+# TabBar
+
+A tab bar at the bottom of the screen that allows users to navigate the content of the app using a single-level icon navigation.
+
+<Preview className="fullframe" withToolbar>
+  <Story name="Default">
+    <TabBar>
+      <IconButton
+        icon={<HouseSVG />}
+        label="Home"
+        variant="tertiary"
+        color="gray"
+        type="link"
+        to="/"
+        exact
+      />
+      <IconButton
+        icon={<ListSVG />}
+        label="Link pages"
+        variant="tertiary"
+        color="gray"
+        type="link"
+        to="/link-pages"
+      />
+      <IconButton
+        icon={<FolderSVG />}
+        label="Media library"
+        variant="tertiary"
+        color="gray"
+        type="link"
+        to="/media-library"
+      />
+    </TabBar>
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { TabBar } from '@mds/components/core/navigation';
+```
+
+```tsx
+<TabBar>
+  <IconButton
+    icon={<HouseSVG />}
+    label="Home"
+    variant="tertiary"
+    color="gray"
+    type="link"
+    to="/"
+    exact
+  />
+  <IconButton
+    icon={<ListSVG />}
+    label="Link pages"
+    variant="tertiary"
+    color="gray"
+    type="link"
+    to="/link-pages"
+  />
+  <IconButton
+    icon={<FolderSVG />}
+    label="Media library"
+    variant="tertiary"
+    color="gray"
+    type="link"
+    to="/media-library"
+  />
+</TabBar>
+```
+
+## Props table
+
+<Props of={TabBar} />
