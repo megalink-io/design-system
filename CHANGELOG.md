@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - FileGallery (media)
   - FileDetails (media)
   - Link (navigation)
+  - NavBar (navigation)
   - AppBar (navigation)
   - SideBar (navigation)
   - TabBar (navigation)

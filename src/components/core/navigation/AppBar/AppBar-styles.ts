@@ -23,7 +23,7 @@ export const Content = styled('header')(({ theme }) => ({
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
   },
-  '.IconButton': {
+  '& .IconButton': {
     '&:focus, &:hover': {
       backgroundColor: theme.colors.white[50],
       borderColor: theme.colors.white[50],
