@@ -1,7 +1,60 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Fragment } from 'react';
+import { useTheme } from 'styled-components';
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundation/Colors" />
 
 # Colors
 
-The content will follow shortly.
+The `<Theme />` component of the design system contains a neutral color grey and four neon colors yellow, red, blue and green. Each color has at least ten shades that reflect the opacity of the color on the background color.
+
+The Design System supports the two colour schemes **light** and **dark**. The `<Theme />` component automatically recognizes the user's preferred color scheme and adjusts the app's color scheme accordingly.
+
+> This website also adapts to the preferred colour scheme of the user.
+
+## Signal colours
+
+### Blue
+
+The color blue is the primary color for user interactions. User-focused form fields or simple buttons are an example.
+
+### Green
+
+The color green characterizes a final user interaction. This includes buttons to confirm a form or save changes.
+
+### Red
+
+The color red is used for delicate user interactions or for error messages. Examples of this are buttons for confirming a deletion process or error messages when checking user input.
+
+## Color palettes
+
+The color palettes show the majority of the available colors. Starting with an opacity of 10% on the left side, the color palettes end on the right side with an opacity of 100% of the respective color.
+
+export const ColorItems = () => {
+  const theme = useTheme();
+  const getColorCodes = color => {
+    const colorCodes = [];
+    Object.entries(theme.colors[color]).forEach(([key, value]) => {
+      if (key >= 100) {
+        colorCodes.push(value);
+      }
+    });
+    return colorCodes;
+    // return Object.values(theme.colors[color]);
+  };
+  return (
+    <Fragment>
+      <ColorItem title="Gray" subtitle="theme.colors.gray" colors={getColorCodes('gray')} />
+      <ColorItem title="Yellow" subtitle="theme.colors.yellow" colors={getColorCodes('yellow')} />
+      <ColorItem title="Red" subtitle="theme.colors.red" colors={getColorCodes('red')} />
+      <ColorItem title="Blue" subtitle="theme.colors.blue" colors={getColorCodes('blue')} />
+      <ColorItem title="Green" subtitle="theme.colors.green" colors={getColorCodes('green')} />
+    </Fragment>
+  );
+};
+
+<ColorPalette>
+  <ColorItems />
+</ColorPalette>
+
+> If you change the color scheme of your operating system, the colors of the color palette will also change.

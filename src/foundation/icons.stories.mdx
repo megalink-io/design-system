@@ -1,7 +1,49 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import styled from 'styled-components';
+import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
+import * as Icons from 'icons';
 
 <Meta title="Foundation/Icons" />
 
 # Icons
 
-The content will follow shortly.
+At Megalink we rely on minimalist outlined icons. The vast majority of the icons come from the [Free Outline Icon Pack](https://aspengrovestudios.com/product/free-outline-icon-pack/) by Aspen Grove Studios. The rest of the icons we designed ourselves.
+
+For maximum quality, the icons are embedded as minified SVG files directly into the app's source code.
+
+## Code example
+
+```tsx
+import { HouseSVG } from '@mds/icons';
+```
+
+```tsx
+<HouseSVG />
+```
+
+## Icon gallery
+
+export const IconCSS = styled('div')(({ theme }) => ({
+  '& svg path': {
+    stroke: theme.colors.gray[700],
+  },
+}));
+
+export const Gallery = () => (
+  <IconCSS>
+    <IconGallery>
+      {Object.entries(Icons).map(([name, Icon]) => (
+        <IconItem
+          name={name
+            .slice(0, -3)
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            .toLowerCase()}
+          key={name}
+        >
+          <Icon />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </IconCSS>
+);
+
+<Gallery />

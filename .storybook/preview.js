@@ -1,6 +1,7 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { addDecorator, addParameters } from '@storybook/react';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withA11y } from '@storybook/addon-a11y';
 import { withContexts } from '@storybook/addon-contexts/react';
 import { Theme as ThemeProvider } from '../src/components/core/layout';
@@ -74,6 +75,13 @@ addParameters({
       // Sort other story alphabetically
       return a[1].id.localeCompare(b[1].id, 'en', { numeric: true });
     },
+  },
+  docs: {
+    container: ({ children, context }) => (
+      <DocsContainer context={context}>
+        <ThemeProvider>{children}</ThemeProvider>
+      </DocsContainer>
+    ),
   },
 });
 
