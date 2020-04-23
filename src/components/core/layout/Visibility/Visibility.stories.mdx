@@ -1,0 +1,26 @@
+import { Meta, Props } from '@storybook/addon-docs/blocks';
+import Visibility from '.';
+
+<Meta title="Components/core/layout/Visibility" component={Visibility} />
+
+# Visibility
+
+A wrapper component that displays content only at specified device types.
+
+> The current device type is queried via the `DeviceType` context. The device type depends on the viewport width. Further information can be found in the corresponding story.
+
+## Code example
+
+```tsx
+import { Visibility } from '@mds/components/core/layout';
+```
+
+```tsx
+<Visibility desktop tablet>
+  ...
+</Visibility>
+```
+
+## Props table
+
+<Props of={Visibility} />

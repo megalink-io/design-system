@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext } from 'react';
 import { IconButton } from '../../actions';
 import { ColorScheme } from '../../../../context';
 import {
@@ -15,9 +15,9 @@ import SideBar from '.';
 export const SideBarPreview: React.FC = () => {
   const [colorScheme, setColorScheme] = useContext(ColorScheme);
 
-  const changeColorScheme = useCallback(() => {
+  const changeColorScheme = () => {
     setColorScheme(prevState => (prevState === 'light' ? 'dark' : 'light'));
-  }, []);
+  };
 
   return (
     <SideBar

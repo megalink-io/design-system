@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Logo (graphics)
   - Checkbox (inputs)
   - Form (inputs)
+  - Visibility (layout)
   - FileGallery (media)
   - FileDetails (media)
   - Link (navigation)
