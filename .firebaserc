@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "megalink-io"
+  },
+  "targets": {
+    "megalink-io": {
+      "hosting": {
+        "design-system": [
+          "megalink-design-system"
+        ]
+      }
+    }
+  }
+}
