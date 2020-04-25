@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 - Add new core components
   - IconButton (actions)
   - Dialog (feedback)
+  - Response (feedback)
   - Logo (graphics)
   - Checkbox (inputs)
   - Form (inputs)

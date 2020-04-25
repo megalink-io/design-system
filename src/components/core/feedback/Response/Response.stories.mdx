@@ -1,0 +1,37 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { ResponsePreview } from './Response.stories';
+import Response from '.';
+
+<Meta title="Components/core/feedback/Response" component={Response} />
+
+# Response
+
+A response element that displays important text messages. It is usually used at the end of a form, for example.
+
+> Click on one of the buttons to open a sample response.
+
+<Preview>
+  <Story name="Information">
+    <ResponsePreview storyId="information" />
+  </Story>
+  <Story name="Success">
+    <ResponsePreview storyId="success" />
+  </Story>
+  <Story name="Error">
+    <ResponsePreview storyId="error" />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Response } from '@mds/components/core/feedback';
+```
+
+```tsx
+<Response status="error" message="An unexpected error has occurred." />
+```
+
+## Props table
+
+<Props of={Response} />
