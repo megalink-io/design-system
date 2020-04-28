@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Checkbox = styled('label')({
   display: 'flex',
   cursor: 'pointer',
+  '&.centered': {
+    justifyContent: 'center',
+  },
   '&.disabled': {
     cursor: 'default',
   },
@@ -17,6 +20,7 @@ export const Input = styled('input')({
 export const Checkmark = styled('span')(({ theme }) => ({
   height: '20rem',
   width: '20rem',
+  minWidth: '20rem',
   display: 'inline-block',
   boxSizing: 'border-box',
   border: `solid 2rem ${theme.colors.gray[200]}`,
@@ -63,7 +67,6 @@ export const Checkmark = styled('span')(({ theme }) => ({
 }));
 
 export const Label = styled('span')(({ theme }) => ({
-  flex: 1,
   fontSize: '15rem',
   fontWeight: 400,
   color: theme.colors.gray[700],

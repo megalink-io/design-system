@@ -7,12 +7,13 @@ import CheckboxView from './Checkbox-view';
  * next to the checkbox describes the selection option.
  * */
 export const CheckboxContainer: React.FC<ContainerProps> = React.memo(
-  ({ name, selected, error, onChange, disabled, ...props }) => {
+  ({ name, selected, error, onChange, disabled, centered, ...props }) => {
     const getClassName = () => {
       let className = 'Checkbox';
       if (selected) className += ' selected';
       if (error) className += ' error';
       if (disabled) className += ' disabled';
+      if (centered) className += ' centered';
       return className;
     };
 

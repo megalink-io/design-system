@@ -6,6 +6,7 @@ export interface ContainerProps {
   error: boolean;
   required?: boolean;
   disabled?: boolean;
+  centered?: boolean;
 }
 
 export interface ViewProps extends ContainerProps {
