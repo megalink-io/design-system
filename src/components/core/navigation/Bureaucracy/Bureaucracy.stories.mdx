@@ -1,0 +1,47 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Link } from '..';
+import Bureaucracy from '.';
+
+<Meta title="Components/core/navigation/Bureaucracy" component={Bureaucracy} />
+
+# Bureaucracy
+
+A simple navigation bar for legally required links at the bottom of the page.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <Bureaucracy>
+      <Link href="https://www.example.com/imprint" target="_blank" children="Imprint" />
+      <Link
+        href="https://www.example.com/privacy-policy"
+        target="_blank"
+        children="Privacy policy"
+      />
+      <Link href="https://www.example.com/terms" target="_blank" children="Terms" />
+    </Bureaucracy>
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Bureaucracy } from '@mds/components/core/navigation';
+```
+
+```tsx
+<Bureaucracy>
+  <Link href="https://www.example.com/imprint" target="_blank">
+    Imprint
+  </Link>
+  <Link href="https://www.example.com/privacy-policy" target="_blank">
+    Privacy policy
+  </Link>
+  <Link href="https://www.example.com/terms" target="_blank">
+    Terms
+  </Link>
+</Bureaucracy>
+```
+
+## Props table
+
+<Props of={Bureaucracy} />
