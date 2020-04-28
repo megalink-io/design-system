@@ -5,19 +5,14 @@ export const SideBar = styled('aside')(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
-  backgroundColor: theme.colors.black[1000],
-}));
-
-export const Content = styled('div')({
   height: '100%',
   width: '70rem',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
   overflowY: 'auto',
-});
+  backgroundColor: theme.colors.black[1000],
+}));
 
 export const Menu = styled('nav')(({ theme }) => ({
   width: '100%',
