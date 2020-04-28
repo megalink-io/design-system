@@ -1,0 +1,71 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { SingleFormLoadingPreview, SignupPreview, MainAppLoadingPreview, MediaLibraryPreview, MediaFilePreview } from './Page.stories.tsx';
+import Page from '.';
+
+<Meta title="Components/core/layout/Page" component={Page} />
+
+# Page
+
+A wrapper component that covers the entire content of the page and provides layout relevant CSS code.
+
+## Code example
+
+```tsx
+import { Page } from '@mds/components/core/layout';
+```
+
+```tsx
+<Page variant="main_app">...</Page>
+```
+
+## Props table
+
+<Props of={Page} />
+
+## Example screens
+
+### Single form loading page
+
+<Preview>
+  <Story name="Single form loading" parameters={{ noPadding: true }}>
+    <SingleFormLoadingPreview />
+  </Story>
+</Preview>
+
+### Signup page
+
+<Preview>
+  <Story name="Signup" parameters={{ noPadding: true }}>
+    <SignupPreview />
+  </Story>
+</Preview>
+
+### Main app loading page
+
+> Unfortunately the preview does not work here.
+
+<Preview>
+  <Story name="Main app loading" parameters={{ noPadding: true }}>
+    <MainAppLoadingPreview />
+  </Story>
+</Preview>
+
+### Media library page
+
+> Unfortunately the preview does not work here.
+
+<Preview>
+  <Story name="Media library" parameters={{ noPadding: true }}>
+    <MediaLibraryPreview />
+  </Story>
+</Preview>
+
+### Media file page
+
+> Unfortunately the preview does not work here.
+
+<Preview>
+  <Story name="Media file" parameters={{ noPadding: true }}>
+    <MediaFilePreview />
+  </Story>
+</Preview>
