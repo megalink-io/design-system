@@ -49,7 +49,7 @@ export const ResponseContainer: React.FC<ContainerProps> = React.memo(({ status,
   }, [message, currentMessage]);
 
   const getClassName = () => {
-    let className = 'Form-Response';
+    let className = 'Response';
     if (currentStatus) className += ` ${currentStatus}`;
     if (message && currentMessage) className += ' open';
     if (!message && currentMessage) className += ' close';

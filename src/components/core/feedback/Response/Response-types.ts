@@ -1,5 +1,5 @@
 export interface ContainerProps {
-  status: '' | 'info' | 'success' | 'error';
+  status: '' | 'information' | 'success' | 'error';
   message: string;
 }
 
