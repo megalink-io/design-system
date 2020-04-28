@@ -62,27 +62,34 @@ const rotationColorAnimation = (theme: DefaultTheme) => {
   });
 };
 
-const Animation = styled('div')`
-  animation: ${({ theme, color }) => {
-    if (color === 'colorful') {
-      return css`
-        ${rotationColorAnimation(theme)} 2.4s linear infinite
-      `;
-    }
-    return css`
-      ${rotationAnimation} 0.6s linear infinite
-    `;
-  }};
-`;
+export const CircleLoader = styled('div')<StylesProps>(
+  ({ theme, color, size }) => ({
+    width: getWidthOrHeight(size, 'desktop'),
+    height: getWidthOrHeight(size, 'desktop'),
+    borderTop: `${getBorderWidth(size)} solid ${getBorderColor(theme, color)}`,
+    borderRight: `${getBorderWidth(size)} solid transparent`,
+    borderRadius: '50%',
+    '@media (max-width: 768px)': {
+      width: getWidthOrHeight(size, 'mobile'),
+      height: getWidthOrHeight(size, 'mobile'),
+    },
+  }),
+  css<StylesProps>`
+    animation: ${({ theme, color }) =>
+      color === 'colorful'
+        ? css`
+            ${rotationColorAnimation(theme)} 2.4s linear infinite
+          `
+        : css`
+            ${rotationAnimation} 0.6s linear infinite
+          `}};
+  `
+);
 
-export const CircleLoader = styled(Animation)<StylesProps>(({ theme, color, size }) => ({
-  width: getWidthOrHeight(size, 'desktop'),
-  height: getWidthOrHeight(size, 'desktop'),
-  borderTop: `${getBorderWidth(size)} solid ${getBorderColor(theme, color)}`,
-  borderRight: `${getBorderWidth(size)} solid transparent`,
-  borderRadius: '50%',
-  '@media (max-width: 768px)': {
-    width: getWidthOrHeight(size, 'mobile'),
-    height: getWidthOrHeight(size, 'mobile'),
-  },
-}));
+export const Centered = styled('div')({
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});

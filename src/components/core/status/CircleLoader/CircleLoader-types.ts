@@ -22,4 +22,5 @@ export interface StylesProps {
 export interface ViewProps {
   size: Size;
   color?: Color;
+  centered?: boolean;
 }
