@@ -1,82 +1,92 @@
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   TextInputInfo,
-  CheckboxInfo,
-  FieldInfos,
-  Fields,
+  TextInputState,
+  TextInputUpdate,
   TextInput,
+  CheckboxInfo,
+  CheckboxState,
+  CheckboxUpdate,
   Checkbox,
-  Button,
-  Response,
+  FieldsInfo,
+  FieldsState,
+  FieldsUpdate,
+  Fields,
+  ResponseState,
+  ResponseUpdate,
+  ButtonState,
+  ButtonUpdate,
+  Form,
 } from './useForm-types';
 
-// Use fieldInfos argument to create initial fields state
-const getInitalFields = (fieldInfos: FieldInfos) => {
-  const initalFields: Fields = {};
-  Object.keys(fieldInfos).forEach(name => {
-    switch (fieldInfos[name].type) {
+// Use fieldsInfo argument to create initial fields state
+const getInitFieldsState = (fieldsInfo: FieldsInfo) => {
+  const initState: FieldsState = {};
+  Object.keys(fieldsInfo).forEach(name => {
+    switch (fieldsInfo[name].type) {
       case 'text_input':
-        initalFields[name] = {
-          name,
-          value: (fieldInfos[name] as TextInputInfo).value || '',
+        initState[name] = {
+          value: (fieldsInfo[name] as TextInputInfo).value || '',
           error: '',
-          onChange: () => null,
-          onBlur: () => null,
         };
         break;
       case 'checkbox':
-        initalFields[name] = {
-          name,
-          selected: (fieldInfos[name] as CheckboxInfo).selected || false,
+        initState[name] = {
+          selected: (fieldsInfo[name] as CheckboxInfo).selected || false,
           error: false,
-          onChange: () => null,
         };
         break;
       default:
     }
   });
-  return initalFields;
+  return initState;
 };
 
 /** Custom React hook for handling the business logic of forms. */
-const useForm = (fieldInfos: FieldInfos) => {
-  // Create state variables that holds current form data
-  const [fields, setFields] = useState<Fields>(() => getInitalFields(fieldInfos));
-  const [button, setButton] = useState<Button>({ loading: false });
-  const [response, setResponse] = useState<Response>({ status: '', message: '' });
+const useForm = (fieldsInfo: FieldsInfo): Form => {
+  // Create fields, response and button state
+  const [fieldsState, setFieldsState] = useState<FieldsState>(() => getInitFieldsState(fieldsInfo));
+  const [responseState, setResponseState] = useState<ResponseState>({ status: '', message: '' });
+  const [buttonState, setButtonState] = useState<ButtonState>({ loading: false });
 
-  // Add onChange and onBlur functions to form fields
-  useLayoutEffect(() => {
-    // Update or validate field state after synthetic event
-    const handleFieldEvent = (
-      name: string,
-      state: string | boolean,
-      eventType: 'change' | 'blur'
-    ) => {
-      setFields(prevState => {
+  // Reset form response after 10 seconds
+  useEffect(() => {
+    if (responseState.message) {
+      const timeout = setTimeout(() => {
+        setResponseState({ status: '', message: '' });
+      }, 10000);
+      return () => clearTimeout(timeout);
+    }
+    return undefined;
+  }, [responseState]);
+
+  // Update or validate field state after synthetic event
+  const handleFieldEvent = useCallback(
+    (name: string, value: string | boolean, eventType: 'change' | 'blur') => {
+      setFieldsState(prevState => {
         const newState = { ...prevState, [name]: { ...prevState[name] } };
-        switch (fieldInfos[name].type) {
+        switch (fieldsInfo[name].type) {
           case 'text_input':
-            if (typeof state === 'string') {
+            if (typeof value === 'string') {
               if (eventType === 'change') {
-                (newState[name] as TextInput).value = state;
+                (newState[name] as TextInputState).value = value;
               }
               if (eventType === 'blur' || prevState[name].error) {
-                newState[name].error = (fieldInfos[name] as TextInputInfo).validation(
-                  state,
+                newState[name].error = (fieldsInfo[name] as TextInputInfo).validate(
+                  value,
                   prevState
                 );
               }
             }
             break;
           case 'checkbox':
-            if (typeof state === 'boolean') {
+            if (typeof value === 'boolean') {
               if (eventType === 'change') {
-                (newState[name] as Checkbox).selected = state;
+                (newState[name] as CheckboxState).selected = value;
               }
               if (eventType === 'blur' || prevState[name].error) {
-                newState[name].error = (fieldInfos[name] as CheckboxInfo).validation(
-                  state,
+                newState[name].error = (fieldsInfo[name] as CheckboxInfo).validate(
+                  value,
                   prevState
                 );
               }
@@ -86,108 +96,141 @@ const useForm = (fieldInfos: FieldInfos) => {
         }
         return newState;
       });
-    };
+    },
+    [fieldsInfo]
+  );
 
-    // Update and validate field state after a user input
-    const handleFieldChange = (name: string, state: string | boolean) => {
-      handleFieldEvent(name, state, 'change');
-    };
+  // Update and validate field state after a user input
+  const handleFieldChange = useCallback(
+    (name: string, value: string | boolean) => {
+      handleFieldEvent(name, value, 'change');
+    },
+    [handleFieldEvent]
+  );
 
-    // Validate field state after user has left a form field
-    const handleFieldBlur = (name: string, state: string | boolean) => {
-      handleFieldEvent(name, state, 'blur');
-    };
+  // Validate field state after user has left a form field
+  const handleFieldBlur = useCallback(
+    (name: string, value: string | boolean) => {
+      handleFieldEvent(name, value, 'blur');
+    },
+    [handleFieldEvent]
+  );
 
-    // Add handleFieldChange and handleFieldBlur to fields state
-    setFields(prevState => {
-      const newState: Fields = {};
-      Object.keys(fieldInfos).forEach(name => {
-        newState[name] = { ...prevState[name] };
-        switch (fieldInfos[name].type) {
-          case 'text_input':
-            (newState[name] as TextInput).onChange = handleFieldChange;
-            (newState[name] as TextInput).onBlur = handleFieldBlur;
-            break;
-          case 'checkbox':
-            (newState[name] as Checkbox).onChange = handleFieldChange;
-            break;
-          default:
-        }
-      });
-      return newState;
+  // Creat memoized fields properties
+  const fields = useMemo<Fields>(() => {
+    const newFields: Fields = {};
+    Object.keys(fieldsInfo).forEach(name => {
+      switch (fieldsInfo[name].type) {
+        case 'text_input':
+          (newFields[name] as TextInput) = {
+            ...(fieldsState[name] as TextInputState),
+            name,
+            onChange: handleFieldChange,
+            onBlur: handleFieldBlur,
+          };
+          break;
+        case 'checkbox':
+          (newFields[name] as Checkbox) = {
+            ...(fieldsState[name] as CheckboxState),
+            name,
+            onChange: handleFieldChange,
+          };
+          break;
+        default:
+      }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return newFields;
+  }, [fieldsInfo, fieldsState, handleFieldChange, handleFieldBlur]);
+
+  // Update fields state with given data
+  const updateFields = useCallback(
+    (fieldsUpdate: FieldsUpdate) => {
+      setFieldsState(prevState => {
+        const newState = { ...prevState };
+        Object.keys(fieldsUpdate).forEach(name => {
+          switch (fieldsInfo[name].type) {
+            case 'text_input':
+              (newState[name] as TextInputState) = {
+                ...(prevState[name] as TextInputState),
+                ...(fieldsUpdate[name] as TextInputUpdate),
+              };
+              break;
+            case 'checkbox':
+              (newState[name] as CheckboxState) = {
+                ...(prevState[name] as CheckboxState),
+                ...(fieldsUpdate[name] as CheckboxUpdate),
+              };
+              break;
+            default:
+          }
+        });
+        return newState;
+      });
+    },
+    [fieldsInfo]
+  );
+
+  // Update response state with given data
+  const updateResponse = useCallback((responseUpdate: ResponseUpdate) => {
+    setResponseState(prevState => ({
+      ...prevState,
+      ...responseUpdate,
+    }));
   }, []);
 
-  // Reset form response after 10 seconds
-  useEffect(() => {
-    if (response.message) {
-      const timeout = setTimeout(() => {
-        setResponse({ status: '', message: '' });
-      }, 10000);
-      return () => clearTimeout(timeout);
-    }
-    return () => null;
-  }, [response]);
+  // Update button state with given data
+  const updateButton = useCallback((buttonUpdate: ButtonUpdate) => {
+    setButtonState(prevState => ({
+      ...prevState,
+      ...buttonUpdate,
+    }));
+  }, []);
 
-  // Action function that handles final form validation
-  const finalValidation = () => {
+  // Validate fields state when submitting the form
+  const validate = useCallback(() => {
     let formIsValid = true;
-    setFields(prevState => {
-      const newState: Fields = {};
-      Object.keys(fieldInfos).forEach(name => {
-        newState[name] = { ...prevState[name] };
-        let newError: string | boolean | undefined;
-        switch (fieldInfos[name].type) {
-          case 'text_input':
-            newError = (fieldInfos[name] as TextInputInfo).validation(
-              (prevState[name] as TextInput).value,
-              prevState
-            );
-            newState[name].error = newError;
-            break;
-          case 'checkbox':
-            newError = (fieldInfos[name] as CheckboxInfo).validation(
-              (prevState[name] as Checkbox).selected,
-              prevState
-            );
-            newState[name].error = newError;
-            break;
-          default:
-        }
-        if (newError && formIsValid) {
-          formIsValid = false;
-        }
-      });
-      return newState;
+    const fieldsUpdate: FieldsUpdate = {};
+    Object.keys(fieldsInfo).forEach(name => {
+      let newError: string | boolean | undefined;
+      switch (fieldsInfo[name].type) {
+        case 'text_input':
+          newError = (fieldsInfo[name] as TextInputInfo).validate(
+            (fieldsState[name] as TextInputState).value,
+            fieldsState
+          );
+          break;
+        case 'checkbox':
+          newError = (fieldsInfo[name] as CheckboxInfo).validate(
+            (fieldsState[name] as CheckboxState).selected,
+            fieldsState
+          );
+          break;
+        default:
+      }
+      if (newError) {
+        formIsValid = false;
+        fieldsUpdate[name] = {
+          error: newError,
+        };
+      }
     });
     if (!formIsValid) {
+      updateFields(fieldsUpdate);
       const error = new Error('Please check the red marked fields.');
       error.name = 'UseFormValidationError';
       throw error;
     }
-  };
+  }, [fieldsInfo, fieldsState, updateFields]);
 
-  // Action function that sets a form field error
-  const setFieldError = (name: string, error: string) => {
-    setFields(prevState => {
-      const newState = { ...prevState, [name]: { ...prevState[name] } };
-      newState[name].error = error;
-      return newState;
-    });
-  };
-
-  // Return form state and action functions
+  // Return the form data and functions
   return {
     fields,
-    button,
-    response,
-    actions: {
-      setButton,
-      setResponse,
-      finalValidation,
-      setFieldError,
-    },
+    response: responseState,
+    button: buttonState,
+    updateFields,
+    updateResponse,
+    updateButton,
+    validate,
   };
 };
 
