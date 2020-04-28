@@ -53,7 +53,7 @@
 /* Preview Area ------------------------------------------- */
 
 /* Custom Decorator */
-.sb-decorator {
+.sb-decorator:not(.no-padding) {
   padding: 30rem;
 }
 

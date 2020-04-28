@@ -1,5 +1,6 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { useParameter } from '@storybook/addons';
 import { addDecorator, addParameters } from '@storybook/react';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withA11y } from '@storybook/addon-a11y';
@@ -126,15 +127,16 @@ const contexts = [
 addDecorator(withContexts(contexts));
 
 // Wrap every story in React strict mode and our custom Theme component
-addDecorator(story => (
-  <BrowserRouter>
-    <ThemeProvider>
-      <React.StrictMode>
-        <div className="sb-decorator">{story()}</div>
-      </React.StrictMode>
-    </ThemeProvider>
-  </BrowserRouter>
-));
+addDecorator(story => {
+  const noPadding = useParameter('noPadding', false);
+  return (
+    <BrowserRouter>
+      <ThemeProvider>
+        <div className={`sb-decorator${noPadding ? ' no-padding' : ''}`}>{story()}</div>
+      </ThemeProvider>
+    </BrowserRouter>
+  );
+});
 
 // Wrap every story in the a11y addon
 addDecorator(withA11y);
