@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Logo (graphics)
   - Checkbox (inputs)
   - Form (inputs)
+  - Page (layout)
   - Main (layout)
   - Section (layout)
   - Visibility (layout)
@@ -25,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - AppBar (navigation)
   - SideBar (navigation)
   - TabBar (navigation)
+  - Bureaucracy (navigation)
   - Title (typography)
   - Heading (typography)
   - Subheading (typography)
@@ -62,7 +64,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 👷 Changed
 
-- Update previous basic components
+- Change previous basic components
   - Move from "basic" to the new "core" folder
   - Add navigation functionality to ActionButton and update CSS code
   - Improve accessibility of TextInput with ARIA
@@ -77,7 +79,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🛠️ Fixed
 
-\-
+- Fix, update and refactor useForm hook
 
 ### 👮 Security
 
