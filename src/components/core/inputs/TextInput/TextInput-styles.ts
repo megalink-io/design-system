@@ -82,7 +82,7 @@ export const Textarea = styled('textarea')(({ theme }) => ({
 export const Error = styled('div')({
   maxHeight: 0,
   opacity: 0,
-  transition: 'all 0.2s ease',
+  transition: 'max-height 0.2s ease, opacity 0.2s ease',
 });
 
 export const ErrorMessage = styled('span')(({ theme }) => ({

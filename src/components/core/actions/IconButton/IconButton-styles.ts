@@ -14,7 +14,7 @@ const getIconButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
   borderStyle: 'solid',
   borderWidth: '1.5rem',
   boxSizing: 'border-box',
-  transition: 'all 0.1s ease-out',
+  transition: 'background-color 0.2s ease, border-color 0.2s ease',
   '&:focus': {
     outline: 'none',
   },

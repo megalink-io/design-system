@@ -14,7 +14,7 @@ const getActionButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
   borderRadius: '25rem',
   boxSizing: 'border-box',
   cursor: 'pointer',
-  transition: 'all 0.1s ease-out',
+  transition: 'background-color 0.2s ease, border-color 0.2s ease',
   '&:disabled, &.loading': {
     cursor: 'default',
   },
