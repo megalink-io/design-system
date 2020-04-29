@@ -6,7 +6,7 @@ export const TabBar = styled('nav')(({ theme }) => ({
   bottom: 0,
   width: '100%',
   maxWidth: '100%',
-  height: '60rem',
+  height: '56rem',
   backgroundColor: theme.colors.gray[0],
   boxShadow: '0 0 8rem rgb(0, 0, 0, 0.1)',
   display: 'flex',

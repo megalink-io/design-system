@@ -64,13 +64,13 @@ export const MainAppCSS = createGlobalStyle(({ theme }) => ({
   // Mobile
   '.Page.main-app': {
     '& > .Main': {
-      minHeight: 'calc(100vh - 60rem)', // minus TabBar height
+      minHeight: 'calc(100vh - 56rem)', // minus TabBar height
       position: 'relative',
       padding: '10rem',
       boxSizing: 'border-box',
       backgroundColor: theme.colors.gray[0],
       '& > .CircleLoader': {
-        height: 'calc(100vh - 60rem)',
+        height: 'calc(100vh - 56rem)', // minus TabBar height
       },
       '& > .Section': {
         padding: '10rem',
