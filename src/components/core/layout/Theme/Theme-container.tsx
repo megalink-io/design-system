@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { ColorScheme, DeviceType } from 'context';
 import * as Types from 'types';
@@ -216,14 +217,23 @@ export const themes: Themes = { light, dark };
 
 /** A wrapper component that is necessary for the visual representation. */
 export const ThemeContainer: React.FC<ContainerProps> = ({ children }) => {
+  const location = useLocation();
   const [colorScheme, setColorScheme] = useState<Types.ColorScheme>(getDeviceColorScheme());
   const [deviceType, setDeviceType] = useState<Types.DeviceType>(getDeviceType());
 
-  // Update theme color meta tag when color scheme changes
-  useEffect(() => {
-    const metaTag = document.getElementById('meta-theme-color');
-    metaTag?.setAttribute('content', themes[colorScheme].colors.gray[0]);
-  }, [colorScheme]);
+  // Update body background and meta theme color when
+  // location, color scheme or deviceType changes
+  useLayoutEffect(() => {
+    const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
+    const mainAppPageTag = document.querySelector('.Page.main-app');
+    const mainAppAppBarTag = document.querySelector('.Page.main-app .AppBar');
+    let colorCode = themes[colorScheme].colors.gray[0];
+    if (mainAppPageTag && (deviceType !== 'mobile' || mainAppAppBarTag)) {
+      colorCode = themes[colorScheme].colors.black['1000'];
+    }
+    document.body.style.backgroundColor = colorCode;
+    themeColorMetaTag?.setAttribute('content', colorCode);
+  }, [location, colorScheme, deviceType]);
 
   // Update device type when window size changes
   useEffect(() => {

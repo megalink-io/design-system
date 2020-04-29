@@ -64,7 +64,7 @@ export const FontFaces = createGlobalStyle`
   }
 `;
 
-export const DefaultCSS = createGlobalStyle(({ theme }) => ({
+export const DefaultCSS = createGlobalStyle({
   html: {
     fontSize: '1px',
   },
@@ -73,7 +73,6 @@ export const DefaultCSS = createGlobalStyle(({ theme }) => ({
     fontFamily: "'Poppins', sans-serif",
     fontWeight: 400,
     lineHeight: 1,
-    backgroundColor: theme.colors.gray[0],
   },
   '#root': {
     paddingTop: '1px',
@@ -83,4 +82,4 @@ export const DefaultCSS = createGlobalStyle(({ theme }) => ({
   'body:not(.tabbing) button:focus, body:not(.tabbing) input:focus, body:not(.tabbing) select:focus, body:not(.tabbing) textarea:focus': {
     outline: 'none',
   },
-}));
+});

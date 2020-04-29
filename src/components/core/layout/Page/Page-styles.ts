@@ -3,9 +3,6 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const Page = styled('div')({});
 
 export const MainAppCSS = createGlobalStyle(({ theme }) => ({
-  body: {
-    backgroundColor: `${theme.colors.black[1000]} !important`,
-  },
   // Desktop and tablet
   '.Page.main-app > .Content': {
     position: 'fixed',
