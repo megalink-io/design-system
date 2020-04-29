@@ -10,6 +10,13 @@ import { ColorScheme } from '../src/context';
 import { getDeviceColorScheme, getSearchParam } from '../src/helpers';
 import theme from './theme';
 
+// Create Router and Theme component
+const RouterAndTheme = ({ children }) => (
+  <BrowserRouter>
+    <ThemeProvider>{children}</ThemeProvider>
+  </BrowserRouter>
+);
+
 // Customizing Storybook options
 addParameters({
   options: {
@@ -78,9 +85,10 @@ addParameters({
     },
   },
   docs: {
+    // Wrap every story in Router and Theme component
     container: ({ children, context }) => (
       <DocsContainer context={context}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <RouterAndTheme>{children}</RouterAndTheme>
       </DocsContainer>
     ),
   },
@@ -126,15 +134,13 @@ const contexts = [
 // Wrap every story in the contexts addon
 addDecorator(withContexts(contexts));
 
-// Wrap every story in React strict mode and our custom Theme component
+// Wrap every story in Router and Theme component
 addDecorator(story => {
   const noPadding = useParameter('noPadding', false);
   return (
-    <BrowserRouter>
-      <ThemeProvider>
-        <div className={`sb-decorator${noPadding ? ' no-padding' : ''}`}>{story()}</div>
-      </ThemeProvider>
-    </BrowserRouter>
+    <RouterAndTheme>
+      <div className={`sb-decorator${noPadding ? ' no-padding' : ''}`}>{story()}</div>
+    </RouterAndTheme>
   );
 });
 
