@@ -6,7 +6,7 @@ import { Response } from '../../feedback';
 import { Form, TextInput, Checkbox } from '../../inputs';
 import { Logo } from '../../graphics';
 import { FileGallery, FileDetails } from '../../media';
-import { Main, Section, Visibility } from '../../layout';
+import { Main, Content, Section, Visibility } from '../../layout';
 import { Link, Bureaucracy, SideBar, NavBar, AppBar, TabBar } from '../../navigation';
 import { CircleLoader } from '../../status';
 import { Title, Heading, Subheading, Detail } from '../../typography';
@@ -323,7 +323,7 @@ const MainAppPage: React.FC = ({ children }) => {
             </>
           }
         />
-        <div className="Content">
+        <Content>
           {children}
           <Bureaucracy>
             <Link href="https://www.example.com/imprint" target="_blank">
@@ -336,7 +336,7 @@ const MainAppPage: React.FC = ({ children }) => {
               Terms
             </Link>
           </Bureaucracy>
-        </div>
+        </Content>
       </Page>
     );
   }
