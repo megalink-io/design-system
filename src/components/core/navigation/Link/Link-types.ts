@@ -1,6 +1,7 @@
 interface DefaultProps {
   /** - */
   children: React.ReactNode | string;
+  underlined?: boolean;
 }
 
 export interface ExternalLinkProps extends DefaultProps {

@@ -6,15 +6,17 @@ import { ExternalLink, InternalLink } from './Link-styles';
  * A navigation link that takes users to other content or allows
  * them to download files. Contained text is underlined.
  * */
-export const LinkView: React.FC<ViewProps> = React.memo(({ children, ...props }) => {
+export const LinkView: React.FC<ViewProps> = React.memo(({ underlined, children, ...props }) => {
   const { to, replace } = props as InternalLinkProps;
   const { href, target, download } = props as ExternalLinkProps;
+
+  const className = `Link${underlined ? ' underlined' : ''}`;
 
   // For external link
   if (typeof href === 'string') {
     return (
       <ExternalLink
-        className="Link"
+        className={className}
         href={href}
         target={target}
         rel={target ? 'noreferrer noopener' : undefined}
@@ -27,7 +29,7 @@ export const LinkView: React.FC<ViewProps> = React.memo(({ children, ...props })
 
   // For internal links
   return (
-    <InternalLink className="Link" to={to} replace={replace}>
+    <InternalLink className={className} to={to} replace={replace}>
       {children}
     </InternalLink>
   );

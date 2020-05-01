@@ -18,6 +18,7 @@ A navigation link that takes users to other content or allows them to download f
       to={text('To', '/settings', 'internal_link')}
       replace={boolean('Replace', false, 'internal_link')}
       children={text('Children', 'Settings', 'internal_link')}
+      underlined
     />
   </Story>
   <Story name="External link">
@@ -25,6 +26,7 @@ A navigation link that takes users to other content or allows them to download f
       href={text('Href', 'https://www.example.com/privacy-policy', 'external_link')}
       target="_blank"
       children={text('Children', 'Privacy policy', 'external_link')}
+      underlined
     />
   </Story>
   <Story name="Graphics">
@@ -44,6 +46,7 @@ A navigation link that takes users to other content or allows them to download f
       href={text('Href', 'https://www.example.com/invoice.pdf', 'download_link')}
       download={text('Download', 'invoice.pdf', 'download_link')}
       children={text('Children', 'Download', 'download_link')}
+      underlined
     />
   </Story>
 </Preview>
@@ -56,7 +59,7 @@ import { Link } from '@mds/components/core/navigation';
 
 ```tsx
 <Link to="/settings">Settings</Link>
-<Link href="https://www.example.com/privacy-policy" target="_blank">Privacy policy</Link>
+<Link href="https://www.example.com/privacy-policy" target="_blank" underlined>Privacy policy</Link>
 ```
 
 ## Props table
