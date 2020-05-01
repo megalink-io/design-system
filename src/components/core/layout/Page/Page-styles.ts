@@ -137,13 +137,16 @@ export const SingleFormCSS = createGlobalStyle({
     },
     // Spacing of the coponents
     '.Main > *, .Form > *': {
-      '&.Link + .Response, &.Checkbox + .Response, &.TextInput + .Response, &.Response + .ActionButton': {
+      '&.Detail + .Response, &.Detail + .Response + .ActionButton': {
+        marginTop: '10rem',
+      },
+      '&.Checkbox + .Response, &.TextInput + .Response, &.Response + .ActionButton': {
         marginTop: '15rem',
       },
-      '&.Link + .Subheading, &.TextInput + .TextInput': {
+      '&.Link + .Subheading, &.TextInput + .TextInput, &.Detail + .ActionButton': {
         marginTop: '20rem',
       },
-      '&.TextInput + .Checkbox, &.TextInput + .Link, &.TextInput + .ActionButton, &.Checkbox + .ActionButton': {
+      '&.TextInput + .Checkbox, &.TextInput + .Detail, &.TextInput + .ActionButton, &.Checkbox + .ActionButton': {
         marginTop: '30rem',
       },
       '&.Subheading + .Form, &.Subheading + .ActionButton': {
