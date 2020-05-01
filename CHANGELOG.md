@@ -8,6 +8,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
+\-
+
+### 👷 Changed
+
+\-
+
+### 📆 Deprecated
+
+\-
+
+### 🗑️ Removed
+
+\-
+
+### 🛠️ Fixed
+
+\-
+
+### 👮 Security
+
+\-
+
+## [v0.2.0] - 2020-05-01
+
+### 🌱 Added
+
 - Add new core components
   - IconButton (actions)
   - Dialog (feedback)
@@ -72,21 +98,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Add navigation functionality to ActionButton and update CSS code
   - Improve accessibility of TextInput with ARIA
 
-### 📆 Deprecated
-
-\-
-
-### 🗑️ Removed
-
-\-
-
 ### 🛠️ Fixed
 
 - Fix, update and refactor useForm hook
-
-### 👮 Security
-
-\-
 
 ## [v0.1.0] - 2020-04-15
 
@@ -108,4 +122,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - getSearchParam
 
 [unreleased]: https://github.com/megalink-io/design-system/compare/v0.1.0...HEAD
+[v0.2.0]: https://github.com/megalink-io/design-system/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/megalink-io/design-system/releases/tag/v0.1.0

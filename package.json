@@ -1,6 +1,6 @@
 {
   "name": "@megalink/design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The Megalink Design System powers our frontend apps. It contains reusable UI components that help us build complex, durable, and accessible user interfaces across our projects.",
   "homepage": "https://design-system.megalink.io/",
   "repository": "https://github.com/megalink-io/design-system",
