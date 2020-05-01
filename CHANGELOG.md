@@ -33,6 +33,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Subheading (typography)
   - Paragraph (typography)
   - Detail (typography)
+- Add new helper
+  - getRandomId
 - Add new icons
   - add
   - alarm
