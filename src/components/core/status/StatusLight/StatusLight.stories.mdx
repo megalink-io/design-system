@@ -1,0 +1,30 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { statusLightPreview } from './StatusLight.stories.tsx';
+import StatusLight from '.';
+
+<Meta title="Components/core/status/StatusLight" component={StatusLight} />
+
+# StatusLight
+
+A status light that describes a state. It can be used to convey semantic meaning, such as states and categories.
+
+<Preview withToolbar>
+  <Story name="Positive">{statusLightPreview({ storyId: 'positive' })}</Story>
+  <Story name="Negative">{statusLightPreview({ storyId: 'negative' })}</Story>
+  <Story name="Disabled">{statusLightPreview({ storyId: 'disabled' })}</Story>
+  <Story name="With label">{statusLightPreview({ storyId: 'with_label' })}</Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { StatusLight } from '@mds/components/core/status';
+```
+
+```tsx
+<StatusLight color="green" />
+```
+
+## Props table
+
+<Props of={StatusLight} />

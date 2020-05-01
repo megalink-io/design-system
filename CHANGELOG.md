@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🌱 Added
 
-\-
+- Add new core component
+  - StatusLight (status)
 
 ### 👷 Changed
 
