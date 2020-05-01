@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { ColorScheme, DeviceType } from 'context';
@@ -221,9 +221,9 @@ export const ThemeContainer: React.FC<ContainerProps> = ({ children }) => {
   const [colorScheme, setColorScheme] = useState<Types.ColorScheme>(getDeviceColorScheme());
   const [deviceType, setDeviceType] = useState<Types.DeviceType>(getDeviceType());
 
-  // Update body background and meta theme color when
+  // Update body background and meta theme color when children,
   // location, color scheme or deviceType changes
-  useLayoutEffect(() => {
+  useEffect(() => {
     const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
     const mainAppPageTag = document.querySelector('.Page.main-app');
     const mainAppAppBarTag = document.querySelector('.Page.main-app .AppBar');
@@ -233,7 +233,7 @@ export const ThemeContainer: React.FC<ContainerProps> = ({ children }) => {
     }
     document.body.style.backgroundColor = colorCode;
     themeColorMetaTag?.setAttribute('content', colorCode);
-  }, [location, colorScheme, deviceType]);
+  }, [children, location, colorScheme, deviceType]);
 
   // Update device type when window size changes
   useEffect(() => {
