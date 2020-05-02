@@ -1,0 +1,78 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { navTablePreview } from './NavTable.stories.tsx';
+import NavTable from '.';
+
+<Meta title="Components/core/data/NavTable" component={NavTable} />
+
+# NavTable
+
+A table that is used for navigation and clearly shows useful data.
+
+<Preview withToolbar>
+  <Story name="Link pages">{navTablePreview()}</Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { NavTable } from '@mds/components/core/data';
+```
+
+```tsx
+<NavTable
+  headers={[
+    {
+      key: 'status',
+      label: 'Status',
+    },
+    {
+      key: 'name',
+      label: 'Name',
+      primary: true,
+    },
+    {
+      key: 'views',
+      label: 'Views',
+      align: 'right',
+    },
+    {
+      key: 'clicks',
+      label: 'Clicks',
+      align: 'right',
+      visibility: ['desktop', 'tablet'],
+    },
+  ]}
+  rows={[
+    {
+      id: 'jA9j2Qm8',
+      to: '/link-pages/jA9j2Qm8',
+      status: <StatusLight color="green" />,
+      name: 'Instagram bio link',
+      views: '1,632 views',
+      clicks: '326 clicks',
+    },
+    {
+      id: 'a2d82Hs7',
+      to: '/link-pages/a2d82Hs7',
+      status: <StatusLight color="green" />,
+      name: 'Black friday sale',
+      views: '853 views',
+      clicks: '258 clicks',
+    },
+    {
+      id: 'H83js3hD',
+      to: '/link-pages/H83js3hD',
+      status: <StatusLight color="green" disabled />,
+      name: 'Design contest',
+      views: '235 views',
+      clicks: '47 clicks',
+    },
+  ]}
+  onRowMouseEnter={() => handleRowMouseEnter()}
+  headless
+/>
+```
+
+## Props table
+
+<Props of={NavTable} />
