@@ -20,7 +20,7 @@ export const getProps = id => ({
       const form = useForm({
         firstName: {
           type: 'text_input',
-          validation: state => (!state ? 'Please enter your first name.' : ''),
+          validate: value => (!value ? 'Please enter your first name.' : ''),
         },
       });
       return (
@@ -62,12 +62,12 @@ import { TextInput } from '@mds/components/core/inputs';
       const form = useForm({
         email: {
           type: 'text_input',
-          validation: state => {
+          validate: value => {
             const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            if (!state) {
+            if (!value) {
               return 'Please enter your email.';
             }
-            if (typeof state !== 'string' || !regex.test(state)) {
+            if (typeof value !== 'string' || !regex.test(value)) {
               return 'The email address is badly formatted.';
             }
             return '';
@@ -95,11 +95,11 @@ import { TextInput } from '@mds/components/core/inputs';
       const form = useForm({
         password: {
           type: 'text_input',
-          validation: state => {
-            if (!state) {
+          validate: value => {
+            if (!value) {
               return 'Please enter a password.';
             }
-            if (typeof state !== 'string' || state.length < 6) {
+            if (typeof value !== 'string' || value.length < 6) {
               return 'You password must have 6 characters or more.';
             }
             return '';
@@ -127,11 +127,11 @@ import { TextInput } from '@mds/components/core/inputs';
       const form = useForm({
         textarea: {
           type: 'text_input',
-          validation: state => {
-            if (!state) {
+          validate: value => {
+            if (!value) {
               return 'Please enter a description.';
             }
-            if (typeof state !== 'string' || state.length < 30) {
+            if (typeof value !== 'string' || value.length < 30) {
               return 'The description must be at least 30 characters long.';
             }
             return '';

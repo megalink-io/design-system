@@ -22,7 +22,7 @@ export const getProps = (id, required) => ({
       const form = useForm({
         pizza: {
           type: 'checkbox',
-          validation: state => !state,
+          validate: state => !state,
         },
       });
       return (
@@ -60,7 +60,7 @@ import { Checkbox } from '@mds/components/core/inputs';
       const form = useForm({
         privacyPolicy: {
           type: 'checkbox',
-          validation: state => !state,
+          validate: state => !state,
         },
       });
       return (
