@@ -1,7 +1,7 @@
 import React, { useMemo, useContext } from 'react';
 import { useForm, UseForm } from '../../../../hooks';
 import { ColorScheme, DeviceType } from '../../../../context';
-import { ActionButton, IconButton } from '../../actions';
+import { ActionButton, FloatingButton, IconButton } from '../../actions';
 import { Response } from '../../feedback';
 import { Form, TextInput, Checkbox } from '../../inputs';
 import { Logo } from '../../graphics';
@@ -11,6 +11,7 @@ import { Link, Bureaucracy, SideBar, NavBar, AppBar, TabBar } from '../../naviga
 import { CircleLoader } from '../../status';
 import { Title, Heading, Subheading, Detail } from '../../typography';
 import {
+  AddSVG,
   HouseSVG,
   ListSVG,
   FolderSVG,
@@ -530,6 +531,15 @@ export const MediaLibraryPreview: React.FC = () => (
         </Visibility>
         <FileGallery rootPath="/media-library" files={files} />
       </Section>
+      <Visibility mobile>
+        <FloatingButton
+          icon={<AddSVG />}
+          label="Upload"
+          color="blue"
+          type="button"
+          onClick={() => {}}
+        />
+      </Visibility>
     </Main>
   </MainAppPage>
 );

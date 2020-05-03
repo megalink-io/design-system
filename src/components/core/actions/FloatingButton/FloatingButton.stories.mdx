@@ -1,0 +1,82 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { ShareSVG, CopySVG, GearSVG, DownloadSVG, ArrowRightSVG } from 'icons';
+import FloatingButton from '.';
+
+<Meta title="Components/core/actions/FloatingButton" component={FloatingButton} />
+
+# FloatingButton
+
+A floating button with an icon at the bottom right of the screen used to navigate or perform individual actions.
+
+<Preview className="fullframe" withToolbar>
+  <Story name="Share button">
+    <FloatingButton
+      icon={<ShareSVG />}
+      label="Share"
+      type="button"
+      color={select('Color', ['gray', 'yellow', 'red', 'blue', 'green'], 'blue', 'share_button')}
+      onClick={action('onClick', 'share_button')}
+      loading={boolean('Loading', false, 'share_button')}
+      disabled={boolean('Disabled', false, 'share_button')}
+    />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { FloatingButton } from '@mds/components/core/actions';
+```
+
+```tsx
+<FloatingButton icon={<DeleteSVG />} label="Delete" color="blue" type="button" onClick={() => handleClick()} />
+<FloatingButton icon={<GearSVG />} label="Settings" color="blue" type="link" to="/settings" />
+```
+
+## Props table
+
+<Props of={FloatingButton} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "href", "target" and "download" might be missing.
+
+## More stories
+
+### Internal link
+
+<Preview className="fullframe" withToolbar>
+  <Story name="Internal link">
+    <FloatingButton icon={<GearSVG />} color="blue" label="Settings" type="link" to="/settings" />
+  </Story>
+</Preview>
+
+### External link
+
+<Preview className="fullframe" withToolbar>
+  <Story name="External link">
+    <FloatingButton
+      icon={<ArrowRightSVG />}
+      color="blue"
+      label="Link"
+      type="link"
+      href="https://www.example.com/settings"
+      target="_blank"
+    />
+  </Story>
+</Preview>
+
+### Download link
+
+<Preview className="fullframe" withToolbar>
+  <Story name="Download link">
+    <FloatingButton
+      icon={<DownloadSVG />}
+      color="blue"
+      label="Download"
+      type="link"
+      href="https://www.example.com/invoice.pdf"
+      download="invoice.pdf"
+    />
+  </Story>
+</Preview>
