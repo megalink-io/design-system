@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 - Add new core components
   - NavTable (data)
   - StatusLight (status)
+- Add new icons
+  - copy
+  - share
 
 ### 👷 Changed
 
