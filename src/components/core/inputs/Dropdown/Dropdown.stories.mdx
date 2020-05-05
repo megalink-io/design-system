@@ -1,0 +1,63 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { DropdownPreview } from './Dropdown.stories.tsx';
+import Dropdown from '.';
+
+<Meta title="Components/core/inputs/Dropdown" component={Dropdown} />
+
+# Dropdown
+
+A drop-down field that allows users to select predefined values. Various decorations can be displayed in or around the field to communicate the entry requirements.
+
+export const getProps = id => ({
+  required: boolean('Required', true, id),
+  disabled: boolean('Disabled', false, id),
+});
+
+<Preview withToolbar>
+  <Story name="Default">{DropdownPreview({ storyId: 'default' })}</Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Dropdown } from '@mds/components/core/inputs';
+```
+
+```tsx
+<Dropdown
+  name="example"
+  value=""
+  options={[
+    {
+      label: 'Option 1',
+      value: 'option_1',
+    },
+    {
+      label: 'Option 2',
+      value: 'option_2',
+    },
+    {
+      label: 'Option 3',
+      value: 'option_3',
+    },
+  ]}
+  error=""
+  onChange={() => handleChange(name, value)}
+  onBlur={() => handleBlur(name, value)}
+  label="Options"
+  placeholder="Select an option"
+  required
+/>
+```
+
+## Props table
+
+<Props of={Dropdown} />
+
+## More stories
+
+### Slim
+
+<Preview withToolbar>
+  <Story name="Slim">{DropdownPreview({ storyId: 'slim' })}</Story>
+</Preview>

@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 - Add new core components
   - FloatingButton (actions)
   - NavTable (data)
+  - Dropdown (inputs)
   - StatusLight (status)
 - Add new icons
   - copy
