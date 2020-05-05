@@ -4,7 +4,7 @@ The Megalink Design System powers our frontend apps. It contains reusable UI com
 
 ## Install
 
-The code is delivered as an NPM package:
+The code is delivered as an npm package:
 
 ```bash
 npm install @megalink/design-system
@@ -21,7 +21,7 @@ Add an alias for the package path to the `compilerOptions` of your `tsconfig.jso
 }
 ```
 
-> As long as `creat-react-app` does not support the `paths` property in `tsconfig.json`, the following workaround must be used: [https://github.com/oklas/react-app-rewire-alias](https://github.com/oklas/react-app-rewire-alias)
+> As long as `create-react-app` does not support the `paths` property in `tsconfig.json`, the following workaround must be used: [https://github.com/oklas/react-app-rewire-alias](https://github.com/oklas/react-app-rewire-alias)
 
 You can then import icons or components:
 
