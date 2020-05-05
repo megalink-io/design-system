@@ -22,6 +22,38 @@ export interface TextInput extends TextInputState {
   onBlur: (name: string, value: string) => void;
 }
 
+/* Dropdown interfaces ------------------------------------ */
+
+export interface DropdownInfo {
+  type: 'dropdown';
+  options: {
+    label: string;
+    value: string;
+  }[];
+  validate: (value: string, fieldsState: FieldsState) => string;
+  value?: string;
+}
+
+export interface DropdownState {
+  value: string;
+  error: string;
+}
+
+export interface DropdownUpdate {
+  value?: string;
+  error?: string;
+}
+
+export interface Dropdown extends TextInputState {
+  name: string;
+  options: {
+    label: string;
+    value: string;
+  }[];
+  onChange: (name: string, value: string) => void;
+  onBlur: (name: string, value: string) => void;
+}
+
 /* Checkbox interfaces ------------------------------------ */
 
 export interface CheckboxInfo {
@@ -48,19 +80,19 @@ export interface Checkbox extends CheckboxState {
 /* Fields interfaces -------------------------------------- */
 
 export interface FieldsInfo {
-  [name: string]: TextInputInfo | CheckboxInfo;
+  [name: string]: TextInputInfo | DropdownInfo | CheckboxInfo;
 }
 
 export interface FieldsState {
-  [name: string]: TextInputState | CheckboxState;
+  [name: string]: TextInputState | DropdownState | CheckboxState;
 }
 
 export interface FieldsUpdate {
-  [name: string]: TextInputUpdate | CheckboxUpdate;
+  [name: string]: TextInputUpdate | DropdownUpdate | CheckboxUpdate;
 }
 
 export interface Fields {
-  [name: string]: TextInput | Checkbox;
+  [name: string]: TextInput | Dropdown | Checkbox;
 }
 
 /* Response interface ------------------------------------- */

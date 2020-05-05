@@ -4,6 +4,10 @@ import {
   TextInputState,
   TextInputUpdate,
   TextInput,
+  DropdownInfo,
+  DropdownState,
+  DropdownUpdate,
+  Dropdown,
   CheckboxInfo,
   CheckboxState,
   CheckboxUpdate,
@@ -27,6 +31,12 @@ const getInitFieldsState = (fieldsInfo: FieldsInfo) => {
       case 'text_input':
         initState[name] = {
           value: (fieldsInfo[name] as TextInputInfo).value || '',
+          error: '',
+        };
+        break;
+      case 'dropdown':
+        initState[name] = {
+          value: (fieldsInfo[name] as DropdownInfo).value || '',
           error: '',
         };
         break;
@@ -73,6 +83,19 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
               }
               if (eventType === 'blur' || prevState[name].error) {
                 newState[name].error = (fieldsInfo[name] as TextInputInfo).validate(
+                  value,
+                  prevState
+                );
+              }
+            }
+            break;
+          case 'dropdown':
+            if (typeof value === 'string') {
+              if (eventType === 'change') {
+                (newState[name] as DropdownState).value = value;
+              }
+              if (eventType === 'blur' || prevState[name].error) {
+                newState[name].error = (fieldsInfo[name] as DropdownInfo).validate(
                   value,
                   prevState
                 );
@@ -129,6 +152,15 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
             onBlur: handleFieldBlur,
           };
           break;
+        case 'dropdown':
+          (newFields[name] as Dropdown) = {
+            ...(fieldsState[name] as DropdownState),
+            name,
+            options: (fieldsInfo[name] as DropdownInfo).options,
+            onChange: handleFieldChange,
+            onBlur: handleFieldBlur,
+          };
+          break;
         case 'checkbox':
           (newFields[name] as Checkbox) = {
             ...(fieldsState[name] as CheckboxState),
@@ -153,6 +185,12 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
               (newState[name] as TextInputState) = {
                 ...(prevState[name] as TextInputState),
                 ...(fieldsUpdate[name] as TextInputUpdate),
+              };
+              break;
+            case 'dropdown':
+              (newState[name] as DropdownState) = {
+                ...(prevState[name] as DropdownState),
+                ...(fieldsUpdate[name] as DropdownUpdate),
               };
               break;
             case 'checkbox':
@@ -196,6 +234,12 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
         case 'text_input':
           newError = (fieldsInfo[name] as TextInputInfo).validate(
             (fieldsState[name] as TextInputState).value,
+            fieldsState
+          );
+          break;
+        case 'dropdown':
+          newError = (fieldsInfo[name] as DropdownInfo).validate(
+            (fieldsState[name] as DropdownState).value,
             fieldsState
           );
           break;
