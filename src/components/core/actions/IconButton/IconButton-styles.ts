@@ -15,8 +15,8 @@ const getIconButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
   borderWidth: '1.5rem',
   boxSizing: 'border-box',
   transition: 'background-color 0.2s ease, border-color 0.2s ease',
-  '&:focus': {
-    outline: 'none',
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
   },
   '&:disabled, &.loading': {
     cursor: 'default',

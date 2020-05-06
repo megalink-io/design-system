@@ -39,7 +39,8 @@ export const Button = styled('button')(({ theme }) => ({
     border: `solid 1.5rem ${theme.colors.gray[200]}`,
   },
   '.tabbing &:focus': {
-    outline: `4rem auto ${theme.colors.blue[1000]}`,
+    outline: `auto ${theme.colors.blue[1000]}`,
+    outlineOffset: 0,
   },
   [`${Dropdown}.expanded &, &:focus`]: {
     border: `solid 1.5rem ${theme.colors.blue[1000]}`,

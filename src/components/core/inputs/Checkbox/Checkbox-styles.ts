@@ -64,10 +64,8 @@ export const Checkmark = styled('span')(({ theme }) => ({
     border: `solid 2rem ${theme.colors.red[700]}`,
   },
   [`.tabbing ${Input}:focus + &`]: {
-    border: `solid 2rem ${theme.colors.blue[1000]}`,
-    '& svg path': {
-      stroke: theme.colors.blue[1000],
-    },
+    outline: `auto ${theme.colors.blue[1000]}`,
+    outlineOffset: '5rem',
   },
 }));
 

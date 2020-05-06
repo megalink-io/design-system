@@ -7,6 +7,8 @@ export const ResetCSS = createGlobalStyle({
     border: 0,
     fontSize: '100%',
     font: 'inherit',
+    outline: 'none',
+    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
   },
   'article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section': {
     display: 'block',
@@ -31,9 +33,6 @@ export const ResetCSS = createGlobalStyle({
   button: {
     background: 'none',
     border: 'none',
-  },
-  'a, button, label': {
-    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
   },
 });
 
@@ -77,9 +76,6 @@ export const DefaultCSS = createGlobalStyle({
   '#root': {
     paddingTop: '1px',
     marginTop: '-1px',
-    outline: 'none',
-  },
-  'body:not(.tabbing) button:focus, body:not(.tabbing) input:focus, body:not(.tabbing) select:focus, body:not(.tabbing) textarea:focus': {
     outline: 'none',
   },
 });

@@ -14,12 +14,12 @@ const getActionButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
   borderRadius: '25rem',
   boxSizing: 'border-box',
   cursor: 'pointer',
-  transition: 'background-color 0.2s ease, border-color 0.2s ease',
+  transition: 'background-color 0.1s ease-out, border-color 0.1s ease-out',
   '&:disabled, &.loading': {
     cursor: 'default',
   },
-  '&:focus': {
-    outline: 'none',
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
   },
   '&.primary': {
     color: theme.colors[color || 'gray'][0],

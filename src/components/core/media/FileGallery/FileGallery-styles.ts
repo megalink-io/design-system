@@ -22,6 +22,9 @@ export const ItemLink = styled(Link)(({ theme }) => ({
   borderRadius: '5rem',
   overflow: 'hidden',
   margin: '25rem',
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
+  },
   '@media (max-width: 768px)': {
     width: 'calc(33.33% - 20rem)',
     margin: '10rem',

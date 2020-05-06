@@ -45,6 +45,6 @@ export const LogoLink = styled(Link)(({ theme }) => ({
   outline: 'none',
   margin: '20rem 0',
   '.tabbing &:focus': {
-    outline: `2rem auto ${theme.colors.blue[1000]}`,
+    outline: `auto ${theme.colors.blue[1000]}`,
   },
 }));

@@ -17,12 +17,12 @@ const getIconButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
   borderRadius: '50%',
   cursor: 'pointer',
   boxSizing: 'border-box',
-  transition: 'background-color 0.2s ease',
+  transition: 'background-color 0.1s ease-out',
   '&:focus, &:hover': {
     backgroundColor: theme.colors[color || 'gray'][color ? 700 : 500],
   },
-  '&:focus': {
-    outline: 'none',
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
   },
   '&:disabled': {
     backgroundColor: theme.colors.gray[100],

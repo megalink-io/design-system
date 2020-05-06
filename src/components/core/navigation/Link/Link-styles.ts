@@ -6,7 +6,7 @@ const getLinkCSS = (theme: DefaultTheme): CSSObject => ({
     textDecoration: 'underline',
   },
   '.tabbing &:focus': {
-    outline: `4rem auto ${theme.colors.blue[1000]}`,
+    outline: `auto ${theme.colors.blue[1000]}`,
     outlineOffset: '2rem',
   },
 });

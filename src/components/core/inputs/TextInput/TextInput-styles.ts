@@ -26,6 +26,10 @@ const getInputAndTextareaCSS = (theme: DefaultTheme): CSSObject => ({
   '&:focus': {
     border: `solid 1.5rem ${theme.colors.blue[1000]}`,
   },
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
+    outlineOffset: 0,
+  },
   [`${TextInput}.error &`]: {
     border: `solid 1.5rem ${theme.colors.red[700]}`,
   },
