@@ -1,0 +1,47 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean, text } from '@storybook/addon-knobs';
+import InputLabel from '.';
+
+<Meta title="Components/core/inputs/InputLabel" component={InputLabel} />
+
+# InputLabel
+
+A text element that communicates the input requirements for form fields.
+
+export const getProps = id => ({
+  label: text('Label', 'Example text', id),
+  required: boolean('Required', true, id),
+  disabled: boolean('Disabled', false, id),
+});
+
+<Preview withToolbar>
+  <Story name="Label">
+    <InputLabel as="label" htmlFor={text('HTML for', 'example', 'label')} {...getProps('label')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { InputLabel } from '@mds/components/core/inputs';
+```
+
+```tsx
+<InputLabel label="Example text" htmlFor="example" required />
+```
+
+## Props table
+
+<Props of={InputLabel} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the property "htmlFor" might be missing.
+
+## More stories
+
+### Span
+
+<Preview withToolbar>
+  <Story name="Span">
+    <InputLabel as="span" {...getProps('span')} />
+  </Story>
+</Preview>
