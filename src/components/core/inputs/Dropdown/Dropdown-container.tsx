@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { ContainerProps } from './Dropdown-types';
 import DropdownView from './Dropdown-view';
 
@@ -11,48 +11,6 @@ export const DropdownContainer: React.FC<ContainerProps> = React.memo(props => {
   const [expanded, setExpanded] = useState<boolean>(false);
   const [highlighted, setHighlighted] = useState<string>(value);
   const listElement = useRef<HTMLUListElement>(null);
-  const errorElement = useRef<HTMLDivElement>(null);
-  const [currentError, setCurrentError] = useState<string>(error);
-
-  // Update current error and error element when error changes
-  useEffect(() => {
-    let timeout: number;
-    if (error && error !== currentError) {
-      setCurrentError(error);
-    } else if (error && error === currentError) {
-      errorElement.current!.style.maxHeight = `${errorElement.current!.scrollHeight}px`;
-      errorElement.current!.style.opacity = '1';
-    } else if (!error && currentError) {
-      errorElement.current!.style.maxHeight = '0px';
-      errorElement.current!.style.opacity = '0';
-      timeout = setTimeout(() => {
-        setCurrentError(error);
-      }, 300);
-    }
-    return () => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-    };
-  }, [error, currentError]);
-
-  // Update error element inline styles when window is resized
-  useEffect(() => {
-    let prevScrollHeight: number;
-    const handleResizeEvent = () => {
-      if (error && error === currentError) {
-        const { scrollHeight } = errorElement.current!;
-        if (scrollHeight !== prevScrollHeight) {
-          errorElement.current!.style.maxHeight = `${scrollHeight}px`;
-          prevScrollHeight = scrollHeight;
-        }
-      }
-    };
-    window.addEventListener('resize', handleResizeEvent);
-    return () => {
-      window.removeEventListener('resize', handleResizeEvent);
-    };
-  }, [error, currentError]);
 
   const getClassName = () => {
     let className = 'Dropdown';
@@ -137,8 +95,6 @@ export const DropdownContainer: React.FC<ContainerProps> = React.memo(props => {
       expanded={expanded}
       highlighted={highlighted}
       listElement={listElement}
-      currentError={currentError}
-      errorElement={errorElement}
       onChange={handleChange}
       onBlur={handleBlur}
       onClick={handleClick}

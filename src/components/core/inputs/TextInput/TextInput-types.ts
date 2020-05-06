@@ -23,9 +23,7 @@ export type ContainerProps = TextTypeProps | OtherTypesProps;
 
 export type ViewProps = ContainerProps & {
   className: string;
-  currentError: string;
   textareaElement: React.RefObject<HTMLTextAreaElement>;
-  errorElement: React.RefObject<HTMLDivElement>;
   onChange: (value: string) => void;
   onBlur: (value: string) => void;
 };

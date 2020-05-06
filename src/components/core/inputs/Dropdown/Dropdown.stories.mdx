@@ -8,11 +8,6 @@ import Dropdown from '.';
 
 A drop-down field that allows users to select predefined values. Various decorations can be displayed in or around the field to communicate the entry requirements.
 
-export const getProps = id => ({
-  required: boolean('Required', true, id),
-  disabled: boolean('Disabled', false, id),
-});
-
 <Preview withToolbar>
   <Story name="Default">{DropdownPreview({ storyId: 'default' })}</Story>
 </Preview>

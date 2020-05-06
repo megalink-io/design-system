@@ -4,32 +4,16 @@ export const Dropdown = styled('div')({
   textAlign: 'left',
 });
 
-export const Label = styled('label')(({ theme }) => ({
-  display: 'inline-block',
-  fontSize: '15rem',
-  fontWeight: 500,
-  color: theme.colors.gray[700],
-  marginBottom: '10rem',
-  '.Dropdown.disabled &': {
-    color: theme.colors.gray[500],
-  },
-  '@media (max-width: 768px)': {
-    fontSize: '14rem',
-  },
-}));
-
-export const Required = styled('span')(({ theme }) => ({
-  fontSize: '110%',
-  color: theme.colors.red[1000],
-  '.Dropdown.disabled &': {
-    color: theme.colors.gray[500],
-  },
-}));
-
 export const Field = styled('div')({
   position: 'relative',
   [`${Dropdown}.slim &`]: {
     display: 'table',
+  },
+  '.InputLabel + &': {
+    marginTop: '10rem',
+  },
+  '& + .InputError span': {
+    paddingTop: '8rem',
   },
 });
 
@@ -170,23 +154,5 @@ export const ItemLabel = styled('span')(({ theme }) => ({
   whiteSpace: 'nowrap',
   '@media (max-width: 768px)': {
     fontSize: '15rem',
-  },
-}));
-
-export const Error = styled('div')({
-  maxHeight: 0,
-  opacity: 0,
-  transition: 'max-height 0.2s ease, opacity 0.2s ease',
-});
-
-export const ErrorMessage = styled('span')(({ theme }) => ({
-  display: 'block',
-  fontSize: '13rem',
-  fontWeight: 400,
-  color: theme.colors.red[1000],
-  lineHeight: 1.4,
-  paddingTop: '7rem',
-  '@media (max-width: 768px)': {
-    fontSize: '12rem',
   },
 }));

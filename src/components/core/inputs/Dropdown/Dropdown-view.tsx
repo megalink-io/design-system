@@ -1,46 +1,29 @@
 import React from 'react';
+import { InputLabel, InputError } from 'components/core/inputs';
 import { ArrowDownSVG, CheckSVG } from 'icons';
 import { ViewProps } from './Dropdown-types';
-import {
-  Dropdown,
-  Label,
-  Required,
-  Field,
-  Button,
-  ButtonLabel,
-  List,
-  Item,
-  ItemLabel,
-  Error,
-  ErrorMessage,
-} from './Dropdown-styles';
+import { Dropdown, Field, Button, ButtonLabel, List, Item, ItemLabel } from './Dropdown-styles';
 
 const DropdownView: React.FC<ViewProps> = ({
   className,
-  expanded,
-  onClick,
-  highlighted,
-  onKeyDown,
-  listElement,
   name,
   label,
   placeholder,
   value,
   options,
-  currentError,
-  errorElement,
+  error,
+  expanded,
+  highlighted,
+  listElement,
   onChange,
   onBlur,
+  onClick,
+  onKeyDown,
   required,
   disabled,
 }) => (
   <Dropdown className={className}>
-    {label && (
-      <Label id={`${name}-label`} htmlFor={name} onMouseDown={e => e.preventDefault()}>
-        {label}
-        {required && <Required> *</Required>}
-      </Label>
-    )}
+    {label && <InputLabel label={label} htmlFor={name} required={required} disabled={disabled} />}
     <Field>
       <Button
         aria-label={!label && placeholder ? placeholder : undefined}
@@ -78,11 +61,7 @@ const DropdownView: React.FC<ViewProps> = ({
         ))}
       </List>
     </Field>
-    {currentError && (
-      <Error ref={errorElement}>
-        <ErrorMessage>{currentError}</ErrorMessage>
-      </Error>
-    )}
+    <InputError error={error} />
   </Dropdown>
 );
 

@@ -20,8 +20,6 @@ export interface ViewProps extends ContainerProps {
   expanded: boolean;
   highlighted: string;
   listElement: React.RefObject<HTMLUListElement>;
-  currentError: string;
-  errorElement: React.RefObject<HTMLDivElement>;
   onChange: (value: string) => void;
   onBlur: (value: string) => void;
   onKeyDown: (key: string) => void;

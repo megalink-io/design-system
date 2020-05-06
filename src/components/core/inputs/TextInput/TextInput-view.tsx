@@ -1,14 +1,7 @@
 import React from 'react';
+import { InputLabel, InputError } from 'components/core/inputs';
 import { ViewProps, TextTypeProps } from './TextInput-types';
-import {
-  TextInput,
-  Label,
-  Required,
-  Input,
-  Textarea,
-  Error,
-  ErrorMessage,
-} from './TextInput-styles';
+import { TextInput, Input, Textarea } from './TextInput-styles';
 
 const TextInputView: React.FC<ViewProps> = ({
   className,
@@ -17,9 +10,8 @@ const TextInputView: React.FC<ViewProps> = ({
   label,
   placeholder,
   value,
+  error,
   textareaElement,
-  currentError,
-  errorElement,
   onChange,
   onBlur,
   required,
@@ -28,13 +20,8 @@ const TextInputView: React.FC<ViewProps> = ({
 }) => {
   const { multiline } = props as TextTypeProps;
   return (
-    <TextInput className={className} htmlFor={name}>
-      {label && (
-        <Label id={`${name}-label`}>
-          {label}
-          {required && <Required> *</Required>}
-        </Label>
-      )}
+    <TextInput className={className}>
+      {label && <InputLabel label={label} htmlFor={name} required={required} disabled={disabled} />}
       {type === 'text' && multiline ? (
         <Textarea
           aria-label={!label && placeholder ? placeholder : undefined}
@@ -67,11 +54,7 @@ const TextInputView: React.FC<ViewProps> = ({
           disabled={disabled}
         />
       )}
-      {currentError && (
-        <Error ref={errorElement}>
-          <ErrorMessage>{currentError}</ErrorMessage>
-        </Error>
-      )}
+      <InputError error={error} />
     </TextInput>
   );
 };
