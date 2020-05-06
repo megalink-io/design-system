@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - FloatingButton (actions)
   - NavTable (data)
   - Dropdown (inputs)
+  - InputError (inputs)
   - InputLabel (inputs)
   - StatusLight (status)
 - Add new icons

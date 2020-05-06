@@ -1,0 +1,30 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import { ActionButton } from '../../actions';
+import InputError from '.';
+
+<Meta title="Components/core/inputs/InputError" component={InputError} />
+
+# InputError
+
+A text element that displays an error message for input errors in form fields.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <InputError error={text('Error', 'This is an example error text.')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { InputError } from '@mds/components/core/inputs';
+```
+
+```tsx
+<InputError error="This is an example error text." />
+```
+
+## Props table
+
+<Props of={InputError} />
