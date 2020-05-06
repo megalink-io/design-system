@@ -75,6 +75,7 @@ export interface CheckboxUpdate {
 export interface Checkbox extends CheckboxState {
   name: string;
   onChange: (name: string, value: boolean) => void;
+  onBlur: (name: string, value: boolean) => void;
 }
 
 /* Fields interfaces -------------------------------------- */

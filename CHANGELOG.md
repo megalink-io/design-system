@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 - Change useForm hook
   - Add support for dropdown fields
+  - Add onBlur property to checkbox fields
 
 ### 📆 Deprecated
 

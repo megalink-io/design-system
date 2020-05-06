@@ -166,6 +166,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
             ...(fieldsState[name] as CheckboxState),
             name,
             onChange: handleFieldChange,
+            onBlur: handleFieldBlur,
           };
           break;
         default:
