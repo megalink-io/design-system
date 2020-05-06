@@ -9,10 +9,11 @@ const CheckboxView: React.FC<ViewProps> = ({
   label,
   selected,
   onChange,
+  onBlur,
   required,
   disabled,
 }) => (
-  <Checkbox className={className} htmlFor={name} id={`${name}-label`}>
+  <Checkbox className={className}>
     <Input
       aria-labelledby={`${name}-label`}
       name={name}
@@ -20,13 +21,16 @@ const CheckboxView: React.FC<ViewProps> = ({
       type="checkbox"
       checked={selected}
       onChange={onChange}
+      onBlur={onBlur}
       required={required}
       disabled={disabled}
     />
     <Checkmark>
       <CheckSVG />
     </Checkmark>
-    <Label>{label}</Label>
+    <Label htmlFor={name} id={`${name}-label`} onMouseDown={e => e.preventDefault()}>
+      {label}
+    </Label>
   </Checkbox>
 );
 

@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 
-export const Checkbox = styled('label')({
+export const Checkbox = styled('div')({
+  position: 'relative',
   display: 'flex',
-  cursor: 'pointer',
   '&.centered': {
     justifyContent: 'center',
-  },
-  '&.disabled': {
-    cursor: 'default',
   },
 });
 
 export const Input = styled('input')({
+  zIndex: 1,
   position: 'absolute',
-  zIndex: -1,
+  top: '-15rem',
+  left: '-15rem',
+  height: '50rem',
+  width: '50rem',
   opacity: 0,
+  cursor: 'pointer',
+  [`${Checkbox}.disabled &`]: {
+    cursor: 'default',
+  },
 });
 
 export const Checkmark = styled('span')(({ theme }) => ({
@@ -66,15 +71,17 @@ export const Checkmark = styled('span')(({ theme }) => ({
   },
 }));
 
-export const Label = styled('span')(({ theme }) => ({
+export const Label = styled('label')(({ theme }) => ({
   fontSize: '15rem',
   fontWeight: 400,
   color: theme.colors.gray[700],
   lineHeight: 1.5,
   marginLeft: '15rem',
   userSelect: 'none',
+  cursor: 'pointer',
   [`${Checkbox}.disabled &`]: {
     color: theme.colors.gray[200],
+    cursor: 'default',
   },
   '@media (max-width: 768px)': {
     fontSize: '14rem',
