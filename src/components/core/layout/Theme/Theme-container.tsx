@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
+import smoothscroll from 'smoothscroll-polyfill';
 import { ColorScheme, DeviceType } from 'context';
 import * as Types from 'types';
 import { getDeviceColorScheme, getDeviceType } from 'helpers';
 import { ContainerProps, Themes } from './Theme-types';
 import { ResetCSS, FontFaces, DefaultCSS } from './Theme-styles';
+
+smoothscroll.polyfill();
 
 const light: DefaultTheme = {
   colorScheme: 'light',

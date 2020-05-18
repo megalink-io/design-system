@@ -23,6 +23,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 👷 Changed
 
+- Change Theme (layout) core component
+  - Add smoothscroll polyfill
 - Change Checkbox (input) core component
   - Add onBlur property
 - Change useForm hook
