@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 - Add new icons
   - copy
   - share
+- Add new peer dependency
+  - smoothscroll-polyfill
 
 ### 👷 Changed
 

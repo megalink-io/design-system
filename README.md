@@ -39,6 +39,7 @@ The following peer dependencies are required:
 "react-dom": ">= 16.13.0",
 "react-router-dom": ">= 5.1.0",
 "styled-components": ">= 5.0.0",
+"smoothscroll-polyfill": ">= 0.4.0",
 "typescript": ">= 3.8.0"
 ```
 
