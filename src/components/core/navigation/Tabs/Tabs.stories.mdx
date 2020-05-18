@@ -1,0 +1,64 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { IconButton } from 'components/core/actions';
+import { HouseSVG, ListSVG, FolderSVG } from 'icons';
+import Tabs from '.';
+
+<Meta title="Components/core/navigation/Tabs" component={Tabs} />
+
+# Tabs
+
+Tabs organize content into multiple sections and allow users to navigate between them.
+
+<Preview withToolbar>
+  <Story name="Default">
+    <Tabs
+      tabs={[
+        {
+          label: 'Tab one',
+          to: '/tab-one',
+        },
+        {
+          label: 'Tab two',
+          to: '/tab-two',
+        },
+        {
+          label: 'Tab three',
+          to: '/tab-three',
+        },
+        {
+          label: 'Tab four',
+          to: '/tab-four',
+        },
+      ]}
+    />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Tabs } from '@mds/components/core/navigation';
+```
+
+```tsx
+<Tabs
+  tabs={[
+    {
+      label: 'Tab one',
+      to: '/tab-one',
+    },
+    {
+      label: 'Tab two',
+      to: '/tab-two',
+    },
+    {
+      label: 'Tab three',
+      to: '/tab-three',
+    },
+  ]}
+/>
+```
+
+## Props table
+
+<Props of={Tabs} />
