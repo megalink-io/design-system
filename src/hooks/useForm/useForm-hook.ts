@@ -54,10 +54,18 @@ const getInitFieldsState = (fieldsInfo: FieldsInfo) => {
 
 /** Custom React hook for handling the business logic of forms. */
 const useForm = (fieldsInfo: FieldsInfo): Form => {
+  // Create inital fields state
+  const initFieldsState = useMemo<FieldsState>(() => getInitFieldsState(fieldsInfo), [fieldsInfo]);
+
   // Create fields, response and button state
-  const [fieldsState, setFieldsState] = useState<FieldsState>(() => getInitFieldsState(fieldsInfo));
+  const [fieldsState, setFieldsState] = useState<FieldsState>(initFieldsState);
   const [responseState, setResponseState] = useState<ResponseState>({ status: '', message: '' });
   const [buttonState, setButtonState] = useState<ButtonState>({ loading: false });
+
+  // Update fields state if fields info changes
+  useEffect(() => {
+    setFieldsState(initFieldsState);
+  }, [initFieldsState]);
 
   // Reset form response after 10 seconds
   useEffect(() => {
@@ -267,6 +275,30 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
     }
   }, [fieldsInfo, fieldsState, updateFields]);
 
+  // Check if form has changes
+  const hasChanges = useCallback(() => {
+    return Object.keys(fieldsInfo).some(name => {
+      let initalValue: string | boolean;
+      let currentValue: string | boolean;
+      switch (fieldsInfo[name].type) {
+        case 'text_input':
+          initalValue = (fieldsInfo[name] as TextInputInfo).value || '';
+          currentValue = (fieldsState[name] as TextInputState).value;
+          return initalValue !== currentValue;
+        case 'dropdown':
+          initalValue = (fieldsInfo[name] as DropdownInfo).value || '';
+          currentValue = (fieldsState[name] as DropdownState).value;
+          return initalValue !== currentValue;
+        case 'checkbox':
+          initalValue = (fieldsInfo[name] as CheckboxInfo).selected || false;
+          currentValue = (fieldsState[name] as CheckboxState).selected;
+          return initalValue !== currentValue;
+        default:
+          return false;
+      }
+    });
+  }, [fieldsInfo, fieldsState]);
+
   // Return the form data and functions
   return {
     fields,
@@ -276,6 +308,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
     updateResponse,
     updateButton,
     validate,
+    hasChanges,
   };
 };
 

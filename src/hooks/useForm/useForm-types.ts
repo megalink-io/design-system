@@ -58,7 +58,7 @@ export interface Dropdown extends TextInputState {
 
 export interface CheckboxInfo {
   type: 'checkbox';
-  validate: (value: boolean, fields: FieldsState) => boolean;
+  validate: (value: boolean, fieldsState: FieldsState) => boolean;
   selected?: boolean;
 }
 
@@ -138,4 +138,5 @@ export interface Form {
   updateResponse: (responseUpdate: ResponseUpdate) => void;
   updateButton: (buttonUpdate: ButtonUpdate) => void;
   validate: () => void;
+  hasChanges: () => boolean;
 }
