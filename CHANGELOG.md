@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Dropdown (inputs)
   - InputError (inputs)
   - InputLabel (inputs)
+  - Flexbox (layout)
   - Tabs (navigation)
   - StatusLight (status)
 - Add new icons

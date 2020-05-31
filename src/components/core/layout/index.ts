@@ -1,4 +1,5 @@
 export { default as Content } from './Content';
+export { default as Flexbox } from './Flexbox';
 export { default as Main } from './Main';
 export { default as Page } from './Page';
 export { default as Section } from './Section';
