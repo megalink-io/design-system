@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Flexbox (layout)
   - Tabs (navigation)
   - StatusLight (status)
+- Add new helpers
+  - getHashCode
+  - isValidColorCode
 - Add new icons
   - copy
   - share
