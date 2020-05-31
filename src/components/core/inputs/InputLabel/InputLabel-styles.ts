@@ -23,7 +23,7 @@ export const Span = styled('span')(({ theme }) => ({
 
 export const Required = styled('span')(({ theme }) => ({
   fontSize: '110%',
-  marginLeft: '8rem',
+  marginLeft: '6rem',
   color: theme.colors.red[1000],
   [`${Label}.disabled &, ${Span}.disabled &`]: {
     color: theme.colors.gray[500],
