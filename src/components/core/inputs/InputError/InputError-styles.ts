@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputError = styled('div')({
   maxHeight: 0,
   opacity: 0,
-  transition: 'max-height 0.1s ease-out, opacity 0.1s ease-out',
+  transition: 'max-height 0.2s ease-out, opacity 0.2s ease-out',
 });
 
 export const Message = styled('span')(({ theme }) => ({
