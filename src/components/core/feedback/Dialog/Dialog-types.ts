@@ -4,7 +4,7 @@ interface DefaultButtonProps {
 
 interface NormalButtonProps extends DefaultButtonProps {
   type: 'button';
-  onClick: () => void;
+  onClick: () => void | Promise<void>;
 }
 
 interface InternalLinkProps extends DefaultButtonProps {

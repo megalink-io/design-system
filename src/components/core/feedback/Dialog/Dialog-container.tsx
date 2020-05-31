@@ -63,8 +63,9 @@ export const DialogContainer: React.FC<ContainerProps> = React.memo(
       if (actionButton.type === 'button') {
         const handleClick = () => {
           setActionButtonLoading(true);
-          actionButton.onClick();
-          setActionButtonLoading(false);
+          Promise.resolve(actionButton.onClick()).then(() => {
+            setActionButtonLoading(false);
+          });
         };
 
         return {
@@ -88,8 +89,9 @@ export const DialogContainer: React.FC<ContainerProps> = React.memo(
         if (cancelButton.type === 'button') {
           const handleClick = () => {
             setCancelButtonLoading(true);
-            cancelButton.onClick();
-            setCancelButtonLoading(false);
+            Promise.resolve(cancelButton.onClick()).then(() => {
+              setCancelButtonLoading(false);
+            });
           };
 
           return {

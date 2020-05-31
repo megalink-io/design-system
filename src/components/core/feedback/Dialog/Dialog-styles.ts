@@ -47,7 +47,7 @@ export const Dialog = styled('div')({
 export const Box = styled('div')(
   ({ theme }) => ({
     width: '500rem',
-    maxWidth: '80%',
+    maxWidth: 'calc(100% - 40rem)',
     maxHeight: '70%',
     overflowX: 'auto',
     padding: '30rem',
