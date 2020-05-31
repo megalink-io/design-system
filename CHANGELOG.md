@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 - Add new core components
   - FloatingButton (actions)
+  - DataTable (data)
   - NavTable (data)
   - Dropdown (inputs)
   - InputError (inputs)
