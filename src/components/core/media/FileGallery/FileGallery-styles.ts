@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const FileGallery = styled('div')({
+export const FileGallery = styled('div')({});
+
+export const Items = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
   width: 'calc(100% + 50rem)',
