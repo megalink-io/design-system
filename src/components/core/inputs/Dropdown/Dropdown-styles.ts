@@ -73,6 +73,12 @@ export const Button = styled('button')(({ theme }) => ({
     height: '50rem',
     [`${Dropdown}.slim &`]: {
       height: '40rem',
+      '& svg': {
+        height: '18rem',
+        maxHeight: '18rem',
+        maxWidth: '18rem',
+        marginLeft: '15rem',
+      },
     },
   },
 }));
@@ -91,6 +97,9 @@ export const ButtonLabel = styled('span')(({ theme }) => ({
   },
   '@media (max-width: 768px)': {
     fontSize: '15rem',
+    [`${Dropdown}.slim &`]: {
+      fontSize: '14rem',
+    },
   },
 }));
 
@@ -98,7 +107,7 @@ export const List = styled('ul')(({ theme }) => ({
   zIndex: 1,
   position: 'absolute',
   top: '100%',
-  left: 0,
+  right: 0,
   width: '100%',
   maxHeight: '198rem',
   overflowY: 'auto',
@@ -119,6 +128,9 @@ export const List = styled('ul')(({ theme }) => ({
     opacity: 1,
     transform: 'translateY(8rem) scaleY(1)',
     transition: 'opacity 0.15s ease-out, transform 0.15s ease-out, visibility 0s ease',
+  },
+  [`${Dropdown}.slim &`]: {
+    width: 'auto',
   },
 }));
 
