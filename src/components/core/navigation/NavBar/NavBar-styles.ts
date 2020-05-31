@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const NavBar = styled('header')({
+  height: '50rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -10,11 +11,12 @@ export const NavBar = styled('header')({
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
   },
-  '& > * + *': {
+  '& > *:not(.Tabs) + *': {
     marginLeft: '30rem',
   },
   '@media (max-width: 768px)': {
-    '& > * + *': {
+    height: '40rem',
+    '& > *:not(.Tabs) + *': {
       marginLeft: '15rem',
     },
   },
