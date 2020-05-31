@@ -51,6 +51,10 @@ export const Link = styled(NavLink)(({ theme }) => ({
   '&:hover, &.active': {
     color: theme.colors.gray[900],
   },
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
+    outlineOffset: '2rem',
+  },
   '& + &': {
     marginLeft: '38rem',
   },

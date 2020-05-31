@@ -9,4 +9,5 @@ export interface ContainerProps {
 
 export interface ViewProps extends ContainerProps {
   scrollbarElementRef: React.RefObject<HTMLElement>;
+  hashCode: number;
 }
