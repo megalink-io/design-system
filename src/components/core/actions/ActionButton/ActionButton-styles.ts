@@ -92,6 +92,7 @@ export const ExternalLink = styled('a')<StylesProps>(({ theme, color }) =>
 export const Label = styled('span')({
   fontSize: '15rem',
   fontWeight: 500,
+  whiteSpace: 'nowrap',
   [`${ActionButton}.loading &`]: {
     opacity: 0,
     visibility: 'hidden',
