@@ -63,7 +63,7 @@ export const MainAppCSS = createGlobalStyle(({ theme }) => ({
     '& > .Main': {
       minHeight: 'calc(100vh - 56rem)', // minus TabBar height
       position: 'relative',
-      padding: '10rem',
+      padding: '10rem 10rem 70rem 10rem',
       boxSizing: 'border-box',
       backgroundColor: theme.colors.gray[0],
       '& > .CircleLoader': {
@@ -84,7 +84,7 @@ export const MainAppCSS = createGlobalStyle(({ theme }) => ({
         height: 'calc(100vh - 150rem)',
       },
       '& > .Section': {
-        padding: '30rem 10rem',
+        padding: '30rem 10rem 10rem 10rem',
       },
     },
     '& > .Bureaucracy': {
@@ -94,22 +94,26 @@ export const MainAppCSS = createGlobalStyle(({ theme }) => ({
       backgroundColor: theme.colors.gray[0],
     },
   },
-  // Spacing of the coponents
+  // Spacing of the components
   '.Section > *, .Form > *': {
-    '&.NavBar + .FileGallery': {
-      marginTop: '50rem',
+    // Default Spacing
+    '&.NavBar + *, & + .Title, & + .Heading, & + .Flexbox.headline': {
+      marginTop: '70rem',
     },
-    '&.NavBar + .FileDetails': {
-      marginTop: '76rem',
+    '&.Title + *, &.Heading + *, &.Flexbox.headline + *': {
+      marginTop: '30rem',
     },
-    '@media (max-width: 1200px)': {
-      '&.NavBar + .FileDetails': {
-        marginTop: '50rem',
-      },
+    '& + *': {
+      marginTop: '20rem',
+    },
+    // Special Spacing
+    '&.Flexbox > .Content > .Paragraph + .Detail': {
+      marginTop: '10rem',
     },
     '@media (max-width: 768px)': {
-      '&.NavBar + .FileDetails': {
-        marginTop: '40rem',
+      // Default Spacing
+      '&.NavBar + *': {
+        marginTop: '50rem',
       },
     },
   },

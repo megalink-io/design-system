@@ -474,7 +474,7 @@ export const SignupPreview: React.FC = () => {
               () => (
                 <>
                   I agree to the{' '}
-                  <Link href="https://www.megalink.io/privacy-policy" target="_blank">
+                  <Link href="https://www.megalink.io/privacy-policy" target="_blank" underlined>
                     privacy policy
                   </Link>
                 </>
