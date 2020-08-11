@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Flexbox (layout)
   - Tabs (navigation)
   - StatusLight (status)
+- Add new link page component
+  - DesignPreset (other)
 - Add new helpers
   - getHashCode
   - isValidColorCode

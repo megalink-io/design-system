@@ -1,0 +1,74 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean, text, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import DesignPreset from '.';
+
+<Meta title="Components/link-page/other/DesignPreset" component={DesignPreset} />
+
+# DesignPreset
+
+A clickable element that serves as a preview of the link page's design presets.
+
+export const getProps = (id) => ({
+  selected: boolean('Selected', false, id),
+  onClick: action('onClick', id),
+  design: {
+    document: {
+      backgroundVariant: select('Design > Document > Background variant', ['color', 'line_gradient'], 'color', id),
+      backgroundColor: text('Design > Document > Background color', '#fff', id),
+      backgroundLineGradient: text('Design > Document > Background line gradient', '', id),
+    },
+    elements: {
+      default: {
+        alignment: select('Design > Elements > Default > Alignment', ['left', 'center', 'right'], 'center', id),
+        fontFamily: select('Design > Elements > Default > Font family', ['poppins', 'open_sans', 'gelasio', 'roboto_mono'], 'poppins', id),
+        fontColor: text('Design > Elements > Default > Font color', '#fff', id),
+        shape: select('Design > Elements > Default > Shape', ['angular', 'rounded', 'round'], 'angular', id),
+        backgroundVariant: select('Design > Elements > Default > Background variant', ['filled', 'outlined'], 'filled', id),
+        backgroundColor: text('Design > Elements > Default > Background color', '#313131', id),
+        shadowVariant: select('Design > Elements > Default > Shadow variant', ['none', 'soft', 'hard'], 'none', id),
+        shadowColor: text('Design > Elements > Default > Shadow color', '', id),
+      }
+    }
+  }
+});
+
+<Preview withToolbar>
+  <Story name="Default">
+    <DesignPreset {...getProps('default')} />
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { DesignPreset } from '@mds/components/link-page/other';
+```
+
+```tsx
+<DesignPreset
+  selected={false}
+  onClick={() => handleClick()}
+  design={{
+    document: {
+      backgroundVariant: 'color',
+      backgroundColor: '#fff',
+    },
+    elements: {
+      default: {
+        alignment: 'center',
+        fontFamily: 'poppins',
+        fontColor: '#fff',
+        shape: 'angular',
+        backgroundVariant: 'filled',
+        backgroundColor: '#313131',
+        shadowVariant: 'none',
+      },
+    },
+  }}
+/>
+```
+
+## Props table
+
+<Props of={DesignPreset} />
