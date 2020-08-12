@@ -1,0 +1,86 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Flexbox } from '../../layout';
+import { DesignPreset } from '../../../link-page/other';
+import { Paragraph } from '../../typography';
+import Scrollability from '.';
+
+<Meta title="Components/core/layout/Scrollability" component={Scrollability} />
+
+# Scrollability
+
+A wrapper component that allows horizontal or vertical scrolling if required.
+
+export const designPresetProps = {
+  selected: false,
+  onClick: () => {},
+  design: {
+    document: {
+      backgroundVariant: 'color',
+      backgroundColor: '#fff',
+    },
+    elements: {
+      default: {
+        alignment: 'center',
+        fontFamily: 'poppins',
+        fontColor: '#fff',
+        shape: 'angular',
+        backgroundVariant: 'filled',
+        backgroundColor: '#313131',
+        shadowVariant: 'none',
+      },
+    },
+  },
+};
+
+<Preview withToolbar>
+  <Story name="Horizontal">
+    <Scrollability horizontal>
+      <DesignPreset {...designPresetProps} />
+      <DesignPreset {...designPresetProps} />
+      <DesignPreset {...designPresetProps} />
+      <DesignPreset {...designPresetProps} />
+      <DesignPreset {...designPresetProps} />
+      <DesignPreset {...designPresetProps} />
+    </Scrollability>
+  </Story>
+  <Story name="Vertical">
+    <Scrollability vertical maxHeight="150rem">
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+        dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+        sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+        vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+        elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+        consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
+        a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
+        imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget
+        dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
+        libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus
+        pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
+        sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros
+        faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+        magna.
+      </Paragraph>
+    </Scrollability>
+  </Story>
+</Preview>
+
+## Code example
+
+```tsx
+import { Scrollability } from '@mds/components/core/layout';
+```
+
+```tsx
+<Scrollability horizontal>
+  ...
+</Scrollability>
+```
+
+## Props table
+
+<Props of={Scrollability} />
+
+> Storybook sometimes has problems to recognize the props correctly. In the table the properties "horizontal", "vertical" and "maxHeight" might be missing.

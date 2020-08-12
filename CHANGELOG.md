@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - InputError (inputs)
   - InputLabel (inputs)
   - Flexbox (layout)
+  - Scrollability (layout)
   - Tabs (navigation)
   - StatusLight (status)
 - Add new link page component
