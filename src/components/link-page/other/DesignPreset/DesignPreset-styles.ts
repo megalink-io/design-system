@@ -31,6 +31,10 @@ export const DesignPreset = styled('button')<{ design: Design }>(({ theme, desig
     border: `solid 2rem ${theme.colors.blue[1000]}`,
     cursor: 'default',
   },
+  '@media (max-width: 768px)': {
+    height: '120rem',
+    width: '120rem',
+  },
 }));
 
 const getElementBorderRadius = (design: Design) => {
@@ -85,6 +89,13 @@ export const Element = styled('div')<{ design: Design }>(({ design }) => ({
     height: '48rem',
     '& path': {
       fill: design.elements.button?.fontColor || design.elements.default.fontColor,
+    },
+  },
+  '@media (max-width: 768px)': {
+    height: '60rem',
+    width: '60rem',
+    '& svg': {
+      height: '32rem',
     },
   },
 }));
