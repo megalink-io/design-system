@@ -1,4 +1,5 @@
 /* eslint-disable no-bitwise */
+import { getSortedObject } from 'helpers';
 
 /** Helper function to get a hash code from a string, number or object. */
 const getHashCode = (source: string | number | object) => {
@@ -6,7 +7,7 @@ const getHashCode = (source: string | number | object) => {
   if (typeof source === 'number') {
     sourceString = source.toString();
   } else if (typeof source === 'object') {
-    sourceString = JSON.stringify(source);
+    sourceString = JSON.stringify(getSortedObject(source));
   } else {
     sourceString = source;
   }
