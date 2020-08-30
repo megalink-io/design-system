@@ -8,11 +8,15 @@ export const Checkbox = styled('div')({
   },
 });
 
+export const Checkmark = styled('div')({
+  position: 'relative',
+});
+
 export const Input = styled('input')({
   zIndex: 1,
   position: 'absolute',
-  top: '-15rem',
-  left: '-15rem',
+  top: '-17rem',
+  left: '-17rem',
   height: '50rem',
   width: '50rem',
   opacity: 0,
@@ -22,7 +26,7 @@ export const Input = styled('input')({
   },
 });
 
-export const Checkmark = styled('span')(({ theme }) => ({
+export const Box = styled('div')(({ theme }) => ({
   height: '20rem',
   width: '20rem',
   minWidth: '20rem',

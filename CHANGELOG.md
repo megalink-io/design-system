@@ -39,6 +39,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Add smoothscroll polyfill
 - Change Checkbox (input) core component
   - Add onBlur property
+  - Update HTML structure
+  - Update CSS code
 - Change useForm hook
   - Add support for dropdown fields
   - Add onBlur property to checkbox fields
@@ -55,7 +57,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🛠️ Fixed
 
-\-
+- Fixed Checkbox (input) core component
+  - Update HTML structure
+  - Update CSS code
 
 ### 👮 Security
 
