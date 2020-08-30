@@ -31,6 +31,9 @@ export const DesignPreset = styled('button')<{ design: Design }>(({ theme, desig
     border: `solid 2rem ${theme.colors.blue[1000]}`,
     cursor: 'default',
   },
+  '.tabbing &:focus': {
+    outline: `auto ${theme.colors.blue[1000]}`,
+  },
   '@media (max-width: 768px)': {
     height: '120rem',
     width: '120rem',
