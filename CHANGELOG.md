@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - DesignPreset (other)
 - Add new helpers
   - getHashCode
+  - getSortedObject
   - isValidColorCode
 - Add new icons
   - copy
