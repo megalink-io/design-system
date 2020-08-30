@@ -128,6 +128,7 @@ export const SingleFormCSS = createGlobalStyle({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      alignItems: 'center',
       textAlign: 'center',
       padding: '80rem 20rem',
       boxSizing: 'border-box',
