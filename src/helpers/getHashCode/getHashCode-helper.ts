@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise */
-import { getSortedObject } from 'helpers';
+import getSortedObject from '../getSortedObject';
 
 /** Helper function to get a hash code from a string, number or object. */
 const getHashCode = (source: string | number | object) => {
