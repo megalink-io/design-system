@@ -1,7 +1,7 @@
 import * as Types from 'types';
 
 interface ImageFile {
-  id: string;
+  fileId: string;
   created: Date;
   modified: Date;
   type: string;

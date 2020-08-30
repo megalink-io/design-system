@@ -11,7 +11,11 @@ const FileGalleryView: React.FC<ViewProps> = ({
   <FileGallery className="FileGallery">
     <Items>
       {files.map(file => (
-        <ItemLink key={file.id} to={`${rootPath}/${file.id}`} replace={deviceType === 'desktop'}>
+        <ItemLink
+          key={file.fileId}
+          to={`${rootPath}/${file.fileId}`}
+          replace={deviceType === 'desktop'}
+        >
           <ItemChild>
             {file.type.includes('image') && (
               <Image

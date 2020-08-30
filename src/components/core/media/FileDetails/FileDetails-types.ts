@@ -1,5 +1,5 @@
 interface ImageFile {
-  id: string;
+  fileId: string;
   created: Date;
   modified: Date;
   type: string;

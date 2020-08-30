@@ -41,6 +41,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Add onBlur property
   - Update HTML structure
   - Update CSS code
+- Change FileDetails and FileGallery (media) core component
+  - Update value "id" to "fileId"
 - Change useForm hook
   - Add support for dropdown fields
   - Add onBlur property to checkbox fields
