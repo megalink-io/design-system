@@ -24,7 +24,7 @@ export const IconButtonView: React.FC<ViewProps> = React.memo(
           rel={target ? 'noreferrer noopener' : undefined}
           download={download}
         >
-          {counter && <Counter>{counter}</Counter>}
+          {!!counter && <Counter>{counter}</Counter>}
           {icon}
         </ExternalLink>
       );
@@ -41,7 +41,7 @@ export const IconButtonView: React.FC<ViewProps> = React.memo(
           replace={replace}
           exact={exact}
         >
-          {counter && <Counter>{counter}</Counter>}
+          {!!counter && <Counter>{counter}</Counter>}
           {icon}
         </InternalLink>
       );
@@ -57,7 +57,7 @@ export const IconButtonView: React.FC<ViewProps> = React.memo(
         onClick={loading ? undefined : onClick}
         disabled={disabled}
       >
-        {counter && <Counter>{counter}</Counter>}
+        {!!counter && <Counter>{counter}</Counter>}
         {loading ? (
           <CircleLoader color={variant === 'primary' ? 'background' : color} size="small" />
         ) : (

@@ -59,7 +59,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 ### 🛠️ Fixed
 
-- Fixed Checkbox (input) core component
+- Fix IconButton (action) core component
+  - Update behaviour for 0 values of counter property
+- Fix Checkbox (input) core component
   - Update HTML structure
   - Update CSS code
 
