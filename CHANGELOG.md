@@ -35,6 +35,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
 
 - Change Dialog (feedback) core component
   - Add async support to action and cancel button
+- Change Content (layout) core component
+  - Add width property
 - Change Theme (layout) core component
   - Add smoothscroll polyfill
 - Change Checkbox (input) core component
