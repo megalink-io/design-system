@@ -6,8 +6,8 @@ import FloatingButtonView from './FloatingButton-view';
 /**
  * A floating button with an icon at the bottom right of the
  * screen used to navigate or perform individual actions.
- * */
-export const FloatingButtonContainer: React.FC<ContainerProps> = React.memo(props => {
+ */
+export const FloatingButtonContainer: React.FC<ContainerProps> = React.memo((props) => {
   const { loading } = props as ButtonProps;
 
   const [deviceType] = useContext(DeviceType);

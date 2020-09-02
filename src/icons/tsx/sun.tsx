@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const Sun: React.FC<Types.SVGProps> = props => (
+const Sun: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 48 48" {...props}>
     <path
       fill="none"

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const MoneyWithWings: React.FC<Types.SVGProps> = props => (
+const MoneyWithWings: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 72 72" {...props}>
     <path
       fill="#FFF"
@@ -11,10 +11,34 @@ const MoneyWithWings: React.FC<Types.SVGProps> = props => (
       fill="#FFF"
       d="M22.15 53.02c.12.8-.36 1.98-1.31 2.98-.3.3-.6.56-.9.76m-1.97-1.1a2.4 2.4 0 01-.8 1.49"
     />
-    <circle cx={34.43} cy={24.15} transform="rotate(-45 34.43 24.15)" fill="#5C9E31" r={2.33} />
-    <circle cx={52.08} cy={41.36} transform="rotate(-45 52.08 41.36)" fill="#5C9E31" r={2.33} />
-    <circle cx={24.32} cy={34.26} transform="rotate(-45 24.32 34.26)" fill="#5C9E31" r={2.33} />
-    <circle cx={41.58} cy={51.52} transform="rotate(-45 41.58 51.52)" fill="#5C9E31" r={2.33} />
+    <circle
+      cx={34.43}
+      cy={24.15}
+      transform="rotate(-45 34.43 24.15)"
+      fill="#5C9E31"
+      r={2.33}
+    />
+    <circle
+      cx={52.08}
+      cy={41.36}
+      transform="rotate(-45 52.08 41.36)"
+      fill="#5C9E31"
+      r={2.33}
+    />
+    <circle
+      cx={24.32}
+      cy={34.26}
+      transform="rotate(-45 24.32 34.26)"
+      fill="#5C9E31"
+      r={2.33}
+    />
+    <circle
+      cx={41.58}
+      cy={51.52}
+      transform="rotate(-45 41.58 51.52)"
+      fill="#5C9E31"
+      r={2.33}
+    />
     <path
       fill="#5C9E31"
       d="M53.99 40.91L52.8 42.1 33.48 22.77l1.18-1.18zM42.24 52.18l-1.18 1.18-19.33-19.33 1.18-1.18z"
@@ -39,7 +63,13 @@ const MoneyWithWings: React.FC<Types.SVGProps> = props => (
       fill="#FFF"
       d="M53.43 21.74c.8.12 1.98-.36 2.98-1.31.3-.3.56-.6.76-.9m-1.1-1.97a2.4 2.4 0 001.49-.8"
     />
-    <g fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit={10} strokeWidth={2}>
+    <g
+      fill="none"
+      stroke="#000"
+      strokeLinecap="round"
+      strokeMiterlimit={10}
+      strokeWidth={2}
+    >
       <path d="M13.98 56.78c.36.36.85.52 1.32.47 0 0 8.9.05 13.97-4.8l.18-.18a4.7 4.7 0 10-6.64-6.64l-8.83 8.83a1.64 1.64 0 000 2.32zm3.26.36l-.01-.01" />
       <path d="M22.15 53.02c.12.8-.36 1.98-1.31 2.98-.3.3-.6.56-.9.76m-1.97-1.1a2.4 2.4 0 01-.8 1.49" />
       <path

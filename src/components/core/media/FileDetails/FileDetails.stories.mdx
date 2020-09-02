@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import FileDetails from '.';
 
 <Meta title="Components/core/media/FileDetails" component={FileDetails} />
@@ -7,7 +13,7 @@ import FileDetails from '.';
 
 <Description of={FileDetails} />
 
-export const Template = args => <FileDetails {...args} />;
+export const Template = (args) => <FileDetails {...args} />;
 
 <Canvas withToolbar>
   <Story name="Default" args={{ file }}>

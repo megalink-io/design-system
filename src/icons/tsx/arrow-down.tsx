@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const ArrowDown: React.FC<Types.SVGProps> = props => (
+const ArrowDown: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 32 48" {...props}>
     <path
       fill="none"

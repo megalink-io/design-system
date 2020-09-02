@@ -5,7 +5,7 @@ import CheckboxView from './Checkbox-view';
 /**
  * A check box that allows users to select an option. The label
  * next to the checkbox describes the selection option.
- * */
+ */
 export const CheckboxContainer: React.FC<ContainerProps> = React.memo(
   ({ name, selected, error, onChange, onBlur, disabled, centered, ...props }) => {
     const getClassName = () => {

@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import ActionButton from '.';
 
 <Meta title="Components/core/actions/ActionButton" component={ActionButton} />
@@ -7,9 +13,9 @@ import ActionButton from '.';
 
 <Description of={ActionButton} />
 
-export const Template = args => <ActionButton {...args} />;
+export const Template = (args) => <ActionButton {...args} />;
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   label: 'Button',
   variant: id,
   color: 'blue',
@@ -54,7 +60,12 @@ import { ActionButton } from '@mds/components/core/actions';
 <Canvas withToolbar>
   <Story
     name="Internal link"
-    args={{ label: 'Settings', variant: 'secondary', type: 'link', to: '/settings' }}
+    args={{
+      label: 'Settings',
+      variant: 'secondary',
+      type: 'link',
+      to: '/settings',
+    }}
   >
     {Template.bind({})}
   </Story>

@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { ActionButton } from 'components/core/actions';
 import Dialog from '.';
 
@@ -11,7 +17,7 @@ import Dialog from '.';
 
 > Click on one of the buttons to open a sample dialog.
 
-export const Template = args => {
+export const Template = (args) => {
   const [open, setOpen] = useState(false);
   const getButtonColor = () => {
     switch (args.variant) {
@@ -72,7 +78,7 @@ export const Template = args => {
   );
 };
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   variant: id,
   heading: 'This is the heading',
   message: `This is just a great example text for the ${id} dialog message.`,

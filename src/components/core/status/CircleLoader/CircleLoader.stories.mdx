@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import CircleLoader from '.';
 
 <Meta title="Components/core/status/CircleLoader" component={CircleLoader} />
@@ -7,9 +13,9 @@ import CircleLoader from '.';
 
 <Description of={CircleLoader} />
 
-export const Template = args => <CircleLoader {...args} />;
+export const Template = (args) => <CircleLoader {...args} />;
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   size: id,
   color: 'blue',
 });

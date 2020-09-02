@@ -11,7 +11,9 @@ export const StatusLightView: React.FC<ViewProps> = ({ color, label, disabled })
   <StatusLight className={`StatusLight ${disabled ? ' disabled' : ''}`}>
     <Dot color={color} />
     {label && (
-      <Detail color={color === 'white' || color === 'black' ? color : undefined}>{label}</Detail>
+      <Detail color={color === 'white' || color === 'black' ? color : undefined}>
+        {label}
+      </Detail>
     )}
   </StatusLight>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const GlobeShowingAmericas: React.FC<Types.SVGProps> = props => (
+const GlobeShowingAmericas: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 72 72" {...props}>
     <circle cx={36} cy={36} r={28} fill="#92D3F5" />
     <path

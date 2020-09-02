@@ -5,8 +5,8 @@ import TextInputView from './TextInput-view';
 /**
  * A text input field that users can type into. Various decorations can be
  * displayed in or around the field to communicate the entry requirements.
- * */
-export const TextInputContainer: React.FC<ContainerProps> = React.memo(props => {
+ */
+export const TextInputContainer: React.FC<ContainerProps> = React.memo((props) => {
   const { name, value, error, onChange, onBlur, required, disabled } = props;
   const { multiline } = props as TextTypeProps;
   const textareaElement = useRef<HTMLTextAreaElement>(null);

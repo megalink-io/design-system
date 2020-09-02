@@ -6,8 +6,8 @@ import FileGalleryView from './FileGallery-view';
 /**
  * A gallery that displays files in an overview. Each file is
  * linked to its subpage, which contains further information.
- * */
-export const FileGalleryContainer: React.FC<ContainerProps> = React.memo(props => {
+ */
+export const FileGalleryContainer: React.FC<ContainerProps> = React.memo((props) => {
   const [deviceType] = useContext(DeviceType);
 
   const getSizeAttribute = (imgWidth: number, imgHeight: number) => {
@@ -20,7 +20,13 @@ export const FileGalleryContainer: React.FC<ContainerProps> = React.memo(props =
     return '(max-width: 768px) calc(33vw - 27px), calc(700px / 3 - 33px)';
   };
 
-  return <FileGalleryView {...props} deviceType={deviceType} getSizeAttribute={getSizeAttribute} />;
+  return (
+    <FileGalleryView
+      {...props}
+      deviceType={deviceType}
+      getSizeAttribute={getSizeAttribute}
+    />
+  );
 });
 
 export default FileGalleryContainer;

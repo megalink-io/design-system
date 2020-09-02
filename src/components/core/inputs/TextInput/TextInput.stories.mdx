@@ -1,5 +1,11 @@
 import { useMemo } from 'react';
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import TextInput from '.';
 
@@ -9,7 +15,7 @@ import TextInput from '.';
 
 <Description of={TextInput} />
 
-export const getFieldsInfo = label => ({
+export const getFieldsInfo = (label) => ({
   example: {
     type: 'text_input',
     validate(value) {
@@ -40,7 +46,7 @@ export const getFieldsInfo = label => ({
   },
 });
 
-export const Template = args => {
+export const Template = (args) => {
   const fieldsInfo = useMemo(() => {
     return getFieldsInfo(args.label);
   }, [args.label]);
@@ -51,7 +57,12 @@ export const Template = args => {
 <Canvas withToolbar>
   <Story
     name="Text field"
-    args={{ type: 'text', label: 'First name', placeholder: 'John', required: true }}
+    args={{
+      type: 'text',
+      label: 'First name',
+      placeholder: 'John',
+      required: true,
+    }}
   >
     {Template.bind({})}
   </Story>
@@ -64,7 +75,13 @@ import { TextInput } from '@mds/components/core/inputs';
 ```
 
 ```tsx
-<TextInput {...form.fields.firstName} type="text" label="First name" placeholder="John" required />
+<TextInput
+  {...form.fields.firstName}
+  type="text"
+  label="First name"
+  placeholder="John"
+  required
+/>
 ```
 
 ## Props table
@@ -78,7 +95,12 @@ import { TextInput } from '@mds/components/core/inputs';
 <Canvas withToolbar>
   <Story
     name="Email field"
-    args={{ type: 'email', label: 'Email', placeholder: 'example@email.com', required: true }}
+    args={{
+      type: 'email',
+      label: 'Email',
+      placeholder: 'example@email.com',
+      required: true,
+    }}
   >
     {Template.bind({})}
   </Story>
@@ -87,7 +109,10 @@ import { TextInput } from '@mds/components/core/inputs';
 ### Password field
 
 <Canvas withToolbar>
-  <Story name="Password field" args={{ type: 'password', label: 'Password', required: true }}>
+  <Story
+    name="Password field"
+    args={{ type: 'password', label: 'Password', required: true }}
+  >
     {Template.bind({})}
   </Story>
 </Canvas>

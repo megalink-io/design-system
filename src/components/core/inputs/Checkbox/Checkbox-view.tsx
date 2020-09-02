@@ -30,7 +30,7 @@ const CheckboxView: React.FC<ViewProps> = ({
         <CheckSVG />
       </Box>
     </Checkmark>
-    <Label htmlFor={name} id={`${name}-label`} onMouseDown={e => e.preventDefault()}>
+    <Label htmlFor={name} id={`${name}-label`} onMouseDown={(e) => e.preventDefault()}>
       {label}
     </Label>
   </Checkbox>

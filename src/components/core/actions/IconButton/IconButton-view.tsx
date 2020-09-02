@@ -1,6 +1,11 @@
 import React from 'react';
 import { CircleLoader } from 'components/core/status';
-import { ViewProps, ButtonProps, InternalLinkProps, ExternalLinkProps } from './IconButton-types';
+import {
+  ViewProps,
+  ButtonProps,
+  InternalLinkProps,
+  ExternalLinkProps,
+} from './IconButton-types';
 import { IconButton, InternalLink, ExternalLink, Counter } from './IconButton-styles';
 
 /** A button with an icon that is used to navigate or perform small actions. */
@@ -59,7 +64,10 @@ export const IconButtonView: React.FC<ViewProps> = React.memo(
       >
         {!!counter && <Counter>{counter}</Counter>}
         {loading ? (
-          <CircleLoader color={variant === 'primary' ? 'background' : color} size="small" />
+          <CircleLoader
+            color={variant === 'primary' ? 'background' : color}
+            size="small"
+          />
         ) : (
           icon
         )}

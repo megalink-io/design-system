@@ -11,7 +11,7 @@ import DialogView from './Dialog-view';
 /**
  * A dialog box that displays important information that users need to
  * acknowledge. They appear above the interface and block other interactions.
- * */
+ */
 export const DialogContainer: React.FC<ContainerProps> = React.memo(
   ({ open, variant, actionButton, cancelButton, ...props }) => {
     const [prevOpen, setPrevOpen] = useState<boolean>(open);

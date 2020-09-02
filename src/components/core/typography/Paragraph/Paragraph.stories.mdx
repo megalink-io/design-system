@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import Paragraph from '.';
 
 <Meta title="Components/core/typography/Paragraph" component={Paragraph} />
@@ -7,7 +13,7 @@ import Paragraph from '.';
 
 <Description of={Paragraph} />
 
-export const Template = args => <Paragraph {...args} />;
+export const Template = (args) => <Paragraph {...args} />;
 
 <Canvas withToolbar>
   <Story name="Default" args={{ children: 'This is a paragraph' }}>

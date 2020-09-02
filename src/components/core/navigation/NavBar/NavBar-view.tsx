@@ -5,7 +5,7 @@ import { NavBar } from './NavBar-styles';
 /**
  * A navigation bar that displays information
  * and actions related to the current page.
- * */
+ */
 export const NavBarView: React.FC<ViewProps> = React.memo(({ children }) => (
   <NavBar className="NavBar">{children}</NavBar>
 ));

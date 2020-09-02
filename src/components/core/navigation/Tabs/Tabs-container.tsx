@@ -6,9 +6,13 @@ import { ContainerProps } from './Tabs-types';
 import TabsView from './Tabs-view';
 
 const getPrevElements = (hashCode: number) => {
-  const prevScrollbarElement = document.querySelector<HTMLElement>(`.hash-${hashCode} nav`);
+  const prevScrollbarElement = document.querySelector<HTMLElement>(
+    `.hash-${hashCode} nav`
+  );
   if (prevScrollbarElement) {
-    const prevIndicatorElement = prevScrollbarElement.querySelector<HTMLSpanElement>('span');
+    const prevIndicatorElement = prevScrollbarElement.querySelector<HTMLSpanElement>(
+      'span'
+    );
     if (prevIndicatorElement) {
       return {
         scrollbarElement: {
@@ -29,8 +33,8 @@ const getPrevElements = (hashCode: number) => {
 /**
  * Tabs organize content into multiple sections
  * and allow users to navigate between them.
- * */
-export const TabsContainer: React.FC<ContainerProps> = React.memo(props => {
+ */
+export const TabsContainer: React.FC<ContainerProps> = React.memo((props) => {
   const { tabs } = props;
   const location = useLocation();
   const [colorScheme] = useContext(ColorScheme);
@@ -59,7 +63,9 @@ export const TabsContainer: React.FC<ContainerProps> = React.memo(props => {
   useEffect(() => {
     if (scrollbarElementRef.current) {
       const scrollbarElement = scrollbarElementRef.current;
-      const activeTabElement = scrollbarElement.querySelector<HTMLAnchorElement>('.active');
+      const activeTabElement = scrollbarElement.querySelector<HTMLAnchorElement>(
+        '.active'
+      );
       const indicatorElement = scrollbarElement.querySelector<HTMLSpanElement>('span');
       if (indicatorElement) {
         if (activeTabElement) {
@@ -68,9 +74,13 @@ export const TabsContainer: React.FC<ContainerProps> = React.memo(props => {
           indicatorElement.style.width = `${activeTabElement.offsetWidth}px`;
           indicatorElement.classList.add('active');
           // Update scrollbar scroll position
-          const leftSpacing = (scrollbarElement.offsetWidth - activeTabElement.offsetWidth) / 2;
+          const leftSpacing =
+            (scrollbarElement.offsetWidth - activeTabElement.offsetWidth) / 2;
           const newScrollLeft = activeTabElement.offsetLeft - leftSpacing;
-          scrollbarElement.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+          scrollbarElement.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth',
+          });
         } else {
           indicatorElement.classList.remove('active');
         }
@@ -78,7 +88,9 @@ export const TabsContainer: React.FC<ContainerProps> = React.memo(props => {
     }
   }, [location, colorScheme, deviceType]);
 
-  return <TabsView {...props} scrollbarElementRef={scrollbarElementRef} hashCode={hashCode} />;
+  return (
+    <TabsView {...props} scrollbarElementRef={scrollbarElementRef} hashCode={hashCode} />
+  );
 });
 
 export default TabsContainer;

@@ -22,7 +22,7 @@ export const InputLabelView: React.FC<ViewProps> = React.memo(
         className={className}
         id={htmlFor ? `${htmlFor}-label` : undefined}
         htmlFor={htmlFor || undefined}
-        onMouseDown={e => e.preventDefault()}
+        onMouseDown={(e) => e.preventDefault()}
       >
         {label}
         {required && <Required>*</Required>}

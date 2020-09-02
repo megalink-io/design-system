@@ -14,7 +14,7 @@ const NavTableView: React.FC<ViewProps> = ({
     {!headless && (
       <Head>
         <Row>
-          {headers.map(header =>
+          {headers.map((header) =>
             !header.visibility || header.visibility.includes(deviceType) ? (
               <Header key={header.key} align={header.align} primary={header.primary}>
                 {header.label}
@@ -25,13 +25,13 @@ const NavTableView: React.FC<ViewProps> = ({
       </Head>
     )}
     <Body>
-      {rows.map(row => (
+      {rows.map((row) => (
         <Row
           key={row.id}
           onClick={() => onRowClick(row.to)}
           onMouseEnter={onRowMouseEnter ? () => onRowMouseEnter(row.id) : undefined}
         >
-          {headers.map(header =>
+          {headers.map((header) =>
             !header.visibility || header.visibility.includes(deviceType) ? (
               <Data key={header.key} align={header.align} primary={header.primary}>
                 {row[header.key] || ''}

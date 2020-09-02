@@ -5,7 +5,7 @@ import DesignPresetView from './DesignPreset-view';
 /**
  * A clickable element that serves as a preview
  * of the link page's design presets.
- * */
+ */
 export const DesignPresetContainer: React.FC<ContainerProps> = React.memo(
   ({ selected, onClick, design }) => {
     const getClassName = () => {
@@ -21,7 +21,8 @@ export const DesignPresetContainer: React.FC<ContainerProps> = React.memo(
     };
 
     const getFontSvg = () => {
-      const fontFamily = design.elements.button?.fontFamily || design.elements.default.fontFamily;
+      const fontFamily =
+        design.elements.button?.fontFamily || design.elements.default.fontFamily;
       switch (fontFamily) {
         case 'poppins':
           return (

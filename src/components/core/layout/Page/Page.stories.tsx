@@ -258,7 +258,7 @@ const MainAppPage: React.FC = ({ children }) => {
   const [colorScheme, setColorScheme] = useContext(ColorScheme);
 
   const changeColorScheme = () => {
-    setColorScheme(prevState => (prevState === 'light' ? 'dark' : 'light'));
+    setColorScheme((prevState) => (prevState === 'light' ? 'dark' : 'light'));
   };
 
   if (deviceType === 'desktop' || deviceType === 'tablet') {
@@ -400,7 +400,7 @@ export const SignupPreview: React.FC = () => {
     () => ({
       email: {
         type: 'text_input',
-        validate: value => {
+        validate: (value) => {
           const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
           if (!value) {
             return 'Please enter your email.';
@@ -413,7 +413,7 @@ export const SignupPreview: React.FC = () => {
       },
       password: {
         type: 'text_input',
-        validate: value => {
+        validate: (value) => {
           if (!value) {
             return 'Please enter a password.';
           }
@@ -425,7 +425,7 @@ export const SignupPreview: React.FC = () => {
       },
       agreements: {
         type: 'checkbox',
-        validate: value => !value,
+        validate: (value) => !value,
       },
     }),
     []
@@ -474,7 +474,11 @@ export const SignupPreview: React.FC = () => {
               () => (
                 <>
                   I agree to the{' '}
-                  <Link href="https://www.megalink.io/privacy-policy" target="_blank" underlined>
+                  <Link
+                    href="https://www.megalink.io/privacy-policy"
+                    target="_blank"
+                    underlined
+                  >
                     privacy policy
                   </Link>
                 </>

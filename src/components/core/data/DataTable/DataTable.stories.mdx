@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import DataTable from '.';
 
 <Meta title="Components/core/data/DataTable" component={DataTable} />
@@ -7,7 +13,7 @@ import DataTable from '.';
 
 <Description of={DataTable} />
 
-export const Template = args => <DataTable {...args} />;
+export const Template = (args) => <DataTable {...args} />;
 
 <Canvas withToolbar>
   <Story

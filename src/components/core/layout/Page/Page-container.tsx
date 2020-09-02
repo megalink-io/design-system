@@ -5,7 +5,7 @@ import { Page, MainAppCSS, SingleFormCSS } from './Page-styles';
 /**
  * A wrapper component that covers the entire content
  * of the page and provides layout relevant CSS code.
- * */
+ */
 export const PageView: React.FC<ViewProps> = React.memo(({ variant, children }) => {
   // Reset scroll position and focus when page changes
   useLayoutEffect(() => {

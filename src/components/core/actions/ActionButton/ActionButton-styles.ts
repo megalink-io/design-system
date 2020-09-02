@@ -30,8 +30,10 @@ const getActionButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
       borderColor: theme.colors[color || 'gray'][color ? 700 : 500],
     },
     '&:disabled': {
-      backgroundColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
-      borderColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
+      backgroundColor:
+        theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
+      borderColor:
+        theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
     },
   },
   '&.secondary': {
@@ -43,12 +45,14 @@ const getActionButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
     },
     '&:disabled': {
       color: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
-      borderColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
+      borderColor:
+        theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
       '&:focus, &:hover': {
         backgroundColor: theme.colors[color || 'gray'][0],
       },
       '.CircleLoader': {
-        borderTopColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
+        borderTopColor:
+          theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
       },
     },
   },
@@ -67,7 +71,8 @@ const getActionButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
         borderColor: theme.colors[color || 'gray'][0],
       },
       '.CircleLoader': {
-        borderTopColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
+        borderTopColor:
+          theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
       },
     },
   },

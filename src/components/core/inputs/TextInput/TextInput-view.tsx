@@ -21,7 +21,14 @@ const TextInputView: React.FC<ViewProps> = ({
   const { multiline } = props as TextTypeProps;
   return (
     <TextInput className={className}>
-      {label && <InputLabel label={label} htmlFor={name} required={required} disabled={disabled} />}
+      {label && (
+        <InputLabel
+          label={label}
+          htmlFor={name}
+          required={required}
+          disabled={disabled}
+        />
+      )}
       {type === 'text' && multiline ? (
         <Textarea
           aria-label={!label && placeholder ? placeholder : undefined}
@@ -33,8 +40,8 @@ const TextInputView: React.FC<ViewProps> = ({
           placeholder={placeholder}
           value={value}
           rows={typeof multiline === 'number' ? multiline : 1}
-          onChange={e => onChange(e.target.value)}
-          onBlur={e => onBlur(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}
+          onBlur={(e) => onBlur(e.target.value)}
           required={required}
           disabled={disabled}
         />
@@ -48,8 +55,8 @@ const TextInputView: React.FC<ViewProps> = ({
           type={type}
           placeholder={placeholder}
           value={value}
-          onChange={e => onChange(e.target.value)}
-          onBlur={e => onBlur(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}
+          onBlur={(e) => onBlur(e.target.value)}
           required={required}
           disabled={disabled}
         />

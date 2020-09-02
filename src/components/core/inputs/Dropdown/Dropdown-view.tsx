@@ -2,7 +2,15 @@ import React from 'react';
 import { InputLabel, InputError } from 'components/core/inputs';
 import { ArrowDownSVG, CheckSVG } from 'icons';
 import { ViewProps } from './Dropdown-types';
-import { Dropdown, Field, Button, ButtonLabel, List, Item, ItemLabel } from './Dropdown-styles';
+import {
+  Dropdown,
+  Field,
+  Button,
+  ButtonLabel,
+  List,
+  Item,
+  ItemLabel,
+} from './Dropdown-styles';
 
 const DropdownView: React.FC<ViewProps> = ({
   className,
@@ -23,7 +31,9 @@ const DropdownView: React.FC<ViewProps> = ({
   disabled,
 }) => (
   <Dropdown className={className}>
-    {label && <InputLabel label={label} htmlFor={name} required={required} disabled={disabled} />}
+    {label && (
+      <InputLabel label={label} htmlFor={name} required={required} disabled={disabled} />
+    )}
     <Field>
       <Button
         aria-label={!label && placeholder ? placeholder : undefined}
@@ -36,24 +46,28 @@ const DropdownView: React.FC<ViewProps> = ({
         id={name}
         value={value}
         onClick={onClick}
-        onKeyDown={e => onKeyDown(e.key)}
+        onKeyDown={(e) => onKeyDown(e.key)}
         onBlur={() => onBlur(value)}
         disabled={disabled}
       >
         <ButtonLabel>
-          {options.find(option => option.value === value)?.label || placeholder}
+          {options.find((option) => option.value === value)?.label || placeholder}
         </ButtonLabel>
         <ArrowDownSVG />
       </Button>
-      <List aria-labelledby={label ? `${name}-label` : undefined} ref={listElement} role="listbox">
-        {options.map(option => (
+      <List
+        aria-labelledby={label ? `${name}-label` : undefined}
+        ref={listElement}
+        role="listbox"
+      >
+        {options.map((option) => (
           <Item
             key={option.value}
             role="option"
             value={option.value}
             highlighted={option.value === highlighted}
             onClick={() => onChange(option.value)}
-            onMouseDown={e => e.preventDefault()}
+            onMouseDown={(e) => e.preventDefault()}
           >
             <ItemLabel>{option.label}</ItemLabel>
             {option.value === value && <CheckSVG />}

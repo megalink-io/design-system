@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import Dropdown from '.';
 
@@ -50,7 +56,7 @@ export const fieldsInfo = {
       },
     ],
     validate: function (value) {
-      if (!this.options.some(option => option.value === value)) {
+      if (!this.options.some((option) => option.value === value)) {
         return 'Please select an option.';
       }
       return '';
@@ -58,12 +64,12 @@ export const fieldsInfo = {
   },
 };
 
-export const Template = args => {
+export const Template = (args) => {
   const form = useForm(fieldsInfo);
   return <Dropdown {...args} {...form.fields.example} />;
 };
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   label: id !== 'slim' ? 'Options' : undefined,
   placeholder: 'Select an option',
   required: true,

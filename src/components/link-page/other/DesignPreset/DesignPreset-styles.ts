@@ -53,7 +53,8 @@ const getElementBorderRadius = (design: Design) => {
 
 const getElementBackgroundCSS = (design: Design): CSSObject => {
   const backgroundVariant =
-    design.elements.button?.backgroundVariant || design.elements.default.backgroundVariant;
+    design.elements.button?.backgroundVariant ||
+    design.elements.default.backgroundVariant;
   const backgroundColor =
     design.elements.button?.backgroundColor || design.elements.default.backgroundColor;
   if (backgroundVariant === 'outlined') {
@@ -69,7 +70,8 @@ const getElementBackgroundCSS = (design: Design): CSSObject => {
 const getElementShadow = (design: Design) => {
   const shadowVariant =
     design.elements.button?.shadowVariant || design.elements.default.shadowVariant;
-  const shadowColor = design.elements.button?.shadowColor || design.elements.default.shadowColor;
+  const shadowColor =
+    design.elements.button?.shadowColor || design.elements.default.shadowColor;
   if (shadowVariant === 'soft') {
     return `8rem 8rem 8rem ${shadowColor}`;
   }

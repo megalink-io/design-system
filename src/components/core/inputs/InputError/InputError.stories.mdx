@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import InputError from '.';
 
@@ -8,7 +14,7 @@ import InputError from '.';
 
 <Description of={InputError} />
 
-export const Template = args => <InputError {...args} />;
+export const Template = (args) => <InputError {...args} />;
 
 <Canvas withToolbar>
   <Story name="Default" args={{ text: 'This is an example error text.' }}>

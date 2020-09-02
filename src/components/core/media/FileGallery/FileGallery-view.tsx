@@ -10,7 +10,7 @@ const FileGalleryView: React.FC<ViewProps> = ({
 }) => (
   <FileGallery className="FileGallery">
     <Items>
-      {files.map(file => (
+      {files.map((file) => (
         <ItemLink
           key={file.fileId}
           to={`${rootPath}/${file.fileId}`}
@@ -22,7 +22,7 @@ const FileGalleryView: React.FC<ViewProps> = ({
                 src={file.src}
                 srcSet={file.srcset
                   .sort((a, b) => (a.width > b.width ? 1 : -1))
-                  .map(setFile => `${setFile.src} ${setFile.width}w`)
+                  .map((setFile) => `${setFile.src} ${setFile.width}w`)
                   .concat([`${file.src} ${file.width}w`])
                   .join()}
                 sizes={getSizeAttribute(file.width, file.height)}

@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import Logo from '.';
 
 <Meta title="Components/core/graphics/Logo" component={Logo} />
@@ -7,9 +13,9 @@ import Logo from '.';
 
 <Description of={Logo} />
 
-export const Template = args => <Logo {...args} />;
+export const Template = (args) => <Logo {...args} />;
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   variant: id,
   size: 'medium',
 });

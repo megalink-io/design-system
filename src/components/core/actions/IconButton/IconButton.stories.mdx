@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { DeleteSVG, GearSVG, DownloadSVG, ArrowRightSVG, AlarmSVG } from 'icons';
 import IconButton from '.';
 
@@ -8,9 +14,9 @@ import IconButton from '.';
 
 <Description of={IconButton} />
 
-export const Template = args => <IconButton {...args} />;
+export const Template = (args) => <IconButton {...args} />;
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   icon: <DeleteSVG />,
   label: 'Delete',
   variant: id,

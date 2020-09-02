@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import StatusLight from '.';
 
 <Meta title="Components/core/status/StatusLight" component={StatusLight} />
@@ -7,7 +13,7 @@ import StatusLight from '.';
 
 <Description of={StatusLight} />
 
-export const Template = args => <StatusLight {...args} />;
+export const Template = (args) => <StatusLight {...args} />;
 
 <Canvas withToolbar>
   <Story name="Positive" args={{ color: 'green' }}>

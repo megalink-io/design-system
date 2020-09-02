@@ -5,7 +5,7 @@ import { CircleLoader, Centered } from './CircleLoader-styles';
 /**
  * A loading spinner that visually displays the progress
  * of a system operation such as uploading or processing.
- * */
+ */
 export const CircleLoaderView: React.FC<ViewProps> = ({ color, size, centered }) => {
   if (centered) {
     return (

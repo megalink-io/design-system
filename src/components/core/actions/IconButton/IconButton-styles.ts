@@ -37,8 +37,10 @@ const getIconButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
       borderColor: theme.colors[color || 'gray'][color ? 700 : 500],
     },
     '&:disabled': {
-      backgroundColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
-      borderColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
+      backgroundColor:
+        theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
+      borderColor:
+        theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
     },
   },
   '&.secondary': {
@@ -51,15 +53,18 @@ const getIconButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
       backgroundColor: color ? theme.colors[color][100] : theme.colors.gray[50],
     },
     '&:disabled': {
-      borderColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
+      borderColor:
+        theme.colors[color === 'black' || color === 'white' ? color : 'gray'][100],
       '&:focus, &:hover': {
         backgroundColor: theme.colors[color || 'gray'][0],
       },
       '& svg path': {
-        stroke: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
+        stroke:
+          theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
       },
       '.CircleLoader': {
-        borderTopColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
+        borderTopColor:
+          theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
       },
     },
   },
@@ -79,10 +84,12 @@ const getIconButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
         borderColor: theme.colors[color || 'gray'][0],
       },
       '& svg path': {
-        stroke: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
+        stroke:
+          theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
       },
       '.CircleLoader': {
-        borderTopColor: theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
+        borderTopColor:
+          theme.colors[color === 'black' || color === 'white' ? color : 'gray'][200],
       },
     },
   },

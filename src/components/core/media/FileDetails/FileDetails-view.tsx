@@ -8,9 +8,14 @@ import { FileDetails, Image } from './FileDetails-styles';
  * a preview of the file is displayed at the top.
  */
 export const FileDetailsView: React.FC<ViewProps> = React.memo(({ file }) => {
-  const storageSize = file.srcset.reduce((size, setFile) => size + setFile.size, file.size);
+  const storageSize = file.srcset.reduce(
+    (size, setFile) => size + setFile.size,
+    file.size
+  );
   const storageSizeInBytes = storageSize.toLocaleString();
-  const storageSizeInMb = (Math.round((storageSize / 1048576) * 10) / 10).toLocaleString();
+  const storageSizeInMb = (
+    Math.round((storageSize / 1048576) * 10) / 10
+  ).toLocaleString();
   const created = file.created.toLocaleString();
   const modified = file.modified.toLocaleString();
 
@@ -20,7 +25,7 @@ export const FileDetailsView: React.FC<ViewProps> = React.memo(({ file }) => {
         src={file.src}
         srcSet={file.srcset
           .sort((a, b) => (a.width > b.width ? 1 : -1))
-          .map(setFile => `${setFile.src} ${setFile.width}w`)
+          .map((setFile) => `${setFile.src} ${setFile.width}w`)
           .concat([`${file.src} ${file.width}w`])
           .join()}
         sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 700px, 375px"

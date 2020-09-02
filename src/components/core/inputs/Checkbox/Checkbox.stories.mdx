@@ -1,5 +1,11 @@
 import { useMemo } from 'react';
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import { Link } from 'components/core/navigation';
 import Checkbox from '.';
@@ -10,14 +16,14 @@ import Checkbox from '.';
 
 <Description of={Checkbox} />
 
-export const getFieldsInfo = required => ({
+export const getFieldsInfo = (required) => ({
   example: {
     type: 'checkbox',
-    validate: state => required && !state,
+    validate: (state) => required && !state,
   },
 });
 
-export const Template = args => {
+export const Template = (args) => {
   const fieldsInfo = useMemo(() => {
     return getFieldsInfo(args.required);
   }, [args.required]);

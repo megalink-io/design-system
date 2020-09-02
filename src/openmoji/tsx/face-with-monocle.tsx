@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const FaceWithMonocle: React.FC<Types.SVGProps> = props => (
+const FaceWithMonocle: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 72 72" {...props}>
     <circle cx="36" cy="36" r="24" fill="#FCEA2B" />
     <path

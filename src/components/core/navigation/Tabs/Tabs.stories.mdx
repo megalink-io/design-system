@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { IconButton } from 'components/core/actions';
 import { HouseSVG, ListSVG, FolderSVG } from 'icons';
 import Tabs from '.';
@@ -9,7 +15,7 @@ import Tabs from '.';
 
 <Description of={Tabs} />
 
-export const Template = args => <Tabs {...args} />;
+export const Template = (args) => <Tabs {...args} />;
 
 <Canvas withToolbar>
   <Story

@@ -13,7 +13,7 @@ const getSortedObject = (unsorted: any) => {
       sorted = {};
       Object.keys(unsorted)
         .sort()
-        .forEach(key => {
+        .forEach((key) => {
           sorted[key] = getSortedObject(unsorted[key]);
         });
       break;

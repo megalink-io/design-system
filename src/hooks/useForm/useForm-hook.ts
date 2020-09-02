@@ -26,7 +26,7 @@ import {
 // Use fieldsInfo argument to create initial fields state
 const getInitFieldsState = (fieldsInfo: FieldsInfo) => {
   const initState: FieldsState = {};
-  Object.keys(fieldsInfo).forEach(name => {
+  Object.keys(fieldsInfo).forEach((name) => {
     switch (fieldsInfo[name].type) {
       case 'text_input':
         initState[name] = {
@@ -55,12 +55,19 @@ const getInitFieldsState = (fieldsInfo: FieldsInfo) => {
 /** Custom React hook for handling the business logic of forms. */
 const useForm = (fieldsInfo: FieldsInfo): Form => {
   // Create inital fields state
-  const initFieldsState = useMemo<FieldsState>(() => getInitFieldsState(fieldsInfo), [fieldsInfo]);
+  const initFieldsState = useMemo<FieldsState>(() => getInitFieldsState(fieldsInfo), [
+    fieldsInfo,
+  ]);
 
   // Create fields, response and button state
   const [fieldsState, setFieldsState] = useState<FieldsState>(initFieldsState);
-  const [responseState, setResponseState] = useState<ResponseState>({ status: '', message: '' });
-  const [buttonState, setButtonState] = useState<ButtonState>({ loading: false });
+  const [responseState, setResponseState] = useState<ResponseState>({
+    status: '',
+    message: '',
+  });
+  const [buttonState, setButtonState] = useState<ButtonState>({
+    loading: false,
+  });
 
   // Update fields state if fields info changes
   useEffect(() => {
@@ -81,7 +88,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
   // Update or validate field state after synthetic event
   const handleFieldEvent = useCallback(
     (name: string, value: string | boolean, eventType: 'change' | 'blur') => {
-      setFieldsState(prevState => {
+      setFieldsState((prevState) => {
         const newState = { ...prevState, [name]: { ...prevState[name] } };
         switch (fieldsInfo[name].type) {
           case 'text_input':
@@ -150,7 +157,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
   // Creat memoized fields properties
   const fields = useMemo<Fields>(() => {
     const newFields: Fields = {};
-    Object.keys(fieldsInfo).forEach(name => {
+    Object.keys(fieldsInfo).forEach((name) => {
       switch (fieldsInfo[name].type) {
         case 'text_input':
           (newFields[name] as TextInput) = {
@@ -186,9 +193,9 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
   // Update fields state with given data
   const updateFields = useCallback(
     (fieldsUpdate: FieldsUpdate) => {
-      setFieldsState(prevState => {
+      setFieldsState((prevState) => {
         const newState = { ...prevState };
-        Object.keys(fieldsUpdate).forEach(name => {
+        Object.keys(fieldsUpdate).forEach((name) => {
           switch (fieldsInfo[name].type) {
             case 'text_input':
               (newState[name] as TextInputState) = {
@@ -219,7 +226,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
 
   // Update response state with given data
   const updateResponse = useCallback((responseUpdate: ResponseUpdate) => {
-    setResponseState(prevState => ({
+    setResponseState((prevState) => ({
       ...prevState,
       ...responseUpdate,
     }));
@@ -227,7 +234,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
 
   // Update button state with given data
   const updateButton = useCallback((buttonUpdate: ButtonUpdate) => {
-    setButtonState(prevState => ({
+    setButtonState((prevState) => ({
       ...prevState,
       ...buttonUpdate,
     }));
@@ -237,7 +244,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
   const validate = useCallback(() => {
     let formIsValid = true;
     const fieldsUpdate: FieldsUpdate = {};
-    Object.keys(fieldsInfo).forEach(name => {
+    Object.keys(fieldsInfo).forEach((name) => {
       let newError: string | boolean | undefined;
       switch (fieldsInfo[name].type) {
         case 'text_input':
@@ -277,7 +284,7 @@ const useForm = (fieldsInfo: FieldsInfo): Form => {
 
   // Check if form has changes
   const hasChanges = useCallback(() => {
-    return Object.keys(fieldsInfo).some(name => {
+    return Object.keys(fieldsInfo).some((name) => {
       let initalValue: string | boolean;
       let currentValue: string | boolean;
       switch (fieldsInfo[name].type) {

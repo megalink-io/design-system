@@ -1,5 +1,10 @@
 {
-  "extends": ["react-app", "airbnb-typescript", "prettier", "plugin:prettier/recommended"],
+  "extends": [
+    "react-app",
+    "airbnb-typescript",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },

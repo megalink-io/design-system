@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { ActionButton } from 'components/core/actions';
 import Response from '.';
 
@@ -11,7 +17,7 @@ import Response from '.';
 
 > Click on one of the buttons to open a sample response.
 
-export const Template = args => {
+export const Template = (args) => {
   const [response, setResponse] = useState({ status: '', message: '' });
   useEffect(() => {
     if (response.message) {
@@ -49,7 +55,7 @@ export const Template = args => {
   );
 };
 
-export const getProps = id => ({
+export const getProps = (id) => ({
   status: id,
   message: 'This is a short sample answer.',
 });

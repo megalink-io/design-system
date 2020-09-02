@@ -32,7 +32,11 @@ export interface ExternalLinkProps extends DefaultProps {
   download?: boolean | string;
 }
 
-export type ContainerProps = ButtonProps | SubmitProps | InternalLinkProps | ExternalLinkProps;
+export type ContainerProps =
+  | ButtonProps
+  | SubmitProps
+  | InternalLinkProps
+  | ExternalLinkProps;
 
 export type ViewProps = ContainerProps & {
   className: string;

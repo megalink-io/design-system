@@ -14,7 +14,9 @@ smoothscroll.polyfill();
 /** A wrapper component that is necessary for the visual representation. */
 export const ThemeContainer: React.FC<ContainerProps> = ({ children }) => {
   const location = useLocation();
-  const [colorScheme, setColorScheme] = useState<Types.ColorScheme>(getDeviceColorScheme());
+  const [colorScheme, setColorScheme] = useState<Types.ColorScheme>(
+    getDeviceColorScheme()
+  );
   const [deviceType, setDeviceType] = useState<Types.DeviceType>(getDeviceType());
 
   // Update body background and meta theme color when children,

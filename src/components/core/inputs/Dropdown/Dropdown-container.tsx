@@ -5,9 +5,19 @@ import DropdownView from './Dropdown-view';
 /**
  * A drop-down field that allows users to select predefined values. Various decorations
  * can be displayed in or around the field to communicate the entry requirements.
- * */
-export const DropdownContainer: React.FC<ContainerProps> = React.memo(props => {
-  const { name, options, value, error, onChange, onBlur, required, disabled, slim } = props;
+ */
+export const DropdownContainer: React.FC<ContainerProps> = React.memo((props) => {
+  const {
+    name,
+    options,
+    value,
+    error,
+    onChange,
+    onBlur,
+    required,
+    disabled,
+    slim,
+  } = props;
   const [expanded, setExpanded] = useState<boolean>(false);
   const [highlighted, setHighlighted] = useState<string>(value);
   const listElement = useRef<HTMLUListElement>(null);
@@ -40,7 +50,7 @@ export const DropdownContainer: React.FC<ContainerProps> = React.memo(props => {
     if (expanded && highlighted && highlighted !== value) {
       handleChange(highlighted);
     } else {
-      setExpanded(prevExpanded => !prevExpanded);
+      setExpanded((prevExpanded) => !prevExpanded);
     }
   };
 
@@ -50,7 +60,7 @@ export const DropdownContainer: React.FC<ContainerProps> = React.memo(props => {
         setExpanded(true);
       } else {
         // Update highlighted value
-        const currentIndex = options.findIndex(option => option.value === highlighted);
+        const currentIndex = options.findIndex((option) => option.value === highlighted);
         let nextIndex = currentIndex + (key === 'ArrowUp' ? -1 : 1);
         if (nextIndex >= options.length) nextIndex = 0;
         else if (nextIndex <= -1) nextIndex = options.length - 1;

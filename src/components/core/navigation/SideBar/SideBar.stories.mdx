@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { IconButton } from 'components/core/actions';
 import { HouseSVG, ListSVG, FolderSVG, NightSVG, AlarmSVG, GearSVG } from 'icons';
 import SideBar from '.';
@@ -9,7 +15,7 @@ import SideBar from '.';
 
 <Description of={SideBar} />
 
-export const Template = args => <SideBar {...args} />;
+export const Template = (args) => <SideBar {...args} />;
 
 <Canvas className="fullframe" withToolbar>
   <Story

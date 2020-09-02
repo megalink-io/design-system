@@ -7,7 +7,7 @@ const DataTableView: React.FC<ViewProps> = ({ headers, rows, deviceType, headles
     {!headless && (
       <Head>
         <Row>
-          {headers.map(header =>
+          {headers.map((header) =>
             !header.visibility || header.visibility.includes(deviceType) ? (
               <Header key={header.key} align={header.align} primary={header.primary}>
                 {header.label}
@@ -18,9 +18,9 @@ const DataTableView: React.FC<ViewProps> = ({ headers, rows, deviceType, headles
       </Head>
     )}
     <Body>
-      {rows.map(row => (
+      {rows.map((row) => (
         <Row key={row.id}>
-          {headers.map(header =>
+          {headers.map((header) =>
             !header.visibility || header.visibility.includes(deviceType) ? (
               <Data key={header.key} align={header.align} primary={header.primary}>
                 {row[header.key] || ''}

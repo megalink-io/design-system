@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const ShoppingCart: React.FC<Types.SVGProps> = props => (
+const ShoppingCart: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 72 72" {...props}>
     <path fill="#D0CFCE" d="M51.9 18.6v23.76H15.02L11.35 18.6z" />
     <circle cx={50.14} cy={58.46} r={2.38} fill="#D0CFCE" />

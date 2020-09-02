@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const Delet2: React.FC<Types.SVGProps> = props => (
+const Delet2: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 35 48" {...props}>
     <g
       fill="none"

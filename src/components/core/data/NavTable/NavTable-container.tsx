@@ -5,7 +5,7 @@ import { ContainerProps } from './NavTable-types';
 import NavTableView from './NavTable-view';
 
 /** A table that is used for navigation and clearly shows useful data. */
-export const NavTableContainer: React.FC<ContainerProps> = React.memo(props => {
+export const NavTableContainer: React.FC<ContainerProps> = React.memo((props) => {
   const history = useHistory();
   const [deviceType] = useContext(DeviceType);
 

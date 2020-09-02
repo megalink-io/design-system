@@ -5,7 +5,7 @@ import { Scrollability, ScrollBox, ScrollContent } from './Scrollability-styles'
 /**
  * A wrapper component that allows horizontal
  * or vertical scrolling if required.
- * */
+ */
 export const ScrollabilityView: React.FC<ViewProps> = ({ children, ...props }) => {
   const { horizontal } = props as HorizontalProps;
   const { vertical, maxHeight } = props as VerticalProps;

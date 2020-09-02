@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { SparklesSVG, ShoppingCartSVG, SmilingFaceWithSunglassesSVG } from 'openmoji';
 import Link from '.';
 
@@ -10,7 +16,7 @@ import Link from '.';
 
 > In addition to simple text, the link component can also be applied to graphics or other elements.
 
-export const Template = args => <Link {...args} />;
+export const Template = (args) => <Link {...args} />;
 
 <Canvas withToolbar>
   <Story

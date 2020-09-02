@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const Stopwatch: React.FC<Types.SVGProps> = props => (
+const Stopwatch: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 72 72" {...props}>
     <path
       fill="#d0cfce"
@@ -36,8 +36,20 @@ const Stopwatch: React.FC<Types.SVGProps> = props => (
     />
     <circle cx={36.35} cy={16.98} r={1} />
     <circle cx={36.35} cy={55.02} r={1} />
-    <ellipse cx={49.8} cy={22.55} rx={0.99} ry={1.01} transform="rotate(-45 49.8 22.55)" />
-    <ellipse cx={22.9} cy={49.45} rx={0.99} ry={1.01} transform="rotate(-45 22.9 49.45)" />
+    <ellipse
+      cx={49.8}
+      cy={22.55}
+      rx={0.99}
+      ry={1.01}
+      transform="rotate(-45 49.8 22.55)"
+    />
+    <ellipse
+      cx={22.9}
+      cy={49.45}
+      rx={0.99}
+      ry={1.01}
+      transform="rotate(-45 22.9 49.45)"
+    />
     <circle cx={55.37} cy={36} r={1} />
     <circle cx={17.33} cy={36} r={1} />
     <path
@@ -48,8 +60,20 @@ const Stopwatch: React.FC<Types.SVGProps> = props => (
       strokeWidth={2}
       d="M36.84 35.91h-15.4m15.44.02L26 46.81"
     />
-    <ellipse cx={49.8} cy={49.45} rx={1.01} ry={0.99} transform="rotate(-45 49.8 49.45)" />
-    <ellipse cx={22.9} cy={22.55} rx={1.01} ry={0.99} transform="rotate(-45 22.9 22.55)" />
+    <ellipse
+      cx={49.8}
+      cy={49.45}
+      rx={1.01}
+      ry={0.99}
+      transform="rotate(-45 49.8 49.45)"
+    />
+    <ellipse
+      cx={22.9}
+      cy={22.55}
+      rx={1.01}
+      ry={0.99}
+      transform="rotate(-45 22.9 22.55)"
+    />
   </svg>
 );
 

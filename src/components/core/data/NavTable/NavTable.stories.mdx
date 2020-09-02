@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { StatusLight } from 'components/core/status';
 import NavTable from '.';
 
@@ -8,7 +14,7 @@ import NavTable from '.';
 
 <Description of={NavTable} />
 
-export const Template = args => <NavTable {...args} />;
+export const Template = (args) => <NavTable {...args} />;
 
 <Canvas withToolbar>
   <Story

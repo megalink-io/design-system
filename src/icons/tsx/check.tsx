@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const Check: React.FC<Types.SVGProps> = props => (
+const Check: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 35 48" {...props}>
     <path
       fill="none"

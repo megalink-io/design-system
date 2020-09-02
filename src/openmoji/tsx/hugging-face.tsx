@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const HuggingFace: React.FC<Types.SVGProps> = props => (
+const HuggingFace: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 72 72" {...props}>
     <g fill="#FCEA2B">
       <circle cx={36} cy={33} r={24} />

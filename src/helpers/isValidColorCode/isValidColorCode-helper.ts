@@ -1,7 +1,7 @@
 /**
  * Helper function to check if a color code complies with
  * the HEX, HEXA, RGB, RGBA, HSL or HSLA standard.
- * */
+ */
 const isValidColorCode = (colorCode: string) => {
   const hex = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b$/;
   const hexa = /^#([a-fA-F0-9]{8}|[a-fA-F0-9]{4})\b$/;

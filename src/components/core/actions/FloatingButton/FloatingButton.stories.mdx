@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { ShareSVG, GearSVG, DownloadSVG, ArrowRightSVG } from 'icons';
 import FloatingButton from '.';
 
@@ -8,7 +14,7 @@ import FloatingButton from '.';
 
 <Description of={FloatingButton} />
 
-export const Template = args => <FloatingButton {...args} />;
+export const Template = (args) => <FloatingButton {...args} />;
 
 <Canvas className="fullframe" withToolbar>
   <Story name="Share button" args={{ icon: <ShareSVG />, label: 'Share', color: 'blue' }}>
@@ -38,7 +44,13 @@ import { FloatingButton } from '@mds/components/core/actions';
 <Canvas className="fullframe" withToolbar>
   <Story
     name="Internal link"
-    args={{ icon: <GearSVG />, color: 'blue', label: 'Settings', type: 'link', to: '/settings' }}
+    args={{
+      icon: <GearSVG />,
+      color: 'blue',
+      label: 'Settings',
+      type: 'link',
+      to: '/settings',
+    }}
   >
     {Template.bind({})}
   </Story>

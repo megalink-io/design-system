@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { Link } from '..';
 import Bureaucracy from '.';
 
@@ -8,7 +14,7 @@ import Bureaucracy from '.';
 
 <Description of={Bureaucracy} />
 
-export const Template = args => <Bureaucracy {...args} />;
+export const Template = (args) => <Bureaucracy {...args} />;
 
 <Canvas withToolbar>
   <Story
@@ -16,7 +22,11 @@ export const Template = args => <Bureaucracy {...args} />;
     args={{
       children: (
         <>
-          <Link href="https://www.example.com/imprint" target="_blank" children="Imprint" />
+          <Link
+            href="https://www.example.com/imprint"
+            target="_blank"
+            children="Imprint"
+          />
           <Link
             href="https://www.example.com/privacy-policy"
             target="_blank"

@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import Heading from '.';
 
 <Meta title="Components/core/typography/Heading" component={Heading} />
@@ -7,7 +13,7 @@ import Heading from '.';
 
 <Description of={Heading} />
 
-export const Template = args => <Heading {...args} />;
+export const Template = (args) => <Heading {...args} />;
 
 <Canvas withToolbar>
   <Story name="Default" args={{ children: 'This is a heading' }}>

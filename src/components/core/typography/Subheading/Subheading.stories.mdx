@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import Subheading from '.';
 
 <Meta title="Components/core/typography/Subheading" component={Subheading} />
@@ -7,7 +13,7 @@ import Subheading from '.';
 
 <Description of={Subheading} />
 
-export const Template = args => <Subheading {...args} />;
+export const Template = (args) => <Subheading {...args} />;
 
 <Canvas withToolbar>
   <Story name="Default" args={{ children: 'This is a subheading' }}>

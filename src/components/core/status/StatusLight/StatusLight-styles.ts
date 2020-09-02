@@ -14,7 +14,8 @@ export const Dot = styled('span')<{ color: Color }>(({ theme, color }) => ({
   backgroundColor: theme.colors[color][1000],
   boxShadow: `0 0 6rem ${theme.colors[color][600]}`,
   [`${StatusLight}.disabled &`]: {
-    backgroundColor: theme.colors[color === 'white' || color === 'black' ? color : 'gray'][200],
+    backgroundColor:
+      theme.colors[color === 'white' || color === 'black' ? color : 'gray'][200],
     boxShadow: 'none',
   },
   '& + .Detail': {

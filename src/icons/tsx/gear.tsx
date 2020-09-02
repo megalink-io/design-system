@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Types from 'types';
 
-const Gear: React.FC<Types.SVGProps> = props => (
+const Gear: React.FC<Types.SVGProps> = (props) => (
   <svg viewBox="0 0 43 48" {...props}>
     <g
       fill="none"

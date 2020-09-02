@@ -1,6 +1,11 @@
 import React from 'react';
 import { CircleLoader } from 'components/core/status';
-import { ViewProps, ButtonProps, InternalLinkProps, ExternalLinkProps } from './ActionButton-types';
+import {
+  ViewProps,
+  ButtonProps,
+  InternalLinkProps,
+  ExternalLinkProps,
+} from './ActionButton-types';
 import { ActionButton, InternalLink, ExternalLink, Label } from './ActionButton-styles';
 
 /** A button that is used to confirm form entries or perform individual actions. */
@@ -56,7 +61,10 @@ export const ActionButtonView: React.FC<ViewProps> = React.memo(
       >
         <Label>{label}</Label>
         {loading && (
-          <CircleLoader color={variant === 'primary' ? 'background' : color} size="small" />
+          <CircleLoader
+            color={variant === 'primary' ? 'background' : color}
+            size="small"
+          />
         )}
       </ActionButton>
     );

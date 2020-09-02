@@ -1,4 +1,10 @@
-import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Description,
+  Canvas,
+  Story,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import InputLabel from '.';
 
@@ -8,7 +14,7 @@ import InputLabel from '.';
 
 <Description of={InputLabel} />
 
-export const Template = args => <InputLabel {...args} />;
+export const Template = (args) => <InputLabel {...args} />;
 
 export const props = {
   label: 'Example text',
