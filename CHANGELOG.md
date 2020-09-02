@@ -50,6 +50,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/), and t
   - Add onBlur property to checkbox fields
   - Add hasChanges function
   - Update state when fieldsInfo argument changes
+- Change peer dependencies
+  - Update react-router-dom to >= 5.2.0
+  - Update styled-components to >= 5.1.0
+  - Update typescript to >= 4.0.0
 
 ### 📆 Deprecated
 

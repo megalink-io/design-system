@@ -37,10 +37,10 @@ The following peer dependencies are required:
 ```json
 "react": ">= 16.13.0",
 "react-dom": ">= 16.13.0",
-"react-router-dom": ">= 5.1.0",
-"styled-components": ">= 5.0.0",
+"react-router-dom": ">= 5.2.0",
+"styled-components": ">= 5.1.0",
 "smoothscroll-polyfill": ">= 0.4.0",
-"typescript": ">= 3.8.0"
+"typescript": ">= 4.0.0"
 ```
 
 ## Credits
