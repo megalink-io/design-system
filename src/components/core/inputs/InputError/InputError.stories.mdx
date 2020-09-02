@@ -17,7 +17,7 @@ import InputError from '.';
 export const Template = (args) => <InputError {...args} />;
 
 <Canvas withToolbar>
-  <Story name="Default" args={{ text: 'This is an example error text.' }}>
+  <Story name="Default" args={{ error: 'This is an example error text.' }}>
     {Template.bind({})}
   </Story>
 </Canvas>
