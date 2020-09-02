@@ -1,30 +1,17 @@
-import React, { useContext, useLayoutEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { useParameter } from '@storybook/addons';
-import { addDecorator, addParameters } from '@storybook/react';
-import { DocsContainer } from '@storybook/addon-docs/blocks';
-import { withA11y } from '@storybook/addon-a11y';
-import { withContexts } from '@storybook/addon-contexts/react';
-import { Theme as ThemeProvider } from '../src/components/core/layout';
+import { Theme } from '../src/components/core/layout';
 import { ColorScheme } from '../src/context';
 import { getDeviceColorScheme, getSearchParam } from '../src/helpers';
 import theme from './theme';
 
-// Create Router and Theme component
-const RouterAndTheme = ({ children }) => (
-  <BrowserRouter>
-    <ThemeProvider>{children}</ThemeProvider>
-  </BrowserRouter>
-);
-
-// Customizing Storybook options
-addParameters({
+// Add custom Storybook parameters
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  backgrounds: { disable: true },
+  docs: { theme, source: { type: 'code' } },
   options: {
-    // Add custom theme
-    theme,
-    // Display main category headings in menu
-    showRoots: true,
-    // Sort stories individually
     storySort: (a, b) => {
       // Get story categories
       const categoryOfA = a[1].kind.split('/')[0];
@@ -41,7 +28,7 @@ addParameters({
       }
 
       // Foundation: Sort story by title
-      if (categoryOfA === 'Foundation') {
+      if (categoryOfA === 'Foundations') {
         const order = ['Installation', 'Release notes', 'Typography', 'Colors', 'Icons'];
         const indexA = order.indexOf(a[1].kind.split('/')[1]);
         const indexB = order.indexOf(b[1].kind.split('/')[1]);
@@ -84,65 +71,53 @@ addParameters({
       return a[1].id.localeCompare(b[1].id, 'en', { numeric: true });
     },
   },
-  docs: {
-    // Wrap every story in Router and Theme component
-    container: ({ children, context }) => (
-      <DocsContainer context={context}>
-        <RouterAndTheme>{children}</RouterAndTheme>
-      </DocsContainer>
-    ),
-  },
-});
+};
 
-// Create custom Storybook UI elements with context
-const contexts = [
-  // Add custom color scheme switch
-  {
-    icon: 'eye',
-    title: 'Themes',
-    components: [
-      ({ newColorScheme, children }) => {
-        const [colorScheme, setColorScheme] = useContext(ColorScheme);
-        useLayoutEffect(() => {
-          const viewMode = getSearchParam('viewMode');
-          // Update our custom color scheme context in Theme component
-          setColorScheme(viewMode === 'docs' ? getDeviceColorScheme() : newColorScheme);
-        }, [newColorScheme, location]);
-        return <>{children}</>;
-      },
-    ],
-    params: [
-      {
-        name: 'Light mode',
-        props: { newColorScheme: 'light' },
-        default: getDeviceColorScheme() === 'light',
-      },
-      {
-        name: 'Dark mode',
-        props: { newColorScheme: 'dark' },
-        default: getDeviceColorScheme() === 'dark',
-      },
-    ],
-    options: {
-      deep: false,
-      disable: false,
-      cancelable: false,
+// Add custom Storybook global types
+export const globalTypes = {
+  theme: {
+    name: 'Themes',
+    description: 'Set the color scheme',
+    defaultValue: getDeviceColorScheme(),
+    toolbar: {
+      icon: 'eye',
+      items: [
+        { value: 'light', left: '☀️', title: 'Light mode' },
+        { value: 'dark', left: '✨', title: 'Dark mode' },
+      ],
     },
   },
+};
+
+// Create Router and Theme component
+const RouterAndTheme = ({ children }) => (
+  <BrowserRouter>
+    <Theme>{children}</Theme>
+  </BrowserRouter>
+);
+
+// Create color scheme switch component
+const ColorSchemeSwitch = ({ theme }) => {
+  const [colorScheme, setColorScheme] = useContext(ColorScheme);
+  useEffect(() => {
+    const viewMode = getSearchParam('viewMode');
+    setColorScheme(viewMode === 'docs' ? getDeviceColorScheme() : theme);
+  }, [theme]);
+  return <></>;
+};
+
+// Add custom Storybook decorators
+export const decorators = [
+  (Story, { globals: { theme } }) => {
+    const noPadding = useParameter('noPadding', false);
+    const className = `sb-decorator${noPadding ? ' no-padding' : ''}`;
+    return (
+      <RouterAndTheme>
+        <ColorSchemeSwitch theme={theme} />
+        <div className={className}>
+          <Story />
+        </div>
+      </RouterAndTheme>
+    );
+  },
 ];
-
-// Wrap every story in the contexts addon
-addDecorator(withContexts(contexts));
-
-// Wrap every story in Router and Theme component
-addDecorator(story => {
-  const noPadding = useParameter('noPadding', false);
-  return (
-    <RouterAndTheme>
-      <div className={`sb-decorator${noPadding ? ' no-padding' : ''}`}>{story()}</div>
-    </RouterAndTheme>
-  );
-});
-
-// Wrap every story in the a11y addon
-addDecorator(withA11y);

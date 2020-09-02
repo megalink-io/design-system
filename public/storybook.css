@@ -93,6 +93,13 @@
 .sbdocs.sbdocs-ul .sbdocs.sbdocs-li {
   list-style: square !important;
 }
+.sbdocs.sbdocs-preview > div > div {
+  display: flex;
+  flex-flow: row wrap;
+}
+.sbdocs.sbdocs-preview > div > div > div {
+  flex: 1 1 0%;
+}
 .sbdocs.sbdocs-preview.fullframe div:last-child > div,
 .sbdocs.sbdocs-preview.fullframe div:last-child > div > div,
 .sbdocs.sbdocs-preview.fullframe .sb-decorator {
@@ -101,4 +108,5 @@
 }
 .sbdocs.sbdocs-preview.fullframe .sb-decorator {
   min-height: 300rem;
+  transform: scale(1);
 }

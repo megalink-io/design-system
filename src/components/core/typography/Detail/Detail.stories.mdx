@@ -1,18 +1,19 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { text } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import Detail from '.';
 
 <Meta title="Components/core/typography/Detail" component={Detail} />
 
 # Detail
 
-A detail is a side note or small description and can appear as often as you like.
+<Description of={Detail} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <Detail children={text('Children', 'This is a detail', 'default')} />
+export const Template = args => <Detail {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ children: 'This is a detail' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -26,4 +27,4 @@ import { Detail } from '@mds/components/core/typography';
 
 ## Props table
 
-<Props of={Detail} />
+<ArgsTable of={Detail} />

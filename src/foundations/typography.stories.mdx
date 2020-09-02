@@ -1,8 +1,9 @@
-import { Meta, Preview } from '@storybook/addon-docs/blocks';
+import { BrowserRouter } from 'react-router-dom';
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 import { Theme } from 'components/core/layout';
 import { Title, Heading, Subheading, Paragraph, Detail } from 'components/core/typography';
 
-<Meta title="Foundation/Typography" />
+<Meta title="Foundations/Typography" />
 
 # Typography
 
@@ -20,38 +21,46 @@ In our design system the font [Poppins](https://www.indiantypefoundry.com/fonts/
 
 A title represents the main heading of a page and should therefore appear only once per page.
 
-<Preview>
+<RouterAndTheme>
   <Title>Example text</Title>
-</Preview>
+</RouterAndTheme>
 
 ### Heading
 
 A heading is the main heading of a section and should therefore appear only once per section.
 
-<Preview>
+<RouterAndTheme>
   <Heading>Example text</Heading>
-</Preview>
+</RouterAndTheme>
 
 ### Subheading
 
 A subheading divides the content of a section and can appear as often as you like.
 
-<Preview>
+<RouterAndTheme>
   <Subheading>Example text</Subheading>
-</Preview>
+</RouterAndTheme>
 
 ### Paragraph
 
 A paragraph represents a block of text and can appear as often as you like.
 
-<Preview>
+<RouterAndTheme>
   <Paragraph>Example text</Paragraph>
-</Preview>
+</RouterAndTheme>
 
 ### Detail
 
 A detail is a side note or small description and can appear as often as you like.
 
-<Preview>
+<RouterAndTheme>
   <Detail>Example text</Detail>
-</Preview>
+</RouterAndTheme>
+
+export const RouterAndTheme = ({ children }) => (
+  <Canvas>
+    <BrowserRouter>
+      <Theme>{children}</Theme>
+    </BrowserRouter>
+  </Canvas>
+);

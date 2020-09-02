@@ -1,6 +1,5 @@
-import { Fragment } from 'react';
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { boolean, text } from '@storybook/addon-knobs';
+import { useMemo } from 'react';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import { Link } from 'components/core/navigation';
 import Checkbox from '.';
@@ -9,32 +8,28 @@ import Checkbox from '.';
 
 # Checkbox
 
-A checkbox that allows users to select an option. The label next to the checkbox describes the selection option.
+<Description of={Checkbox} />
 
-export const getProps = (id, required) => ({
-  required: boolean('Required', true, id),
-  disabled: boolean('Disabled', false, id),
+export const getFieldsInfo = required => ({
+  example: {
+    type: 'checkbox',
+    validate: state => required && !state,
+  },
 });
 
-<Preview withToolbar>
-  <Story name="Label with text">
-    {() => {
-      const form = useForm({
-        pizza: {
-          type: 'checkbox',
-          validate: state => !state,
-        },
-      });
-      return (
-        <Checkbox
-          {...form.fields.pizza}
-          {...getProps('label_with_text', false)}
-          label={text('Label', 'I eat pizza', 'label_with_text')}
-        />
-      );
-    }}
+export const Template = args => {
+  const fieldsInfo = useMemo(() => {
+    return getFieldsInfo(args.required);
+  }, [args.required]);
+  const form = useForm(fieldsInfo);
+  return <Checkbox {...args} {...form.fields.example} />;
+};
+
+<Canvas withToolbar>
+  <Story name="Label with text" args={{ label: 'I eat pizza', required: true }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -48,38 +43,30 @@ import { Checkbox } from '@mds/components/core/inputs';
 
 ## Props table
 
-<Props of={Checkbox} />
+<ArgsTable of={Checkbox} />
 
 ## More stories
 
 ### Label with links
 
-<Preview withToolbar>
-  <Story name="Label with links">
-    {() => {
-      const form = useForm({
-        privacyPolicy: {
-          type: 'checkbox',
-          validate: state => !state,
-        },
-      });
-      return (
-        <Checkbox
-          {...form.fields.privacyPolicy}
-          {...getProps('label_with_links', true)}
-          label={
-            <Fragment>
-              I agree to the{' '}
-              <Link
-                href="https://www.example.com/privacy-policy"
-                target="_blank"
-                children="privacy policy"
-                underlined
-              />
-            </Fragment>
-          }
-        />
-      );
+<Canvas withToolbar>
+  <Story
+    name="Label with links"
+    args={{
+      label: (
+        <>
+          I agree to the{' '}
+          <Link
+            href="https://www.example.com/privacy-policy"
+            target="_blank"
+            children="privacy policy"
+            underlined
+          />
+        </>
+      ),
+      required: true,
     }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>

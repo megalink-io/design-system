@@ -1,16 +1,70 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { navTablePreview } from './DataTable.stories.tsx';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import DataTable from '.';
 
 <Meta title="Components/core/data/DataTable" component={DataTable} />
 
 # DataTable
 
-A simple data table that clearly displays information.
+<Description of={DataTable} />
 
-<Preview withToolbar>
-  <Story name="Link pages">{navTablePreview()}</Story>
-</Preview>
+export const Template = args => <DataTable {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Link pages"
+    args={{
+      headers: [
+        {
+          key: 'url',
+          label: 'URL',
+          primary: true,
+        },
+        {
+          key: 'views',
+          label: 'Views',
+          align: 'right',
+          visibility: ['desktop', 'tablet'],
+        },
+        {
+          key: 'clicks',
+          label: 'Clicks',
+          align: 'right',
+        },
+        {
+          key: 'ctr',
+          label: 'CTR',
+          align: 'right',
+          visibility: ['desktop', 'tablet'],
+        },
+      ],
+      rows: [
+        {
+          id: 'website',
+          url: 'website.com/contact',
+          views: '102 views',
+          clicks: '15 clicks',
+          ctr: '14.7%',
+        },
+        {
+          id: 'youtube',
+          url: 'youtube.com/channel',
+          views: '87 views',
+          clicks: '6 clicks',
+          ctr: '6.9%',
+        },
+        {
+          id: 'instagram',
+          url: 'instagram.com/username',
+          views: '87 views',
+          clicks: '1 clicks',
+          ctr: '0.1%',
+        },
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 ## Code example
 
@@ -72,4 +126,4 @@ import { DataTable } from '@mds/components/core/data';
 
 ## Props table
 
-<Props of={DataTable} />
+<ArgsTable of={DataTable} />

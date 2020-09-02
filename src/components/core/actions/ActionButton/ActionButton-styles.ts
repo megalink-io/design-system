@@ -2,7 +2,7 @@ import styled, { DefaultTheme, CSSObject } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { StylesProps, Color } from './ActionButton-types';
 
-const getActionButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
+const getActionButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
   height: '40rem',
   padding: '0 30rem',
   display: 'inline-flex',

@@ -1,6 +1,4 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { boolean, select } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { DeleteSVG, GearSVG, DownloadSVG, ArrowRightSVG, AlarmSVG } from 'icons';
 import IconButton from '.';
 
@@ -8,30 +6,28 @@ import IconButton from '.';
 
 # IconButton
 
-A button with an icon that is used to navigate or perform small actions.
+<Description of={IconButton} />
+
+export const Template = args => <IconButton {...args} />;
 
 export const getProps = id => ({
   icon: <DeleteSVG />,
   label: 'Delete',
   variant: id,
-  type: 'button',
-  color: select('Color', ['white', 'black', 'gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
-  onClick: action('onClick', id),
-  loading: boolean('Loading', false, id),
-  disabled: boolean('Disabled', false, id),
+  color: 'blue',
 });
 
-<Preview withToolbar>
-  <Story name="Primary">
-    <IconButton {...getProps('primary')} />
+<Canvas withToolbar>
+  <Story name="Primary" args={getProps('primary')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Secondary">
-    <IconButton {...getProps('secondary')} />
+  <Story name="Secondary" args={getProps('secondary')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Tertiary">
-    <IconButton {...getProps('tertiary')} />
+  <Story name="Tertiary" args={getProps('tertiary')}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -46,61 +42,77 @@ import { IconButton } from '@mds/components/core/actions';
 
 ## Props table
 
-<Props of={IconButton} />
-
-> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "exact", "href", "target" and "download" might be missing.
+<ArgsTable of={IconButton} withToolbar />
 
 ## More stories
 
 ### Notifications
 
-<Preview withToolbar>
-  <Story name="Notifications">
-    <IconButton
-      icon={<AlarmSVG />}
-      label="Notifications"
-      variant="tertiary"
-      type="link"
-      to="/notifications"
-      counter={3}
-    />
+<Canvas withToolbar>
+  <Story
+    name="Notifications"
+    args={{
+      icon: <AlarmSVG />,
+      label: 'Notifications',
+      variant: 'tertiary',
+      type: 'link',
+      to: '/notifications',
+      counter: 3,
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### Internal link
 
-<Preview withToolbar>
-  <Story name="Internal link">
-    <IconButton icon={<GearSVG />} label="Settings" variant="tertiary" type="link" to="/settings" />
+<Canvas withToolbar>
+  <Story
+    name="Internal link"
+    args={{
+      icon: <GearSVG />,
+      label: 'Settings',
+      variant: 'tertiary',
+      type: 'link',
+      to: '/settings',
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### External link
 
-<Preview withToolbar>
-  <Story name="External link">
-    <IconButton
-      icon={<ArrowRightSVG />}
-      label="Link"
-      variant="tertiary"
-      type="link"
-      href="https://www.example.com/settings"
-      target="_blank"
-    />
+<Canvas withToolbar>
+  <Story
+    name="External link"
+    args={{
+      icon: <ArrowRightSVG />,
+      label: 'Link',
+      variant: 'tertiary',
+      type: 'link',
+      href: 'https://www.example.com/settings',
+      target: '_blank',
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### Download link
 
-<Preview withToolbar>
-  <Story name="Download link">
-    <IconButton
-      icon={<DownloadSVG />}
-      label="Download"
-      variant="tertiary"
-      type="link"
-      href="https://www.example.com/invoice.pdf"
-      download="invoice.pdf"
-    />
+<Canvas withToolbar>
+  <Story
+    name="Download link"
+    args={{
+      icon: <DownloadSVG />,
+      label: 'Download',
+      variant: 'tertiary',
+      type: 'link',
+      href: 'https://www.example.com/invoice.pdf',
+      download: 'invoice.pdf',
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>

@@ -25,7 +25,7 @@ import Page from '.';
 
 const files = [
   {
-    id: 'hans-veth-unsplash',
+    fileId: 'hans-veth-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -55,7 +55,7 @@ const files = [
     ],
   },
   {
-    id: 'harshil-gudka-unsplash',
+    fileId: 'harshil-gudka-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -85,7 +85,7 @@ const files = [
     ],
   },
   {
-    id: 'jerry-zhang-unsplash',
+    fileId: 'jerry-zhang-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -115,7 +115,7 @@ const files = [
     ],
   },
   {
-    id: 'jonathan-borba-unsplash',
+    fileId: 'jonathan-borba-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -145,7 +145,7 @@ const files = [
     ],
   },
   {
-    id: 'marian-kroell-unsplash',
+    fileId: 'marian-kroell-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -175,7 +175,7 @@ const files = [
     ],
   },
   {
-    id: 'simon-marsault-unsplash',
+    fileId: 'simon-marsault-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -205,7 +205,7 @@ const files = [
     ],
   },
   {
-    id: 'wolfgang-hasselmann-unsplash',
+    fileId: 'wolfgang-hasselmann-unsplash',
     created: new Date('2020-03-24T22:44:53.917Z'),
     modified: new Date('2020-03-24T22:44:53.917Z'),
     type: 'image/jpeg',
@@ -567,7 +567,7 @@ export const MediaFilePreview: React.FC = () => (
       </Visibility>
       <Section>
         <NavBar>
-          <Heading>{files[4].id}</Heading>
+          <Heading>{files[4].fileId}</Heading>
           <IconButton
             icon={<DeleteSVG />}
             label="Delete"
@@ -581,8 +581,3 @@ export const MediaFilePreview: React.FC = () => (
     </Main>
   </MainAppPage>
 );
-
-export default {
-  title: 'Components/core/layout/Page',
-  includeStories: [],
-};

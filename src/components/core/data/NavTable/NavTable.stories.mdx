@@ -1,16 +1,73 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { navTablePreview } from './NavTable.stories.tsx';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { StatusLight } from 'components/core/status';
 import NavTable from '.';
 
 <Meta title="Components/core/data/NavTable" component={NavTable} />
 
 # NavTable
 
-A table that is used for navigation and clearly shows useful data.
+<Description of={NavTable} />
 
-<Preview withToolbar>
-  <Story name="Link pages">{navTablePreview()}</Story>
-</Preview>
+export const Template = args => <NavTable {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Link pages"
+    args={{
+      headers: [
+        {
+          key: 'status',
+          label: 'Status',
+        },
+        {
+          key: 'name',
+          label: 'Name',
+          primary: true,
+        },
+        {
+          key: 'views',
+          label: 'Views',
+          align: 'right',
+        },
+        {
+          key: 'clicks',
+          label: 'Clicks',
+          align: 'right',
+          visibility: ['desktop', 'tablet'],
+        },
+      ],
+      rows: [
+        {
+          id: 'jA9j2Qm8',
+          to: '/link-pages/jA9j2Qm8',
+          status: <StatusLight color="green" />,
+          name: 'Instagram bio link',
+          views: '1,632 views',
+          clicks: '326 clicks',
+        },
+        {
+          id: 'a2d82Hs7',
+          to: '/link-pages/a2d82Hs7',
+          status: <StatusLight color="green" />,
+          name: 'Black friday sale',
+          views: '853 views',
+          clicks: '258 clicks',
+        },
+        {
+          id: 'H83js3hD',
+          to: '/link-pages/H83js3hD',
+          status: <StatusLight color="green" disabled />,
+          name: 'Design contest',
+          views: '235 views',
+          clicks: '47 clicks',
+        },
+      ],
+      headless: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 ## Code example
 
@@ -75,4 +132,4 @@ import { NavTable } from '@mds/components/core/data';
 
 ## Props table
 
-<Props of={NavTable} />
+<ArgsTable of={NavTable} />

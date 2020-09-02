@@ -1,19 +1,21 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import FileGallery from '.';
 
 <Meta title="Components/core/media/FileGallery" component={FileGallery} />
 
 # FileGallery
 
-A gallery that displays files in an overview. Each file is linked to its subpage, which contains further information.
+<Description of={FileGallery} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <FileGallery rootPath="/media-library" files={files} />
+export const Template = args => <FileGallery {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ files, rootPath: '/media-library' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
-> The component is optimized for use in our core. On this website the photos may therefore appear partially blurred.
+> The component is optimized for use in our app. On this website the photos may therefore appear partially blurred.
 
 ## Code example
 
@@ -27,7 +29,7 @@ import { FileGallery } from '@mds/components/core/media';
 
 ## Props table
 
-<Props of={FileGallery} />
+<ArgsTable of={FileGallery} />
 
 > Currently only photos are supported. Other file formats may follow in the future.
 

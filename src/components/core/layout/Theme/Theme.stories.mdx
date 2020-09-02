@@ -1,11 +1,11 @@
-import { Meta, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, ArgsTable } from '@storybook/addon-docs/blocks';
 import Theme from '.';
 
 <Meta title="Components/core/layout/Theme" component={Theme} />
 
 # Theme
 
-A wrapper component that is necessary for the visual representation.
+<Description of={Theme} />
 
 > The Theme component must be at the top of the component hierarchy. Since almost all components of the Design System depend on it.
 
@@ -31,4 +31,4 @@ import { Theme } from '@mds/components/core/layout';
 
 ## Props table
 
-<Props of={Theme} />
+<ArgsTable of={Theme} />

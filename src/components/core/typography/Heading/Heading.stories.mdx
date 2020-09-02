@@ -1,18 +1,19 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { text } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import Heading from '.';
 
 <Meta title="Components/core/typography/Heading" component={Heading} />
 
 # Heading
 
-A heading is the main heading of a section and should therefore appear only once per section.
+<Description of={Heading} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <Heading children={text('Children', 'This is a heading', 'default')} />
+export const Template = args => <Heading {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ children: 'This is a heading' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -26,4 +27,4 @@ import { Heading } from '@mds/components/core/typography';
 
 ## Props table
 
-<Props of={Heading} />
+<ArgsTable of={Heading} />

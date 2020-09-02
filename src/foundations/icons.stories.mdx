@@ -1,8 +1,10 @@
+import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
+import { Theme } from 'components/core/layout';
 import * as Icons from 'icons';
 
-<Meta title="Foundation/Icons" />
+<Meta title="Foundations/Icons" />
 
 # Icons
 
@@ -29,21 +31,25 @@ export const IconCSS = styled('div')(({ theme }) => ({
 }));
 
 export const Gallery = () => (
-  <IconCSS>
-    <IconGallery>
-      {Object.entries(Icons).map(([name, Icon]) => (
-        <IconItem
-          name={name
-            .slice(0, -3)
-            .replace(/([a-z])([A-Z])/g, '$1 $2')
-            .toLowerCase()}
-          key={name}
-        >
-          <Icon />
-        </IconItem>
-      ))}
-    </IconGallery>
-  </IconCSS>
+  <BrowserRouter>
+    <Theme>
+      <IconCSS>
+        <IconGallery>
+          {Object.entries(Icons).map(([name, Icon]) => (
+            <IconItem
+              name={name
+                .slice(0, -3)
+                .replace(/([a-z])([A-Z])/g, '$1 $2')
+                .toLowerCase()}
+              key={name}
+            >
+              <Icon />
+            </IconItem>
+          ))}
+        </IconGallery>
+      </IconCSS>
+    </Theme>
+  </BrowserRouter>
 );
 
 <Gallery />

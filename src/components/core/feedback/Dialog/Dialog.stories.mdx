@@ -1,29 +1,97 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { DialogPreview } from './Dialog.stories';
+import { useState } from 'react';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { ActionButton } from 'components/core/actions';
 import Dialog from '.';
 
 <Meta title="Components/core/feedback/Dialog" component={Dialog} />
 
 # Dialog
 
-A dialog box that displays important information that users need to acknowledge. They appear above the interface and block other interactions.
+<Description of={Dialog} />
 
 > Click on one of the buttons to open a sample dialog.
 
-<Preview>
-  <Story name="Confirmation">
-    <DialogPreview storyId="confirmation" />
+export const Template = args => {
+  const [open, setOpen] = useState(false);
+  const getButtonColor = () => {
+    switch (args.variant) {
+      case 'confirmation':
+        return 'blue';
+      case 'information':
+        return 'gray';
+      default:
+        return 'red';
+    }
+  };
+  const getButtonLabel = () => {
+    switch (args.variant) {
+      case 'confirmation':
+        return 'Enable';
+      case 'information':
+        return 'Continue';
+      case 'destructive':
+        return 'Delete';
+      default:
+        return 'OK';
+    }
+  };
+  return (
+    <>
+      <ActionButton
+        label={`${args.variant.charAt(0).toUpperCase()}${args.variant.slice(1)}`}
+        variant="tertiary"
+        color={getButtonColor()}
+        type="button"
+        onClick={() => {
+          setOpen(true);
+        }}
+      />
+      <Dialog
+        open={open}
+        actionButton={{
+          label: getButtonLabel(),
+          type: 'button',
+          onClick: () => {
+            setOpen(false);
+          },
+        }}
+        cancelButton={
+          args.variant !== 'error'
+            ? {
+                label: 'Cancel',
+                type: 'button',
+                onClick: () => {
+                  setOpen(false);
+                },
+              }
+            : undefined
+        }
+        {...args}
+      />
+    </>
+  );
+};
+
+export const getProps = id => ({
+  variant: id,
+  heading: 'This is the heading',
+  message: `This is just a great example text for the ${id} dialog message.`,
+});
+
+<Canvas>
+  <Story name="Confirmation" args={getProps('confirmation')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Information">
-    <DialogPreview storyId="information" />
+  <Story name="Information" args={getProps('information')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Destructive">
-    <DialogPreview storyId="destructive" />
+  <Story name="Destructive" args={getProps('destructive')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Error">
-    <DialogPreview storyId="error" />
+  <Story name="Error" args={getProps('error')}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -52,4 +120,4 @@ import { Dialog } from '@mds/components/core/feedback';
 
 ## Props table
 
-<Props of={Dialog} />
+<ArgsTable of={Dialog} />

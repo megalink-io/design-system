@@ -1,4 +1,4 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { ActionButton } from 'components/core/actions';
 import { Title, Detail } from 'components/core/typography';
 import NavBar from '.';
@@ -7,23 +7,32 @@ import NavBar from '.';
 
 # NavBar
 
-A top app bar that displays information and actions related to the current page.
+<Description of={NavBar} />
 
-<Preview withToolbar>
-  <Story name="Media library">
-    <NavBar>
-      <Title>Media library</Title>
-      <Detail>12 % of 0.5 GB used</Detail>
-      <ActionButton
-        label="Upload"
-        variant="primary"
-        color="blue"
-        type="button"
-        onClick={() => {}}
-      />
-    </NavBar>
+export const Template = args => <NavBar {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Media library"
+    args={{
+      children: (
+        <>
+          <Title>Media library</Title>
+          <Detail>12 % of 0.5 GB used</Detail>
+          <ActionButton
+            label="Upload"
+            variant="primary"
+            color="blue"
+            type="button"
+            onClick={() => {}}
+          />
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -48,4 +57,4 @@ import { NavBar } from '@mds/components/core/navigation';
 
 ## Props table
 
-<Props of={NavBar} />
+<ArgsTable of={NavBar} />

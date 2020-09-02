@@ -1,24 +1,25 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { boolean, text } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { useForm } from 'hooks';
 import InputLabel from '.';
 
 <Meta title="Components/core/inputs/InputLabel" component={InputLabel} />
 
 # InputLabel
 
-A text element that communicates the input requirements for form fields.
+<Description of={InputLabel} />
 
-export const getProps = id => ({
-  label: text('Label', 'Example text', id),
-  required: boolean('Required', true, id),
-  disabled: boolean('Disabled', false, id),
-});
+export const Template = args => <InputLabel {...args} />;
 
-<Preview withToolbar>
-  <Story name="Label">
-    <InputLabel as="label" htmlFor={text('HTML for', 'example', 'label')} {...getProps('label')} />
+export const props = {
+  label: 'Example text',
+  required: true,
+};
+
+<Canvas withToolbar>
+  <Story name="Label" args={{ ...props, as: 'label', htmlFor: 'example' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -32,16 +33,14 @@ import { InputLabel } from '@mds/components/core/inputs';
 
 ## Props table
 
-<Props of={InputLabel} />
-
-> Storybook sometimes has problems to recognize the props correctly. In the table the property "htmlFor" might be missing.
+<ArgsTable of={InputLabel} />
 
 ## More stories
 
 ### Span
 
-<Preview withToolbar>
-  <Story name="Span">
-    <InputLabel as="span" {...getProps('span')} />
+<Canvas withToolbar>
+  <Story name="Span" args={{ ...props, as: 'span' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>

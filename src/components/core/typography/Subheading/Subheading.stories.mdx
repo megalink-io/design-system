@@ -1,18 +1,19 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { text } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import Subheading from '.';
 
 <Meta title="Components/core/typography/Subheading" component={Subheading} />
 
 # Subheading
 
-A subheading divides the content of a section and can appear as often as you like.
+<Description of={Subheading} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <Subheading children={text('Children', 'This is a subheading', 'default')} />
+export const Template = args => <Subheading {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ children: 'This is a subheading' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -26,4 +27,4 @@ import { Subheading } from '@mds/components/core/typography';
 
 ## Props table
 
-<Props of={Subheading} />
+<ArgsTable of={Subheading} />

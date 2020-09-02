@@ -1,26 +1,70 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { ResponsePreview } from './Response.stories';
+import { useState, useEffect } from 'react';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { ActionButton } from 'components/core/actions';
 import Response from '.';
 
 <Meta title="Components/core/feedback/Response" component={Response} />
 
 # Response
 
-A response element that displays important text messages. It is usually used at the end of a form, for example.
+<Description of={Response} />
 
 > Click on one of the buttons to open a sample response.
 
-<Preview>
-  <Story name="Information">
-    <ResponsePreview storyId="information" />
+export const Template = args => {
+  const [response, setResponse] = useState({ status: '', message: '' });
+  useEffect(() => {
+    if (response.message) {
+      const timeout = setTimeout(() => {
+        setResponse({ status: '', message: '' });
+      }, 8000);
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [response]);
+  const getButtonColor = () => {
+    switch (args.status) {
+      case 'information':
+        return 'gray';
+      case 'success':
+        return 'green';
+      default:
+        return 'red';
+    }
+  };
+  return (
+    <>
+      <ActionButton
+        label={`${args.status.charAt(0).toUpperCase()}${args.status.slice(1)}`}
+        variant="tertiary"
+        color={getButtonColor()}
+        type="button"
+        onClick={() => {
+          setResponse(args);
+        }}
+      />
+      <Response {...response} />
+    </>
+  );
+};
+
+export const getProps = id => ({
+  status: id,
+  message: 'This is a short sample answer.',
+});
+
+<Canvas>
+  <Story name="Information" args={getProps('information')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Success">
-    <ResponsePreview storyId="success" />
+  <Story name="Success" args={getProps('success')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Error">
-    <ResponsePreview storyId="error" />
+  <Story name="Error" args={getProps('error')}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -34,4 +78,4 @@ import { Response } from '@mds/components/core/feedback';
 
 ## Props table
 
-<Props of={Response} />
+<ArgsTable of={Response} />

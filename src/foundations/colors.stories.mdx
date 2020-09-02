@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
-import { useTheme } from 'styled-components';
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { themes } from 'components/core/layout/Theme/Theme-data';
+import { getDeviceColorScheme } from 'helpers';
 
-<Meta title="Foundation/Colors" />
+<Meta title="Foundations/Colors" />
 
 # Colors
 
@@ -31,25 +31,23 @@ The color red is used for delicate user interactions or for error messages. Exam
 The color palettes show the majority of the available colors. Starting with an opacity of 10% on the left side, the color palettes end on the right side with an opacity of 100% of the respective color.
 
 export const ColorItems = () => {
-  const theme = useTheme();
   const getColorCodes = color => {
     const colorCodes = [];
-    Object.entries(theme.colors[color]).forEach(([key, value]) => {
+    Object.entries(themes[getDeviceColorScheme()].colors[color]).forEach(([key, value]) => {
       if (key >= 100) {
         colorCodes.push(value);
       }
     });
     return colorCodes;
-    // return Object.values(theme.colors[color]);
   };
   return (
-    <Fragment>
+    <>
       <ColorItem title="Gray" subtitle="theme.colors.gray" colors={getColorCodes('gray')} />
       <ColorItem title="Yellow" subtitle="theme.colors.yellow" colors={getColorCodes('yellow')} />
       <ColorItem title="Red" subtitle="theme.colors.red" colors={getColorCodes('red')} />
       <ColorItem title="Blue" subtitle="theme.colors.blue" colors={getColorCodes('blue')} />
       <ColorItem title="Green" subtitle="theme.colors.green" colors={getColorCodes('green')} />
-    </Fragment>
+    </>
   );
 };
 

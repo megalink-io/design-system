@@ -1,33 +1,30 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { select } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import CircleLoader from '.';
 
 <Meta title="Components/core/status/CircleLoader" component={CircleLoader} />
 
 # CircleLoader
 
-A loading spinner that visually displays the progress of a system operation such as uploading or processing.
+<Description of={CircleLoader} />
+
+export const Template = args => <CircleLoader {...args} />;
 
 export const getProps = id => ({
-  color: select(
-    'Color',
-    ['colorful', 'white', 'black', 'background', 'gray', 'yellow', 'red', 'blue', 'green'],
-    'blue',
-    id
-  ),
+  size: id,
+  color: 'blue',
 });
 
-<Preview withToolbar>
-  <Story name="Large">
-    <CircleLoader size="large" {...getProps('large')} />
+<Canvas withToolbar>
+  <Story name="Large" args={getProps('large')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Medium">
-    <CircleLoader size="medium" {...getProps('medium')} />
+  <Story name="Medium" args={getProps('medium')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Small">
-    <CircleLoader size="small" {...getProps('small')} />
+  <Story name="Small" args={getProps('small')}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -41,4 +38,4 @@ import { CircleLoader } from '@mds/components/core/status';
 
 ## Props table
 
-<Props of={CircleLoader} />
+<ArgsTable of={CircleLoader} />

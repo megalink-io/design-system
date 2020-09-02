@@ -19,9 +19,7 @@ const NavTableView: React.FC<ViewProps> = ({
               <Header key={header.key} align={header.align} primary={header.primary}>
                 {header.label}
               </Header>
-            ) : (
-              undefined
-            )
+            ) : undefined
           )}
         </Row>
       </Head>
@@ -38,9 +36,7 @@ const NavTableView: React.FC<ViewProps> = ({
               <Data key={header.key} align={header.align} primary={header.primary}>
                 {row[header.key] || ''}
               </Data>
-            ) : (
-              undefined
-            )
+            ) : undefined
           )}
         </Row>
       ))}

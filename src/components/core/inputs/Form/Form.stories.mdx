@@ -1,11 +1,12 @@
-import { Meta, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, ArgsTable } from '@storybook/addon-docs/blocks';
+import { useForm } from 'hooks';
 import Form from '.';
 
 <Meta title="Components/core/inputs/Form" component={Form} />
 
 # Form
 
-A wrapper component that combines several input fields into one form.
+<Description of={Form} />
 
 > The `type` property of the button for submitting the form must have the value `submit`.
 
@@ -26,4 +27,4 @@ import { Form } from '@mds/components/core/inputs';
 
 ## Props table
 
-<Props of={Form} />
+<ArgsTable of={Form} />

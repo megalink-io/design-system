@@ -1,18 +1,19 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { text } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import Title from '.';
 
 <Meta title="Components/core/typography/Title" component={Title} />
 
 # Title
 
-A title represents the main heading of a page and should therefore appear only once per page.
+<Description of={Title} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <Title children={text('Children', 'This is a title', 'default')} />
+export const Template = args => <Title {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ children: 'This is a title' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -26,4 +27,4 @@ import { Title } from '@mds/components/core/typography';
 
 ## Props table
 
-<Props of={Title} />
+<ArgsTable of={Title} />

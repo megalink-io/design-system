@@ -1,19 +1,20 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { text } from '@storybook/addon-knobs';
-import { ActionButton } from '../../actions';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { useForm } from 'hooks';
 import InputError from '.';
 
 <Meta title="Components/core/inputs/InputError" component={InputError} />
 
 # InputError
 
-A text element that displays an error message for input errors in form fields.
+<Description of={InputError} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <InputError error={text('Error', 'This is an example error text.')} />
+export const Template = args => <InputError {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ text: 'This is an example error text.' }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -27,4 +28,4 @@ import { InputError } from '@mds/components/core/inputs';
 
 ## Props table
 
-<Props of={InputError} />
+<ArgsTable of={InputError} />

@@ -1,4 +1,4 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { IconButton } from 'components/core/actions';
 import { Title, Detail } from 'components/core/typography';
 import { AlarmSVG, GearSVG } from 'icons';
@@ -8,32 +8,41 @@ import AppBar from '.';
 
 # AppBar
 
-A top app bar that displays information and actions related to the current page.
+<Description of={AppBar} />
 
-<Preview className="fullframe" withToolbar>
-  <Story name="Home">
-    <AppBar>
-      <Title color="white">Home</Title>
-      <IconButton
-        icon={<AlarmSVG />}
-        label="Notifications"
-        variant="tertiary"
-        color="white"
-        type="link"
-        to="/notifications"
-        counter={7}
-      />
-      <IconButton
-        icon={<GearSVG />}
-        label="Settings"
-        variant="tertiary"
-        color="white"
-        type="link"
-        to="/settings"
-      />
-    </AppBar>
+export const Template = args => <AppBar {...args} />;
+
+<Canvas className="fullframe" withToolbar>
+  <Story
+    name="Home"
+    args={{
+      children: (
+        <>
+          <Title color="white">Home</Title>
+          <IconButton
+            icon={<AlarmSVG />}
+            label="Notifications"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/notifications"
+            counter={7}
+          />
+          <IconButton
+            icon={<GearSVG />}
+            label="Settings"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/settings"
+          />
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -66,17 +75,24 @@ import { AppBar } from '@mds/components/core/navigation';
 
 ## Props table
 
-<Props of={AppBar} />
+<ArgsTable of={AppBar} />
 
 ## More stories
 
 ### Media library
 
-<Preview className="fullframe" withToolbar>
-  <Story name="Media library">
-    <AppBar>
-      <Title color="white">Media library</Title>
-      <Detail color="white">12 % of 0.5 GB used</Detail>
-    </AppBar>
+<Canvas className="fullframe" withToolbar>
+  <Story
+    name="Media library"
+    args={{
+      children: (
+        <>
+          <Title color="white">Media library</Title>
+          <Detail color="white">12 % of 0.5 GB used</Detail>
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>

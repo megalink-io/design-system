@@ -1,5 +1,5 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { boolean, text, number } from '@storybook/addon-knobs';
+import { useMemo } from 'react';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { useForm } from 'hooks';
 import TextInput from '.';
 
@@ -7,34 +7,55 @@ import TextInput from '.';
 
 # TextInput
 
-A text input field that users can type into. Various decorations can be displayed in or around the field to communicate the entry requirements.
+<Description of={TextInput} />
 
-export const getProps = id => ({
-  required: boolean('Required', true, id),
-  disabled: boolean('Disabled', false, id),
+export const getFieldsInfo = label => ({
+  example: {
+    type: 'text_input',
+    validate(value) {
+      switch (label) {
+        case 'First name':
+          return !value ? 'Please enter your first name.' : '';
+        case 'Email':
+          const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+          if (!value) {
+            return 'Please enter your email.';
+          }
+          if (typeof value !== 'string' || !regex.test(value)) {
+            return 'The email address is badly formatted.';
+          }
+          return '';
+        case 'Password':
+          if (!value) {
+            return 'Please enter a password.';
+          }
+          if (typeof value !== 'string' || value.length < 6) {
+            return 'You password must have 6 characters or more.';
+          }
+          return '';
+        default:
+          return '';
+      }
+    },
+  },
 });
 
-<Preview withToolbar>
-  <Story name="Text field">
-    {() => {
-      const form = useForm({
-        firstName: {
-          type: 'text_input',
-          validate: value => (!value ? 'Please enter your first name.' : ''),
-        },
-      });
-      return (
-        <TextInput
-          {...form.fields.firstName}
-          {...getProps('firstName')}
-          type="text"
-          label={text('Label', 'First name', 'firstName')}
-          placeholder={text('Placeholder', 'John', 'firstName')}
-        />
-      );
-    }}
+export const Template = args => {
+  const fieldsInfo = useMemo(() => {
+    return getFieldsInfo(args.label);
+  }, [args.label]);
+  const form = useForm(fieldsInfo);
+  return <TextInput {...args} {...form.fields.example} />;
+};
+
+<Canvas withToolbar>
+  <Story
+    name="Text field"
+    args={{ type: 'text', label: 'First name', placeholder: 'John', required: true }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -48,106 +69,41 @@ import { TextInput } from '@mds/components/core/inputs';
 
 ## Props table
 
-<Props of={TextInput} />
-
-> Storybook sometimes has problems to recognize the props correctly. In the table the property "multiline" might be missing, which can contain a boolean or a number as value.
+<ArgsTable of={TextInput} />
 
 ## More stories
 
 ### Email field
 
-<Preview withToolbar>
-  <Story name="Email field">
-    {() => {
-      const form = useForm({
-        email: {
-          type: 'text_input',
-          validate: value => {
-            const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            if (!value) {
-              return 'Please enter your email.';
-            }
-            if (typeof value !== 'string' || !regex.test(value)) {
-              return 'The email address is badly formatted.';
-            }
-            return '';
-          },
-        },
-      });
-      return (
-        <TextInput
-          {...form.fields.email}
-          {...getProps('email')}
-          type="email"
-          label={text('Label', 'Email', 'email')}
-          placeholder={text('Placeholder', 'example@email.com', 'email')}
-        />
-      );
-    }}
+<Canvas withToolbar>
+  <Story
+    name="Email field"
+    args={{ type: 'email', label: 'Email', placeholder: 'example@email.com', required: true }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### Password field
 
-<Preview withToolbar>
-  <Story name="Password field">
-    {() => {
-      const form = useForm({
-        password: {
-          type: 'text_input',
-          validate: value => {
-            if (!value) {
-              return 'Please enter a password.';
-            }
-            if (typeof value !== 'string' || value.length < 6) {
-              return 'You password must have 6 characters or more.';
-            }
-            return '';
-          },
-        },
-      });
-      return (
-        <TextInput
-          {...form.fields.password}
-          {...getProps('password')}
-          type="password"
-          label={text('Label', 'Password', 'password')}
-          placeholder={text('Placeholder', '', 'password')}
-        />
-      );
-    }}
+<Canvas withToolbar>
+  <Story name="Password field" args={{ type: 'password', label: 'Password', required: true }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### Textarea
 
-<Preview withToolbar>
-  <Story name="Textarea">
-    {() => {
-      const form = useForm({
-        textarea: {
-          type: 'text_input',
-          validate: value => {
-            if (!value) {
-              return 'Please enter a description.';
-            }
-            if (typeof value !== 'string' || value.length < 30) {
-              return 'The description must be at least 30 characters long.';
-            }
-            return '';
-          },
-        },
-      });
-      return (
-        <TextInput
-          {...form.fields.textarea}
-          {...getProps('textarea')}
-          type="text"
-          label={text('Label', 'Description', 'textarea')}
-          placeholder={text('Placeholder', 'Describe your link page', 'textarea')}
-          multiline={number('Multiline', 3, {}, 'textarea')}
-        />
-      );
+<Canvas withToolbar>
+  <Story
+    name="Textarea"
+    args={{
+      type: 'text',
+      label: 'Description',
+      placeholder: 'Describe your link page',
+      multiline: 3,
     }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>

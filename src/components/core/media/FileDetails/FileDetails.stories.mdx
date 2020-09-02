@@ -1,19 +1,21 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import FileDetails from '.';
 
 <Meta title="Components/core/media/FileDetails" component={FileDetails} />
 
 # FileDetails
 
-An overview of the details of a file. If possible, a preview of the file is displayed at the top.
+<Description of={FileDetails} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <FileDetails file={file} />
+export const Template = args => <FileDetails {...args} />;
+
+<Canvas withToolbar>
+  <Story name="Default" args={{ file }}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
-> The component is optimized for use in our core. On this website the photos may therefore appear partially blurred.
+> The component is optimized for use in our app. On this website the photos may therefore appear partially blurred.
 
 ## Code example
 
@@ -27,7 +29,7 @@ import { FileDetails } from '@mds/components/core/media';
 
 ## Props table
 
-<Props of={FileDetails} />
+<ArgsTable of={FileDetails} />
 
 > Currently only photos are supported. Other file formats may follow in the future.
 

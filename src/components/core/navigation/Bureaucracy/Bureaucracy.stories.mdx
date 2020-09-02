@@ -1,4 +1,4 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Link } from '..';
 import Bureaucracy from '.';
 
@@ -6,21 +6,30 @@ import Bureaucracy from '.';
 
 # Bureaucracy
 
-A simple navigation bar for legally required links at the bottom of the page.
+<Description of={Bureaucracy} />
 
-<Preview withToolbar>
-  <Story name="Default">
-    <Bureaucracy>
-      <Link href="https://www.example.com/imprint" target="_blank" children="Imprint" />
-      <Link
-        href="https://www.example.com/privacy-policy"
-        target="_blank"
-        children="Privacy policy"
-      />
-      <Link href="https://www.example.com/terms" target="_blank" children="Terms" />
-    </Bureaucracy>
+export const Template = args => <Bureaucracy {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Default"
+    args={{
+      children: (
+        <>
+          <Link href="https://www.example.com/imprint" target="_blank" children="Imprint" />
+          <Link
+            href="https://www.example.com/privacy-policy"
+            target="_blank"
+            children="Privacy policy"
+          />
+          <Link href="https://www.example.com/terms" target="_blank" children="Terms" />
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -44,4 +53,4 @@ import { Bureaucracy } from '@mds/components/core/navigation';
 
 ## Props table
 
-<Props of={Bureaucracy} />
+<ArgsTable of={Bureaucracy} />

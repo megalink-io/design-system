@@ -12,9 +12,7 @@ const DataTableView: React.FC<ViewProps> = ({ headers, rows, deviceType, headles
               <Header key={header.key} align={header.align} primary={header.primary}>
                 {header.label}
               </Header>
-            ) : (
-              undefined
-            )
+            ) : undefined
           )}
         </Row>
       </Head>
@@ -27,9 +25,7 @@ const DataTableView: React.FC<ViewProps> = ({ headers, rows, deviceType, headles
               <Data key={header.key} align={header.align} primary={header.primary}>
                 {row[header.key] || ''}
               </Data>
-            ) : (
-              undefined
-            )
+            ) : undefined
           )}
         </Row>
       ))}

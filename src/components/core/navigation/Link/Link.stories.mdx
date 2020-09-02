@@ -1,6 +1,4 @@
-import { Fragment } from 'react';
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { select, text, boolean } from '@storybook/addon-knobs';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { SparklesSVG, ShoppingCartSVG, SmilingFaceWithSunglassesSVG } from 'openmoji';
 import Link from '.';
 
@@ -8,48 +6,61 @@ import Link from '.';
 
 # Link
 
-A navigation link that takes users to other content or allows them to download files. Contained text is underlined.
+<Description of={Link} />
 
 > In addition to simple text, the link component can also be applied to graphics or other elements.
 
-<Preview withToolbar>
-  <Story name="Internal link">
-    <Link
-      to={text('To', '/settings', 'internal_link')}
-      replace={boolean('Replace', false, 'internal_link')}
-      children={text('Children', 'Settings', 'internal_link')}
-      underlined
-    />
+export const Template = args => <Link {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Internal link"
+    args={{
+      to: '/settings',
+      children: 'Settings',
+      underlined: true,
+    }}
+  >
+    {Template.bind({})}
   </Story>
-  <Story name="External link">
-    <Link
-      href={text('Href', 'https://www.example.com/privacy-policy', 'external_link')}
-      target="_blank"
-      children={text('Children', 'Privacy policy', 'external_link')}
-      underlined
-    />
+  <Story
+    name="External link"
+    args={{
+      href: 'https://www.example.com/privacy-policy',
+      target: '_blank',
+      children: 'Privacy policy',
+      underlined: true,
+    }}
+  >
+    {Template.bind({})}
   </Story>
-  <Story name="Graphics">
-    <Link
-      to={text('To', '/openmoji', 'graphics')}
-      children={
-        <Fragment>
+  <Story
+    name="Graphics"
+    args={{
+      to: '/openmoji',
+      children: (
+        <>
           <SparklesSVG style={{ height: '22rem' }} />
           <ShoppingCartSVG style={{ height: '22rem' }} />
           <SmilingFaceWithSunglassesSVG style={{ height: '22rem' }} />
-        </Fragment>
-      }
-    />
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-  <Story name="Download link">
-    <Link
-      href={text('Href', 'https://www.example.com/invoice.pdf', 'download_link')}
-      download={text('Download', 'invoice.pdf', 'download_link')}
-      children={text('Children', 'Download', 'download_link')}
-      underlined
-    />
+  <Story
+    name="Download link"
+    args={{
+      href: 'https://www.example.com/invoice.pdf',
+      download: 'invoice.pdf',
+      children: 'Download',
+      underlined: true,
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -64,6 +75,4 @@ import { Link } from '@mds/components/core/navigation';
 
 ## Props table
 
-<Props of={Link} />
-
-> Storybook sometimes has problems to recognize the props correctly. In the table the properties "to", "replace", "href", "target" and "download" might be missing.
+<ArgsTable of={Link} />

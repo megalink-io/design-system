@@ -1,18 +1,83 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { SideBarPreview } from './SideBar.stories.tsx';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { IconButton } from 'components/core/actions';
+import { HouseSVG, ListSVG, FolderSVG, NightSVG, AlarmSVG, GearSVG } from 'icons';
 import SideBar from '.';
 
 <Meta title="Components/core/navigation/SideBar" component={SideBar} />
 
 # SideBar
 
-A sidebar that allows users to navigate the content of the app using a single-level icon navigation.
+<Description of={SideBar} />
 
-<Preview className="fullframe" withToolbar>
-  <Story name="Default">
-    <SideBarPreview />
+export const Template = args => <SideBar {...args} />;
+
+<Canvas className="fullframe" withToolbar>
+  <Story
+    name="Default"
+    args={{
+      topMenu: (
+        <>
+          <IconButton
+            icon={<HouseSVG />}
+            label="Home"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/"
+            exact
+          />
+          <IconButton
+            icon={<ListSVG />}
+            label="Link pages"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/link-pages"
+          />
+          <IconButton
+            icon={<FolderSVG />}
+            label="Media library"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/media-library"
+          />
+        </>
+      ),
+      bottomMenu: (
+        <>
+          <IconButton
+            icon={<NightSVG />}
+            label="Color scheme"
+            variant="tertiary"
+            color="white"
+            type="button"
+            onClick={() => {}}
+          />
+          <IconButton
+            icon={<AlarmSVG />}
+            label="Notifications"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/notifications"
+            counter={7}
+          />
+          <IconButton
+            icon={<GearSVG />}
+            label="Settings"
+            variant="tertiary"
+            color="white"
+            type="link"
+            to="/settings"
+          />
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -71,4 +136,4 @@ import { SideBar } from '@mds/components/core/navigation';
 
 ## Props table
 
-<Props of={SideBar} />
+<ArgsTable of={SideBar} />

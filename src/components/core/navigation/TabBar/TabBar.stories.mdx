@@ -1,4 +1,4 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { IconButton } from 'components/core/actions';
 import { HouseSVG, ListSVG, FolderSVG } from 'icons';
 import TabBar from '.';
@@ -7,39 +7,48 @@ import TabBar from '.';
 
 # TabBar
 
-A tab bar at the bottom of the screen that allows users to navigate the content of the app using a single-level icon navigation.
+<Description of={TabBar} />
 
-<Preview className="fullframe" withToolbar>
-  <Story name="Default">
-    <TabBar>
-      <IconButton
-        icon={<HouseSVG />}
-        label="Home"
-        variant="tertiary"
-        color="gray"
-        type="link"
-        to="/"
-        exact
-      />
-      <IconButton
-        icon={<ListSVG />}
-        label="Link pages"
-        variant="tertiary"
-        color="gray"
-        type="link"
-        to="/link-pages"
-      />
-      <IconButton
-        icon={<FolderSVG />}
-        label="Media library"
-        variant="tertiary"
-        color="gray"
-        type="link"
-        to="/media-library"
-      />
-    </TabBar>
+export const Template = args => <TabBar {...args} />;
+
+<Canvas className="fullframe" withToolbar>
+  <Story
+    name="Default"
+    args={{
+      children: (
+        <>
+          <IconButton
+            icon={<HouseSVG />}
+            label="Home"
+            variant="tertiary"
+            color="gray"
+            type="link"
+            to="/"
+            exact
+          />
+          <IconButton
+            icon={<ListSVG />}
+            label="Link pages"
+            variant="tertiary"
+            color="gray"
+            type="link"
+            to="/link-pages"
+          />
+          <IconButton
+            icon={<FolderSVG />}
+            label="Media library"
+            variant="tertiary"
+            color="gray"
+            type="link"
+            to="/media-library"
+          />
+        </>
+      ),
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -79,4 +88,4 @@ import { TabBar } from '@mds/components/core/navigation';
 
 ## Props table
 
-<Props of={TabBar} />
+<ArgsTable of={TabBar} />

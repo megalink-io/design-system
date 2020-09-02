@@ -2,7 +2,7 @@ import styled, { DefaultTheme, CSSObject } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { StylesProps, Color } from './IconButton-types';
 
-const getIconButtonCSS = (theme: DefaultTheme, color: Color): CSSObject => ({
+const getIconButtonCSS = (theme: DefaultTheme, color?: Color): CSSObject => ({
   position: 'relative',
   width: '40rem',
   height: '40rem',

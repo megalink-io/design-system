@@ -1,35 +1,31 @@
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
-import { boolean, text, select } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import { Meta, Description, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import ActionButton from '.';
 
 <Meta title="Components/core/actions/ActionButton" component={ActionButton} />
 
 # ActionButton
 
-A button that is used to confirm form entries or perform individual actions.
+<Description of={ActionButton} />
+
+export const Template = args => <ActionButton {...args} />;
 
 export const getProps = id => ({
-  label: text('Label', 'Button', id),
+  label: 'Button',
   variant: id,
-  type: 'button',
-  color: select('Color', ['white', 'black', 'gray', 'yellow', 'red', 'blue', 'green'], 'blue', id),
-  onClick: action('onClick', id),
-  loading: boolean('Loading', false, id),
-  disabled: boolean('Disabled', false, id),
+  color: 'blue',
 });
 
-<Preview withToolbar>
-  <Story name="Primary">
-    <ActionButton {...getProps('primary')} />
+<Canvas withToolbar>
+  <Story name="Primary" args={getProps('primary')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Secondary">
-    <ActionButton {...getProps('secondary')} />
+  <Story name="Secondary" args={getProps('secondary')}>
+    {Template.bind({})}
   </Story>
-  <Story name="Tertiary">
-    <ActionButton {...getProps('tertiary')} />
+  <Story name="Tertiary" args={getProps('tertiary')}>
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code example
 
@@ -41,53 +37,60 @@ import { ActionButton } from '@mds/components/core/actions';
 <ActionButton
   label="Button"
   variant="primary"
-  type="button"
   color="blue"
+  type="button"
   onClick={() => handleClick()}
 />
 ```
 
 ## Props table
 
-<Props of={ActionButton} />
-
-> Storybook sometimes has problems to recognize the props correctly. In the table the properties "onClick", "loading", "disabled", "to", "replace", "href", "target" and "download" might be missing.
+<ArgsTable of={ActionButton} withToolbar />
 
 ## More stories
 
 ### Internal link
 
-<Preview withToolbar>
-  <Story name="Internal link">
-    <ActionButton label="Settings" variant="secondary" type="link" to="/settings" />
+<Canvas withToolbar>
+  <Story
+    name="Internal link"
+    args={{ label: 'Settings', variant: 'secondary', type: 'link', to: '/settings' }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### External link
 
-<Preview withToolbar>
-  <Story name="External link">
-    <ActionButton
-      label="Sign up"
-      variant="primary"
-      color="gray"
-      type="link"
-      href="https://www.example.com/signup"
-      target="_blank"
-    />
+<Canvas withToolbar>
+  <Story
+    name="External link"
+    args={{
+      label: 'Signup',
+      variant: 'primary',
+      color: 'gray',
+      type: 'link',
+      href: 'https://www.example.com/signup',
+      target: '_blank',
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
 
 ### Download link
 
-<Preview withToolbar>
-  <Story name="Download link">
-    <ActionButton
-      label="Download"
-      variant="tertiary"
-      type="link"
-      href="https://www.example.com/invoice.pdf"
-      download="invoice.pdf"
-    />
+<Canvas withToolbar>
+  <Story
+    name="Download link"
+    args={{
+      label: 'Download',
+      variant: 'tertiary',
+      type: 'link',
+      href: 'https://www.example.com/invoice.pdf',
+      download: 'invoice.pdf',
+    }}
+  >
+    {Template.bind({})}
   </Story>
-</Preview>
+</Canvas>
