@@ -38,7 +38,6 @@ const DropdownView: React.FC<ViewProps> = ({
       <Button
         aria-label={!label && placeholder ? placeholder : undefined}
         aria-labelledby={label ? `${name}-label` : undefined}
-        aria-required={required}
         aria-expanded={expanded}
         aria-haspopup="listbox"
         type="button"
@@ -57,6 +56,7 @@ const DropdownView: React.FC<ViewProps> = ({
       </Button>
       <List
         aria-labelledby={label ? `${name}-label` : undefined}
+        aria-required={required}
         ref={listElement}
         role="listbox"
       >
